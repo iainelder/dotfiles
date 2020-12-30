@@ -17,8 +17,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
-    # runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest # Don't care about the runner version but it's required
     container: ubuntu/20.04
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
