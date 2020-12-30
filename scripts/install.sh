@@ -1,7 +1,9 @@
 #!/bin/bash -eu
 
 # Set up bash profile.
+# Source it immediately because it sets the PATH for pipx later.
 cp .bashrc ~/.bashrc
+source ~/.bashrc
 
 # Create user tmp dir
 mkdir --parents ~/tmp
