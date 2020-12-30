@@ -41,7 +41,8 @@ jobs:
         # I think it's because of CVE-2020-15228.
         # https://github.com/advisories/GHSA-mfwh-5m23-j46w
       - name: Set the PATH the Github way
-        run: "~/.local/bin" >> $GITHUB_PATH
+        run: |
+          echo "~/.local/bin" >> $GITHUB_PATH
 
       - name: Test
         run: |
