@@ -36,6 +36,7 @@ jobs:
           ./install.sh
 
       - name: Test
+        shell: bash -leo pipefail {0}
         run: |
           echo "PATH=$PATH"
           bats --tap test.bats
