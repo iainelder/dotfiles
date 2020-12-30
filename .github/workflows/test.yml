@@ -25,8 +25,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Install dotfiles
+      - name: Run installer
         run: |
           cd scripts
           ./install.sh
+
+      - name: Source .bashrc
+        run: source ~/.bashrc
+
+      - name: Test pipx
+        run: pipx
