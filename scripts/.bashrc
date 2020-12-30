@@ -120,4 +120,4 @@ fi
 # Everything below this line is from my dotfiles.
 
 # Required for Python user binaries
-PATH=~/.local/bin:$PATH
+export PATH=~/.local/bin:$PATH
