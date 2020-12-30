@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest # Don't care about the runner version but it's required
     container:
       image: ubuntu:20.04
-      options: --user root
+      options: --user eliese
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Install sudo
