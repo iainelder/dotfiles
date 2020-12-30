@@ -1,4 +1,4 @@
-#!/bin/bash -eu
+#!/bin/bash -eux
 
 # Set up bash profile.
 # Source it immediately because it sets the PATH for pipx later.
@@ -23,6 +23,8 @@ sudo apt --assume-yes install \
 	python3-pip \
 	python3-venv
 pip3 install --user pipx
+
+echo DEBUG $PATH
 
 # Install csvkit, the king of CSV analyzers.
 pipx install csvkit
