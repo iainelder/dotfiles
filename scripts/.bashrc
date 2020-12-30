@@ -115,3 +115,9 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Everything above this line is stock .bashrc.
+# Everything below this line is from my dotfiles.
+
+# Required for Python user binaries
+PATH=~/.local/bin:$PATH
