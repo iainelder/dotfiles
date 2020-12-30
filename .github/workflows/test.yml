@@ -21,8 +21,8 @@ jobs:
     container: ubuntu:20.04
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Test PATH before anything else
-        run: echo $PATH
+      - name: Install sudo
+        run: apt-get update && apt-get --assume-yes install sudo
 
       - name: Set up BATS
         uses: mig4/setup-bats@v1
