@@ -14,3 +14,7 @@
   [ "$?" -eq 0 ]
 }
 
+@test "csvkit is installed" {
+  in2csv --version
+  [ $? -eq 0 ]
+}
