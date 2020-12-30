@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     runs-on: ubuntu-latest # Don't care about the runner version but it's required
-    container: ubuntu/20.04
+    container: ubuntu:20.04
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Where is pipx?
