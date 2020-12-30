@@ -9,6 +9,9 @@ mkdir --parents ~/tmp
 # Curl is used for downloading other things.
 sudo apt --assume-yes install curl
 
+# Install Homebrew.
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 # Apart from daily developer use, git may be required for installing various
 # things from source.
 sudo apt --assume-yes install git
