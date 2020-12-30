@@ -37,17 +37,6 @@ jobs:
           cd scripts
           ./install.sh
 
-      - name: Set PATH the Github way
-        run: echo "~/.local/bin" >> $GITHUB_PATH
-      
-      - name: Desperately test sanity
-        run: |
-          echo ~/.bashrc
-          cat ~/.bashrc
-          echo $PATH
-          source ~/.bashrc
-          echo $PATH
-
       - name: Test
         shell: bash -leo pipefail {0}
         run: |
