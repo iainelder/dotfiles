@@ -35,11 +35,8 @@ jobs:
           cd scripts
           ./install.sh
 
-      - name: Source .bashrc
-        run: source ~/.bashrc
-
-      - name: Echo $PATH
-        run: echo "PATH=$PATH"
-
       - name: Test
-        run: bats --tap test.bats
+        run: |
+          source ~/.bashrc
+          echo "PATH=$PATH"
+          bats --tap test.bats
