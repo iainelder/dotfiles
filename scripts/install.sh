@@ -24,6 +24,7 @@ pip3 install --user pipx
 
 # Hack the path in here temporarily for pipx. This is fixed permanently when
 # .bashrc is sourced.
+# FIXME not sure if this is what makes the bats test work or not...
 PATH=~/.local/bin:$PATH
 
 echo DEBUG $PATH
