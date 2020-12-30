@@ -1,8 +1,12 @@
+#!/bin/bash -eu
+
 cp .bashrc ~/.bashrc
 
 mkdir --parents ~/tmp
 
-sudo apt --assume-yes install python3-pip
+sudo apt --assume-yes install \
+	python3-pip \
+	python3-venv
 pip3 install --user pipx
 
 pipx install csvkit
