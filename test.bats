@@ -1,5 +1,10 @@
 #!/usr/bin/env bats
 
+@test "curl is installed" {
+  result="curl --version"
+  [ "$?" -eq 0 ]
+}
+
 @test "User tmp dir exists" {
   [ -d ~/tmp ]
 }
