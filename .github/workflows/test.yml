@@ -37,10 +37,14 @@ jobs:
           cd scripts
           ./install.sh
 
+        # I can't find anyway to set PATH directly from the install script.
+        # I think it's because of CVE-2020-15228.
+        # https://github.com/advisories/GHSA-mfwh-5m23-j46w
+      - name: Set the PATH the Github way
+        run: "~/.local/bin" >> $GITHUB_PATH
+
       - name: Test
-        shell: bash -leo pipefail {0}
         run: |
-          echo "PATH=$PATH"
           bats --tap test.bats
 
 defaults:
