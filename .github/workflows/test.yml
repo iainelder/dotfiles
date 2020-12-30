@@ -37,6 +37,14 @@ jobs:
         run: |
           cd scripts
           ./install.sh
+      
+      - name: Desperately test sanity
+        run: |
+          echo ~/.bashrc
+          cat ~/.bashrc
+          echo $PATH
+          source ~/.bashrc
+          echo $PATH
 
       - name: Test
         shell: bash -leo pipefail {0}
