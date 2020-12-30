@@ -22,6 +22,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Test PATH before anything else
+        run: echo $PATH
+
       - name: Set up BATS
         uses: mig4/setup-bats@v1
         with:
