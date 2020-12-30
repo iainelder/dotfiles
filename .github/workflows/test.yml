@@ -37,6 +37,9 @@ jobs:
         run: |
           cd scripts
           ./install.sh
+
+      - name: Set PATH the Github way
+        run: echo "~/.local/bin" >> $GITHUB_PATH
       
       - name: Desperately test sanity
         run: |
