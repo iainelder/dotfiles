@@ -33,5 +33,5 @@ jobs:
       - name: Source .bashrc
         run: source ~/.bashrc
 
-      - name: Test pipx
-        run: pipx
+      - name: Test pipx is installed
+        run: pipx --version
