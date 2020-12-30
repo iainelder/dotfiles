@@ -1,9 +1,7 @@
 #!/bin/bash -eux
 
 # Set up bash profile.
-# Source it immediately because it sets the PATH for pipx later.
 cp .bashrc ~/.bashrc
-source ~/.bashrc
 
 # Create user tmp dir
 mkdir --parents ~/tmp
@@ -23,6 +21,10 @@ sudo apt --assume-yes install \
 	python3-pip \
 	python3-venv
 pip3 install --user pipx
+
+# Hack the path in here temporarily for pipx. This is fixed permanently when
+# .bashrc is sourced.
+PATH=~/.local/bin:$PATH
 
 echo DEBUG $PATH
 
