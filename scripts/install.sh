@@ -16,6 +16,8 @@ sudo apt --assume-yes install git
 # Bats is used to self-test later. It's also a useful unit testing tool.
 sudo apt --assume-yes install bats
 
+sudo apt --assume-yes install jq
+
 # Install tools for installing other tools that use Python.
 sudo apt --assume-yes install \
 	python3-pip \
