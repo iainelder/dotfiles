@@ -37,6 +37,9 @@ jobs:
 
       - name: Test
         run: |
-          source ~/.bashrc
           echo "PATH=$PATH"
           bats --tap test.bats
+
+defaults:
+  run:
+    shell: bash -leo pipefail {0}
