@@ -9,6 +9,11 @@
   [ -d ~/tmp ]
 }
 
+@test "jq is installed" {
+  result="jq --version"
+  [ "$?" -eq 0 ]
+}
+
 @test "pip3 is installed" {
   result="$(pip3 --version)"
   [ "$?" -eq 0 ]
