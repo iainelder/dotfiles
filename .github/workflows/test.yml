@@ -32,10 +32,18 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
+      # Brew refuses to install as root.
+      # The Docker image has only a root user.
+      # https://askubuntu.com/questions/716174/dont-run-this-as-root-docker-image
+      # https://www.yegor256.com/2014/08/29/docker-non-root.html
       - name: Run installer
         run: |
+          # https://www.yegor256.com/2014/08/29/docker-non-root.html
+          adduser --disabled-password --gecos '' r
+          adduser r sudo
+          echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
           cd scripts
-          ./install.sh
+          su -m r -c ./install.sh
 
         # I can't find anyway to set PATH directly from the install script.
         # I think it's because of CVE-2020-15228.
