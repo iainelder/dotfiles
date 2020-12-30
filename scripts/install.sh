@@ -1,8 +1,13 @@
 #!/bin/bash -eu
 
+# Set up bash profile.
 cp .bashrc ~/.bashrc
 
+# Create user tmp dir
 mkdir --parents ~/tmp
+
+# Curl is used for downloading other things.
+sudo apt --assume-yes install curl
 
 # Apart from daily developer use, git may be required for installing various
 # things from source.
