@@ -52,7 +52,7 @@ jobs:
         # So I rewrote the script with its paths in a file to make this easier.
       - name: Set the PATH the Github way
         run: |
-          cat .pathfile |
+          cat ./scripts/.pathfile |
           while read p; do eval echo $p; done |
           tr '\n' ':' \
           > $GITHUB_PATH
