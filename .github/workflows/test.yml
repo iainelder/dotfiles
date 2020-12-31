@@ -37,15 +37,19 @@ jobs:
       # The Docker image has only a root user.
       # https://askubuntu.com/questions/716174/dont-run-this-as-root-docker-image
       # https://www.yegor256.com/2014/08/29/docker-non-root.html
-      - name: Run installer
+      - name: Create non-root user
         run: |
           # https://www.yegor256.com/2014/08/29/docker-non-root.html
           adduser --disabled-password --gecos '' r
           adduser r sudo
           echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+      - name: Run install script
+        run: |
           cd scripts
           su r -c ./install.sh
 
+        # Loading .bashrc should just take care of this automatically, but
         # I can't find anyway to set PATH directly from the install script.
         # I think it's because of CVE-2020-15228.
         # https://github.com/advisories/GHSA-mfwh-5m23-j46w
@@ -59,7 +63,7 @@ jobs:
 
       - name: Test
         run: |
-          bats --tap test.bats
+          su r -c bats --tap test.bats
 
 defaults:
   run:
