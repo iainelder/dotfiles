@@ -38,8 +38,9 @@ echo DEBUG $PATH
 # Install csvkit, the king of CSV analyzers.
 pipx install csvkit
 
+# FIXME Should the test be run here or not?
 # Test that everything worked with bats
-bats ../test.bats
+# bats ../test.bats
 
 echo "All Installed!"
 echo "You have to \`source ~/.bashrc\` to make everything work."
