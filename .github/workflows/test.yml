@@ -69,7 +69,7 @@ jobs:
 
       - name: Test
         run: |
-          su r --login --command 'bats --tap test.bats'
+          su r --login --command "cd $GITHUB_WORKSPACE && bats --tap test.bats"
 
 defaults:
   run:
