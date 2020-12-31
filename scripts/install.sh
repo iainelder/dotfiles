@@ -2,6 +2,7 @@
 
 # Set up bash profile.
 cp .bashrc ~/.bashrc
+cp .pathfile ~/.pathfile
 
 # Create user tmp dir
 mkdir --parents ~/tmp
