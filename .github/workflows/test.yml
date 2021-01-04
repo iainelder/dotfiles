@@ -54,3 +54,9 @@ jobs:
         run: |
           bats --tap test.bats
 
+defaults:
+  run:
+    shell: bash -euxo pipefail {0}
+    env:
+      BASH_ENV: ~/.bashrc
+
