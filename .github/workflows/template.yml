@@ -59,8 +59,13 @@ jobs:
       run:
         shell: bash -c "BASH_ENV=~/.bashrc bash {0}"
     steps:
+      - name: Checkout bashrc
+        uses: actions/checkout@v2
+
       - name: Set up ~/.bashrc
-        run: echo "echo \"Hello from default shell\"" > ~/.bashrc
+        run: |
+          cp ./.bashrc ~/.bashrc
+          echo "end of bashrc" >> ~/.bashrc
 
       - name: Hello from default shell (simulating an interactive non-login shell)
         run: echo "Did default shell say hello?"
