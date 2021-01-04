@@ -20,6 +20,11 @@ jobs:
     runs-on: ubuntu-latest # Don't care about the runner version but it's required
     container:
       image: ubuntu:20.04
+    defaults:
+      run:
+        # Fake bash's interactive mode, which loads ~/.bashrc.
+        shell: bash -c "BASH_ENV=~/.bashrc bash {0}"
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Debug pwd
@@ -53,8 +58,4 @@ jobs:
       - name: Test
         run: |
           bats --tap test.bats
-
-defaults:
-  run:
-    shell: BASH_ENV=~/.bashrc bash -euxo pipefail {0}
 
