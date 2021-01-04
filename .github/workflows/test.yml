@@ -50,4 +50,4 @@ jobs:
 
 defaults:
   run:
-    shell: bash -l {0}
+    shell: bash --rcfile ~/.bashrc {0}
