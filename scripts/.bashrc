@@ -119,6 +119,5 @@ fi
 # Everything above this line is stock .bashrc.
 # Everything below this line is from my dotfiles.
 
-# For non-root-installed binaries.
-PATH=~/.local/bin:$PATH
+for f in ~/.dotfiles/*.sh; do source "$f"; done
 
