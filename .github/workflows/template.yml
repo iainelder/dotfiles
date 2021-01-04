@@ -64,7 +64,7 @@ jobs:
 
       - name: Set up ~/.bashrc
         run: |
-          cp ./.bashrc ~/.bashrc
+          cp ./scripts/.bashrc ~/.bashrc
           echo "end of bashrc" >> ~/.bashrc
 
       - name: Hello from default shell (simulating an interactive non-login shell)
