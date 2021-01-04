@@ -2,7 +2,7 @@
 
 # Set up bash profile.
 cp .bashrc ~/.bashrc
-mkdir ~/.dotfiles
+mkdir --parents ~/.dotfiles
 cp setpath.sh ~/.dotfiles
 
 # Create user tmp dir
