@@ -2,7 +2,6 @@
 
 # Set up bash profile.
 cp .bashrc ~/.bashrc
-cp .pathfile ~/.pathfile
 
 # Create user tmp dir
 mkdir --parents ~/tmp
@@ -13,9 +12,6 @@ sudo apt --assume-yes install curl
 # Apart from daily developer use, git may be required for installing various
 # things from source. It is a dependency of Homebrew.
 sudo apt --assume-yes install git
-
-# Install Homebrew.
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Bats is used to self-test later. It's also a useful unit testing tool.
 sudo apt --assume-yes install bats

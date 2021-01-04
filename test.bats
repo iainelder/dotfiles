@@ -10,11 +10,6 @@
   [ "$?" -eq 0 ]
 }
 
-@test "brew installed" {
-  result="$(brew --version)"
-  [ "$?" -eq 0 ]
-}
-
 @test "User tmp dir exists" {
   [ -d ~/tmp ]
 }
