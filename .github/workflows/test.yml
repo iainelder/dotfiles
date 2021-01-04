@@ -43,11 +43,14 @@ jobs:
         run: |
           cd scripts
           ./install.sh
+      
+      # I can't figure out how to get Github Actions to run the commands in .bashrc automatically.
+      # This part is what we need and it has a special case for CI.
+      - name: Set PATH the Github way
+        run: |
+          ~/.dotfiles/setpath.sh
 
       - name: Test
         run: |
           bats --tap test.bats
 
-defaults:
-  run:
-    shell: bash --rcfile ~/.bashrc {0}
