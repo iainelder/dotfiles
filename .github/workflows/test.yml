@@ -50,4 +50,4 @@ jobs:
 
 defaults:
   run:
-    shell: bash -lieo pipefail {0}
+    shell: bash -l {0}
