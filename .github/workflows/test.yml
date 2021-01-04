@@ -48,12 +48,15 @@ jobs:
         run: |
           cd scripts
           ./install.sh
-      
-      # I can't figure out how to get Github Actions to run the commands in .bashrc automatically.
-      # This part is what we need and it has a special case for CI.
+
+      # ~/.bashrc has a special case to set the PATH the Github way.
+      # Unfortunately this way only takes effect on subsequent steps.
+      # So we use a no-op here for its side effects.
       - name: Set PATH the Github way
-        run: |
-          ~/.dotfiles/setpath.sh
+        run: echo "NO-op to trigger side effects of sourcing ~/.bashrc in CI"
+
+      - name: Debug PATH
+        run: echo $PATH
 
       - name: Test
         run: |
