@@ -56,7 +56,5 @@ jobs:
 
 defaults:
   run:
-    shell: bash -euxo pipefail {0}
-    env:
-      BASH_ENV: ~/.bashrc
+    shell: BASH_ENV=~/.bashrc bash -euxo pipefail {0}
 
