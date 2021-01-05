@@ -39,8 +39,10 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
+        # wget ships with desktop Ubuntu
       - name: Add bats-assert
         run: |
+          apt-get install --assume-yes wget
           wget https://github.com/bats-core/bats-assert/archive/master.zip
           unzip master.zip
           mv bats-assert-master/ bats-assert/
