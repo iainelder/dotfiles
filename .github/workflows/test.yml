@@ -39,6 +39,9 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
+      - name: Add bats-assert
+        run: git clone git@github.com:bats-core/bats-assert.git
+
       - name: Run install script
         run: |
           cd scripts
