@@ -55,7 +55,7 @@ jobs:
           mv bats-support-master/ bats-support/
 
       - name: Run install script
-      run: |
+        run: |
           cd scripts
           ./install.sh
 
