@@ -33,5 +33,8 @@ PATH=~/.local/bin:$PATH
 # Install csvkit, the king of CSV analyzers.
 pipx install csvkit
 
+# Install aws-cli
+pipx install awscli
+
 echo "All Installed!"
 echo "You have to \`source ~/.bashrc\` to make everything work."
