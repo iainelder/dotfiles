@@ -119,10 +119,7 @@ fi
 # Everything above this line is stock .bashrc.
 # Everything below this line is from my dotfiles.
 
-echo "in ~/.bashrc"
-
 for f in ~/.dotfiles/*.sh; do
-  echo "sourcing $f"
   source "$f";
 done
 
