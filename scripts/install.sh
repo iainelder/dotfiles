@@ -36,7 +36,7 @@ pipx install csvkit
 # Install aws-cli
 for f in programs/*.sh; do
   echo "Running $f"
-  bash "$f"
+  "$f"
 done
 
 echo "All Installed!"
