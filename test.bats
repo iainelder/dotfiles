@@ -33,3 +33,8 @@
   in2csv --version
   [ $? -eq 0 ]
 }
+
+@test "aws-cli version 2 is installed" {
+  result="$(aws --version)"
+  [[ "$result" =~ aws-cli/2 ]]
+}
