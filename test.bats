@@ -1,5 +1,7 @@
 #!/usr/bin/env bats
 
+load 'bats-assert/load'
+
 @test "curl is installed" {
   result="curl --version"
   [ "$?" -eq 0 ]
