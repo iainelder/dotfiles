@@ -39,14 +39,20 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
+        # bats-assert depends on bats-support
         # wget ships with desktop Ubuntu
         # unzip ships with desktop Ubuntu
       - name: Add bats-assert
         run: |
           apt-get install --assume-yes wget unzip
+          
           wget https://github.com/bats-core/bats-assert/archive/master.zip
           unzip master.zip
           mv bats-assert-master/ bats-assert/
+          
+          wget https://github.com/bats-core/bats-support/archive/master.zip
+          unzip master.zip
+          mv bats-support-master/ bats-support/
 
       # - name: Run install script
       # run: |
