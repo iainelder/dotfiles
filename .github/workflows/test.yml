@@ -40,12 +40,15 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Add bats-assert
-        run: git clone git@github.com:bats-core/bats-assert.git
-
-      - name: Run install script
         run: |
-          cd scripts
-          ./install.sh
+          wget https://github.com/bats-core/bats-assert/archive/master.zip
+          unzip master.zip
+          mv bats-assert-master/ bats-assert/
+
+      # - name: Run install script
+      # run: |
+      #     cd scripts
+      #     ./install.sh
 
       # In a real interactive session the PATH is set automatically in the
       # expected way by sourcing bashrc. But Github Actions requires this
