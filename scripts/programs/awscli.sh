@@ -11,6 +11,9 @@ curl \
 
 unzip awscliv2.zip
 
-./aws/install --install-dir ~/.local/aws-cli --bin-dir ~/.local/bin
+./aws/install \
+--install-dir ~/.local/aws-cli \
+--bin-dir ~/.local/bin \
+--update
 
 popd
