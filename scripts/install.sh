@@ -33,6 +33,9 @@ PATH=~/.local/bin:$PATH
 # Install csvkit, the king of CSV analyzers.
 pipx install csvkit
 
+# Install JumpCloud CLI.
+pipx install git+https://github.com/Sage-Bionetworks/jccli
+
 # Install aws-cli
 for f in programs/*.sh; do
   echo "Running $f"
