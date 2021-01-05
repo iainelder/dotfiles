@@ -65,10 +65,12 @@ jobs:
         run: |
           echo "~/.local/bin" >> "${GITHUB_PATH}"
 
-      - name: Debug PATH
-        run: echo $PATH
-
-      - name: Test
+      - name: Test commands
         run: |
           bats --tap test.bats
+
+      - name: Run install script again (test idempotency)
+        run: |
+          cd scripts
+          ./install.sh
 
