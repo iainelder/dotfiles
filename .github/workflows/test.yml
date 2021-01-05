@@ -54,10 +54,10 @@ jobs:
           unzip support.zip
           mv bats-support-master/ bats-support/
 
-      # - name: Run install script
-      # run: |
-      #     cd scripts
-      #     ./install.sh
+      - name: Run install script
+      run: |
+          cd scripts
+          ./install.sh
 
       # In a real interactive session the PATH is set automatically in the
       # expected way by sourcing bashrc. But Github Actions requires this
