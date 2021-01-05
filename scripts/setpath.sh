@@ -5,9 +5,7 @@
 set +eux
 
 if [[ -n "${CI-}" ]]; then
-  echo "Setting path the Github way"
   echo "~/.local/bin" >> "${GITHUB_PATH-}"
 else
-  echo "Setting path the normal way"
   PATH=~/.local/bin:"${PATH}"
 fi
