@@ -34,7 +34,10 @@ PATH=~/.local/bin:$PATH
 pipx install csvkit
 
 # Install aws-cli
-pipx install awscli
+for f in programs/*.sh; do
+  echo "Running $f"
+  bash "$f"
+done
 
 echo "All Installed!"
 echo "You have to \`source ~/.bashrc\` to make everything work."
