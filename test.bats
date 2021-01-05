@@ -35,6 +35,6 @@
 }
 
 @test "aws-cli version 2 is installed" {
-  result="$(aws --version)"
-  [[ "$result" =~ aws-cli/2 ]]
+  run aws --version
+  assert_output --regexp '^aws-cli/2'
 }
