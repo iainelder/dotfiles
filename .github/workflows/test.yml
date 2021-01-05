@@ -27,12 +27,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Debug pwd
-        run: pwd
-
-      - name: Debug Github workspace
-        run: echo $GITHUB_WORKSPACE
-
+        # sudo is invoked by the install script.
       - name: Install sudo
         run: apt-get update && apt-get --assume-yes install sudo
 
@@ -44,16 +39,17 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Run install script
-        run: |
-          cd scripts
-          ./install.sh
+        #      - name: Run install script
+        # run: |
+        #   cd scripts
+        #   ./install.sh
 
-      # ~/.bashrc has a special case to set the PATH the Github way.
-      # Unfortunately this way only takes effect on subsequent steps.
-      # So we use a no-op here for its side effects.
+      # In a real interactive session the PATH is set automatically in the
+      # expected way by sourcing bashrc. But Github Actions requires this
+      # syntax, and it takes effect only on subsequent steps. 
       - name: Set PATH the Github way
-        run: echo "NO-op to trigger side effects of sourcing ~/.bashrc in CI"
+        run: |
+          echo "~/.local/bin" >> "${GITHUB_PATH}"
 
       - name: Debug PATH
         run: echo $PATH

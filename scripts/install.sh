@@ -26,19 +26,12 @@ sudo apt --assume-yes install \
 	python3-venv
 pip3 install --user pipx
 
-# Hack the path in here temporarily for pipx. This is fixed permanently when
-# .bashrc is sourced.
-# FIXME not sure if this is what makes the bats test work or not...
+# After the bootstrap process, this path will be added automatically by
+# sourcing bashrc. Right now we need to do it here to call pipx.
 PATH=~/.local/bin:$PATH
-
-echo DEBUG $PATH
 
 # Install csvkit, the king of CSV analyzers.
 pipx install csvkit
-
-# FIXME Should the test be run here or not?
-# Test that everything worked with bats
-# bats ../test.bats
 
 echo "All Installed!"
 echo "You have to \`source ~/.bashrc\` to make everything work."
