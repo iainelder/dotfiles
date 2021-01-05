@@ -22,8 +22,7 @@ jobs:
       image: ubuntu:20.04
     defaults:
       run:
-        # Fake bash's interactive mode, which loads ~/.bashrc.
-        shell: bash -c "BASH_ENV=~/.bashrc bash {0}"
+        shell: bash -c "bash -e {0}"
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
