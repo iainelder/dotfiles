@@ -54,11 +54,13 @@ load 'bats-support/load'
   cfn-lint --version
 }
 
-@test "taskcat is installed" {
-  taskcat --version
+# Latest working version of Taskcat
+# See https://github.com/aws-quickstart/taskcat/issues/602
+@test "taskcat version 0.9.13 is installed" {
+  run taskcat --version
+  assert_output --partial "version 0.9.13"
 }
 
 @test "docker is installed" {
   docker --version
 }
-

@@ -48,7 +48,9 @@ pipx install aws-sam-cli
 # Install AWS CloudFormation Linter
 pipx install cfn-lint
 
-pipx install taskcat
+# Install the latest version of Taskcat that actually works
+# See https://github.com/aws-quickstart/taskcat/issues/636
+pipx install taskcat==0.9.13
 
 # Install Docker stuff
 apt install docker.io
