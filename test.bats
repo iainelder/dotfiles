@@ -49,3 +49,11 @@ load 'bats-support/load'
 @test "jccli is installed" {
   jccli --version
 }
+
+@test "cfn-lint is installed" {
+  cfn-lint --version
+}
+
+@test "taskcat is installed" {
+  taskcat --version
+}
