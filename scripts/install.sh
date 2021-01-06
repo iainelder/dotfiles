@@ -55,8 +55,9 @@ pipx install taskcat==0.9.13
 # Install Docker stuff
 sudo apt install docker.io
 
+# FIXME: Install rbenv using apt
 # Install Ruby stuff
-curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
+# curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
 
 # Install scrcpy.
 sudo apt --assume-yes scrcpy
