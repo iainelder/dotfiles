@@ -119,6 +119,9 @@ fi
 # Everything above this line is stock .bashrc.
 # Everything below this line is from my dotfiles.
 
+# Minimal prompt.
+PS1="$ "
+
 for f in ~/.dotfiles/*.sh; do
   source "$f";
 done
