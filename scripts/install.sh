@@ -50,5 +50,8 @@ pipx install cfn-lint
 
 pipx install taskcat
 
+# Install Docker stuff
+apt install docker.io
+
 echo "All Installed!"
 echo "You have to \`source ~/.bashrc\` to make everything work."
