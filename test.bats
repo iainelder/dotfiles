@@ -41,3 +41,7 @@ load 'bats-support/load'
   run aws --version
   assert_output --regexp '^aws-cli/2'
 }
+
+@test "aws-sam-cli is installed" {
+  sam --version
+}

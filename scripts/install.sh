@@ -42,5 +42,8 @@ for f in programs/*.sh; do
   "$f"
 done
 
+# Install AWS SAM CLI.
+pipx install aws-sam-cli
+
 echo "All Installed!"
 echo "You have to \`source ~/.bashrc\` to make everything work."
