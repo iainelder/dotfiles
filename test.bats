@@ -57,3 +57,8 @@ load 'bats-support/load'
 @test "taskcat is installed" {
   taskcat --version
 }
+
+@test "docker is installed" {
+  docker --version
+}
+
