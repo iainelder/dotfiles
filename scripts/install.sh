@@ -45,5 +45,10 @@ done
 # Install AWS SAM CLI.
 pipx install aws-sam-cli
 
+# Install AWS CloudFormation Linter
+pipx install cfn-lint
+
+pipx install taskcat
+
 echo "All Installed!"
 echo "You have to \`source ~/.bashrc\` to make everything work."
