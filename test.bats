@@ -45,3 +45,7 @@ load 'bats-support/load'
 @test "aws-sam-cli is installed" {
   sam --version
 }
+
+@test "jccli is installed" {
+  jccli --version
+}
