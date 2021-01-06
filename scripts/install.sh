@@ -53,7 +53,7 @@ pipx install cfn-lint
 pipx install taskcat==0.9.13
 
 # Install Docker stuff
-sudo apt install docker.io
+sudo apt --assume-yes install docker.io
 
 # FIXME: Install rbenv using apt
 # Install Ruby stuff
