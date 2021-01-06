@@ -59,8 +59,10 @@ sudo apt --assume-yes install docker.io
 # Install Ruby stuff
 # curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
 
-# Install scrcpy.
-sudo apt --assume-yes install scrcpy
+# Install scrcpy.  Use noninteractive to stop badly behaving apt dependencies
+# from hanging the unattended process.  This could happen with the tzdata
+# package for example (needed for scrcpy).
+sudo DEBIAN_FRONTEND=noninteractive apt --assume-yes install scrcpy
 
 echo "All Installed!"
 echo "You have to \`source ~/.bashrc\` to make everything work."
