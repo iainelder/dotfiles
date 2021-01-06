@@ -62,6 +62,7 @@ sudo apt --assume-yes install docker.io
 # Install scrcpy.  Use noninteractive to stop badly behaving apt dependencies
 # from hanging the unattended process.  This could happen with the tzdata
 # package for example (needed for scrcpy).
+# See https://github.com/tianon/docker-brew-ubuntu-core/issues/181
 sudo DEBIAN_FRONTEND=noninteractive apt --assume-yes install scrcpy
 
 echo "All Installed!"
