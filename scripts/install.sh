@@ -53,7 +53,10 @@ pipx install cfn-lint
 pipx install taskcat==0.9.13
 
 # Install Docker stuff
-apt install docker.io
+sudo apt install docker.io
+
+# Install Ruby stuff
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
 
 echo "All Installed!"
 echo "You have to \`source ~/.bashrc\` to make everything work."
