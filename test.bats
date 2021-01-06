@@ -64,3 +64,8 @@ load 'bats-support/load'
 @test "docker is installed" {
   docker --version
 }
+
+@test "scrcpy is installed" {
+  scrcpy --version
+}
+

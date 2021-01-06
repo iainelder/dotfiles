@@ -58,5 +58,8 @@ sudo apt install docker.io
 # Install Ruby stuff
 curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
 
+# Install scrcpy.
+sudo apt --assume-yes scrcpy
+
 echo "All Installed!"
 echo "You have to \`source ~/.bashrc\` to make everything work."
