@@ -48,6 +48,8 @@ jobs:
           pwd
           ls -lR .
 
+          ls -lR /__w
+
       - name: Debug as r
         shell: su r bash -c '{0}'
         run: |
