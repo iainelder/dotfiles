@@ -81,3 +81,6 @@ load 'bats-support/load'
   cfn-flip --version
 }
 
+@test "rbenv is installed" {
+  rbenv --version
+}
