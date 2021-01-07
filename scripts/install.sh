@@ -65,5 +65,7 @@ sudo apt --assume-yes install docker.io
 # See https://github.com/tianon/docker-brew-ubuntu-core/issues/181
 sudo DEBIAN_FRONTEND=noninteractive apt --assume-yes install scrcpy
 
+pipx install yamllint
+
 echo "All Installed!"
 echo "You have to \`source ~/.bashrc\` to make everything work."
