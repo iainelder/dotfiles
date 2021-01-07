@@ -43,14 +43,14 @@ jobs:
           echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
       - name: Debug as root
-        run:
+        run: |
           whoami
           pwd
           ls -lR .
 
       - name: Debug as r
         shell: su r bash -c '{0}'
-        run:
+        run: |
           whoami
           pwd
           ls -lR .
