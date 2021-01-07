@@ -72,3 +72,7 @@ load 'bats-support/load'
 @test "yamllint is installed" {
   yamllint --version
 }
+
+@test "yq is installed" {
+  yq --version
+}
