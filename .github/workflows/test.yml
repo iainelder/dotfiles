@@ -51,7 +51,7 @@ jobs:
           ls -lR /__w
 
       - name: Debug as r
-        shell: su --login r bash -c '{0}'
+        shell: su r {0}
         run: |
           whoami
           pwd
@@ -61,13 +61,13 @@ jobs:
         # wget ships with desktop Ubuntu
         # unzip ships with desktop Ubuntu
       - name: Add bats-assert
-        shell: su r bash -c '{0}'
+        shell: su r {0}
         run: |
           apt-get install --assume-yes wget unzip
           ./add_bats_assertions.sh
 
       - name: Run install script
-        shell: su r bash -c '{0}'
+        shell: su r {0}
         run: |
           cd scripts
           ./install.sh
@@ -80,12 +80,12 @@ jobs:
           echo "~/.local/bin" >> "${GITHUB_PATH}"
 
       - name: Test commands
-        shell: su r bash -c '{0}'
+        shell: su r {0}
         run: |
           bats --tap test.bats
 
       - name: Run install script again (test idempotency)
-        shell: su r bash -c '{0}'
+        shell: su r {0}
         run: |
           cd scripts
           ./install.sh
