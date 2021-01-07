@@ -76,3 +76,8 @@ load 'bats-support/load'
 @test "yq is installed" {
   yq --version
 }
+
+@test "cfn-flip is installed" {
+  cfn-flip --version
+}
+

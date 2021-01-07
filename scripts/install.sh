@@ -52,6 +52,8 @@ pipx install cfn-lint
 # See https://github.com/aws-quickstart/taskcat/issues/636
 pipx install taskcat==0.9.13
 
+pipx install cfn-flip
+
 # Install Docker stuff
 sudo apt --assume-yes install docker.io
 
