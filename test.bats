@@ -69,3 +69,6 @@ load 'bats-support/load'
   scrcpy --version
 }
 
+@test "yamllint is installed" {
+  yamllint --version
+}
