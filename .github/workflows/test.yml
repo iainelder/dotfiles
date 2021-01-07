@@ -20,9 +20,6 @@ jobs:
     runs-on: ubuntu-latest # Don't care about the runner version but it's required
     container:
       image: ubuntu:20.04
-    defaults:
-      run:
-        shell: bash -c "bash -e {0}"
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -38,15 +35,24 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
+      # https://www.yegor256.com/2014/08/29/docker-non-root.html
+      - name: Add non-root user
+        run: |
+          adduser --disabled-password --gecos '' r
+          adduser r sudo
+          echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
         # bats-assert depends on bats-support
         # wget ships with desktop Ubuntu
         # unzip ships with desktop Ubuntu
       - name: Add bats-assert
+        shell: su r bash
         run: |
           apt-get install --assume-yes wget unzip
           ./add_bats_assertions.sh
 
       - name: Run install script
+        shell: su r bash
         run: |
           cd scripts
           ./install.sh
@@ -59,10 +65,12 @@ jobs:
           echo "~/.local/bin" >> "${GITHUB_PATH}"
 
       - name: Test commands
+        shell: su r bash
         run: |
           bats --tap test.bats
 
       - name: Run install script again (test idempotency)
+        shell: su r bash
         run: |
           cd scripts
           ./install.sh
