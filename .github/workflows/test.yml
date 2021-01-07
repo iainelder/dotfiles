@@ -51,7 +51,7 @@ jobs:
           ls -lR /__w
 
       - name: Debug as r
-        shell: su r bash -c '{0}'
+        shell: su --login r bash -c '{0}'
         run: |
           whoami
           pwd
