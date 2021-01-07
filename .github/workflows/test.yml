@@ -63,7 +63,7 @@ jobs:
       - name: Add bats-assert
         shell: su r {0}
         run: |
-          apt-get install --assume-yes wget unzip
+          sudo apt-get install --assume-yes wget unzip
           ./add_bats_assertions.sh
 
       - name: Run install script
