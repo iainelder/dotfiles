@@ -57,9 +57,8 @@ pipx install cfn-flip
 # Install Docker stuff
 sudo apt --assume-yes install docker.io
 
-# FIXME: Install rbenv using apt
 # Install Ruby stuff
-# curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
 
 # Install scrcpy.  Use noninteractive to stop badly behaving apt dependencies
 # from hanging the unattended process.  This could happen with the tzdata
