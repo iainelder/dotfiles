@@ -44,11 +44,10 @@ jobs:
           ls -lR /__w
 
       - name: Debug as r
+        shell: su r {0}
         run: |
-          su r bash -c '
-            echo "Hello from $(whoami)"
+          echo "Hello from $(whoami)"
 
-            whoami
-            pwd
-            ls -lR .
-          '
+          whoami
+          pwd
+          ls -lR .
