@@ -11,16 +11,16 @@ mkdir --parents ~/tmp
 export APT_CONFIG=apt.conf
 
 # Curl is used for downloading other things.
-apt install curl
+apt-get install curl
 
 # Apart from daily developer use, git may be required for installing various
 # things from source. It is a dependency of Homebrew.
-apt install git
+apt-get install git
 
 # Bats is used to self-test later. It's also a useful unit testing tool.
-apt install bats
+apt-get install bats
 
-apt install jq
+apt-get install jq
 
 # Install tools for installing other tools that use Python.
 apt install \
@@ -57,7 +57,7 @@ pipx install taskcat==0.9.13
 pipx install cfn-flip
 
 # Install Docker stuff
-apt install docker.io
+apt-get install docker.io
 
 # Install Ruby stuff
 curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
