@@ -1,14 +1,5 @@
 #!/bin/bash -euxo pipefail
 
-# FIXME remove dupe after fixing
-# Install Ruby stuff
-# After the bootstrap process, this path will be added automatically by
-# sourcing bashrc. Right now we need it to make the brew-doctor give us a
-# clean bill of health.
-echo "who am i? $(whoami)"
-PATH=~/.rbenv/bin:$PATH
-curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
-
 # Set up bash profile.
 cp .bashrc ~/.bashrc
 mkdir --parents ~/.dotfiles
@@ -21,6 +12,13 @@ export APT_CONFIG=apt.conf
 
 # Curl is used for downloading other things.
 apt-get install curl
+
+# Install Ruby stuff
+# After the bootstrap process, this path will be added automatically by
+# sourcing bashrc. Right now we need it to make the brew-doctor give us a
+# clean bill of health.
+PATH=~/.rbenv/bin:$PATH
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
 
 # Apart from daily developer use, git may be required for installing various
 # things from source. It is a dependency of Homebrew.
