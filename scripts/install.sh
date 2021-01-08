@@ -26,7 +26,7 @@ apt-get install autoconf bison build-essential libssl-dev libyaml-dev libreadlin
 curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash || true
 
 PATH=~/.rbenv/bin:$PATH
-eval $(rbenv init -)
+eval "$(rbenv init -)"
 curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
 
 # Bats is used to self-test later. It's also a useful unit testing tool.
