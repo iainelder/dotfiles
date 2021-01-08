@@ -22,8 +22,12 @@ apt-get install git
 # After the bootstrap process, this path will be added automatically by
 # sourcing bashrc. Right now we need it to make the brew-doctor give us a
 # clean bill of health.
+apt-get install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash || true
+
 PATH=~/.rbenv/bin:$PATH
-curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
+eval $(rbenv init -)
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
 
 # Bats is used to self-test later. It's also a useful unit testing tool.
 apt-get install bats
