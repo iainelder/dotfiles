@@ -1,4 +1,5 @@
-#!/bin/bash -euxo pipefail
+#!/bin/bash
+set -euxo pipefail
 
 # Set up bash profile.
 cp .bashrc ~/.bashrc
