@@ -1,5 +1,14 @@
 #!/bin/bash -eux
 
+# FIXME remove dupe after fixing
+# Install Ruby stuff
+# After the bootstrap process, this path will be added automatically by
+# sourcing bashrc. Right now we need it to make the brew-doctor give us a
+# clean bill of health.
+echo "who am i? $(whoami)"
+PATH=~/.rbenv/bin:$PATH
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
+
 # Set up bash profile.
 cp .bashrc ~/.bashrc
 mkdir --parents ~/.dotfiles
@@ -60,6 +69,10 @@ pipx install cfn-flip
 apt-get install docker.io
 
 # Install Ruby stuff
+# After the bootstrap process, this path will be added automatically by
+# sourcing bashrc. Right now we need it to make the brew-doctor give us a
+# clean bill of health.
+PATH=~/.rbenv/bin:$PATH
 curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
 
 # Install scrcpy.  Use noninteractive to stop badly behaving apt dependencies
