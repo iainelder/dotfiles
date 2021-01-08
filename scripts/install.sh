@@ -11,21 +11,21 @@ mkdir --parents ~/tmp
 export APT_CONFIG=apt.conf
 
 # Curl is used for downloading other things.
-sudo apt install curl
+apt install curl
 
 # Apart from daily developer use, git may be required for installing various
 # things from source. It is a dependency of Homebrew.
-sudo apt install git
+apt install git
 
 # Bats is used to self-test later. It's also a useful unit testing tool.
-sudo apt install bats
+apt install bats
 
-sudo apt install jq
+apt install jq
 
 # Install tools for installing other tools that use Python.
-sudo apt install \
-	python3-pip \
-	python3-venv
+apt install \
+  python3-pip \
+  python3-venv
 pip3 install --user pipx
 
 # After the bootstrap process, this path will be added automatically by
@@ -57,7 +57,7 @@ pipx install taskcat==0.9.13
 pipx install cfn-flip
 
 # Install Docker stuff
-sudo apt install docker.io
+apt install docker.io
 
 # Install Ruby stuff
 curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
@@ -66,7 +66,7 @@ curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-install
 # from hanging the unattended process.  This could happen with the tzdata
 # package for example (needed for scrcpy).
 # See https://github.com/tianon/docker-brew-ubuntu-core/issues/181
-sudo DEBIAN_FRONTEND=noninteractive apt --assume-yes install scrcpy
+sudo DEBIAN_FRONTEND=noninteractive apt install scrcpy
 
 pipx install yamllint
 
