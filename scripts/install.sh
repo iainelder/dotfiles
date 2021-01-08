@@ -75,13 +75,6 @@ pipx install cfn-flip
 # Install Docker stuff
 apt-get install docker.io
 
-# Install Ruby stuff
-# After the bootstrap process, this path will be added automatically by
-# sourcing bashrc. Right now we need it to make the brew-doctor give us a
-# clean bill of health.
-PATH=~/.rbenv/bin:$PATH
-curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
-
 # Install scrcpy.  Use noninteractive to stop badly behaving apt dependencies
 # from hanging the unattended process.  This could happen with the tzdata
 # package for example (needed for scrcpy).
