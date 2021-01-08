@@ -1,4 +1,4 @@
-#!/bin/bash -eux
+#!/bin/bash -euxo pipefail
 
 # FIXME remove dupe after fixing
 # Install Ruby stuff
