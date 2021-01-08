@@ -48,13 +48,13 @@ jobs:
         # wget ships with desktop Ubuntu
         # unzip ships with desktop Ubuntu
       - name: Add bats-assert
-        shell: su --login r --command "cd $GITHUB_WORKSPACE"; {0}"
+        shell: su r {0}
         run: |
           sudo apt-get install --assume-yes wget unzip
           ./add_bats_assertions.sh
 
       - name: Run install script
-        shell: su --login r --command "cd $GITHUB_WORKSPACE"; {0}"
+        shell: su r {0}
         run: |
           cd scripts
           sudo ./install.sh
@@ -63,17 +63,17 @@ jobs:
       # expected way by sourcing bashrc. But Github Actions requires this
       # syntax, and it takes effect only on subsequent steps. 
       - name: Set PATH the Github way
-        shell: su --login r --command "cd $GITHUB_WORKSPACE"; {0}"
+        shell: su r {0}
         run: |
           echo "~/.local/bin" >> "${GITHUB_PATH}"
 
       - name: Test commands
-        shell: su --login r --command "cd $GITHUB_WORKSPACE"; {0}"
+        shell: su r {0}
         run: |
           bats --tap test.bats
 
       - name: Run install script again (test idempotency)
-        shell: su --login r --command "cd $GITHUB_WORKSPACE"; {0}"
+        shell: su r {0}
         run: |
           cd scripts
           ./install.sh
