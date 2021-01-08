@@ -42,7 +42,7 @@ jobs:
           adduser r sudo
           echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-          chown --recusrive r:r .
+          chown --recursive r:r .
 
       - name: Debug as root
         run: |
