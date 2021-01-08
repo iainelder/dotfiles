@@ -65,7 +65,7 @@ jobs:
       - name: Set PATH the Github way
         shell: su r {0}
         run: |
-          echo "~/.local/bin" >> "${GITHUB_PATH}"
+          sudo -E echo "~/.local/bin" >> "${GITHUB_PATH}"
 
       - name: Test commands
         shell: su r {0}
