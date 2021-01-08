@@ -5,6 +5,7 @@ set -euxo pipefail
 cp .bashrc ~/.bashrc
 mkdir --parents ~/.dotfiles
 cp setpath.sh ~/.dotfiles
+cp ruby.sh ~/.dotfiles
 
 # Create user tmp dir
 mkdir --parents ~/tmp
