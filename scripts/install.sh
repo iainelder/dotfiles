@@ -79,7 +79,7 @@ apt-get install docker.io
 # from hanging the unattended process.  This could happen with the tzdata
 # package for example (needed for scrcpy).
 # See https://github.com/tianon/docker-brew-ubuntu-core/issues/181
-sudo DEBIAN_FRONTEND=noninteractive apt install scrcpy
+DEBIAN_FRONTEND=noninteractive apt-get install scrcpy
 
 pipx install yamllint
 
