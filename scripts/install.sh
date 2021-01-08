@@ -8,20 +8,22 @@ cp setpath.sh ~/.dotfiles
 # Create user tmp dir
 mkdir --parents ~/tmp
 
+export APT_CONFIG=apt.conf
+
 # Curl is used for downloading other things.
-sudo apt --assume-yes install curl
+sudo apt install curl
 
 # Apart from daily developer use, git may be required for installing various
 # things from source. It is a dependency of Homebrew.
-sudo apt --assume-yes install git
+sudo apt install git
 
 # Bats is used to self-test later. It's also a useful unit testing tool.
-sudo apt --assume-yes install bats
+sudo apt install bats
 
-sudo apt --assume-yes install jq
+sudo apt install jq
 
 # Install tools for installing other tools that use Python.
-sudo apt --assume-yes install \
+sudo apt install \
 	python3-pip \
 	python3-venv
 pip3 install --user pipx
@@ -55,7 +57,7 @@ pipx install taskcat==0.9.13
 pipx install cfn-flip
 
 # Install Docker stuff
-sudo apt --assume-yes install docker.io
+sudo apt install docker.io
 
 # Install Ruby stuff
 curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
