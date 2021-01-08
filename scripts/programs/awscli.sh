@@ -9,7 +9,7 @@ curl \
 --url 'https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip' \
 --output awscliv2.zip
 
-unzip awscliv2.zip
+unzip -q awscliv2.zip
 
 ./aws/install \
 --install-dir ~/.local/aws-cli \
