@@ -63,6 +63,7 @@ jobs:
       # expected way by sourcing bashrc. But Github Actions requires this
       # syntax, and it takes effect only on subsequent steps. 
       - name: Set PATH the Github way
+        shell: su r {0}
         run: |
           echo "~/.local/bin" >> "${GITHUB_PATH}"
 
