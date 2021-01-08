@@ -83,11 +83,13 @@ DEBIAN_FRONTEND=noninteractive apt-get install scrcpy
 
 pipx install yamllint
 
+# For add-apt-repository
+apt-get install software-properties-common
+
 # Install yq
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64
-sudo add-apt-repository ppa:rmescandon/yq
-sudo apt update
-sudo apt install yq -y
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64
+add-apt-repository --yes --update ppa:rmescandon/yq
+apt-get install yq
 
 echo "All Installed!"
 echo "You have to \`source ~/.bashrc\` to make everything work."
