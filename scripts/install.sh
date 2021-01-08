@@ -19,12 +19,16 @@ apt-get install curl
 apt-get install git
 
 # Install Ruby stuff
-# After the bootstrap process, this path will be added automatically by
-# sourcing bashrc. Right now we need it to make the brew-doctor give us a
-# clean bill of health.
+# rbenv-installer always fails because it runs rbenv-doctor, which tests for
+# stuff you can't possibly have set up before running the installer. So expect
+# failure and run it again.
+# Deps are documented here: https://github.com/rbenv/ruby-build/wiki
 apt-get install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev
 curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash || true
 
+# After the bootstrap process, this path will be added automatically by
+# sourcing bashrc. Right now we need it to make the rbenv-doctor give us a
+# clean bill of health.
 PATH=~/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
 curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
