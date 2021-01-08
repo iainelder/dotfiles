@@ -44,21 +44,6 @@ jobs:
 
           chown --recursive r:r .
 
-      - name: Debug as root
-        run: |
-          whoami
-          pwd
-          ls -lR .
-
-          ls -lR /__w
-
-      - name: Debug as r
-        shell: su r {0}
-        run: |
-          whoami
-          pwd
-          ls -lR .
-
         # bats-assert depends on bats-support
         # wget ships with desktop Ubuntu
         # unzip ships with desktop Ubuntu
