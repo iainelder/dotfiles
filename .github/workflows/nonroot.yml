@@ -26,6 +26,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
+      - name: Debug directory structure
+        run: |
+          ls -lR /__w
+      
       - name: Install sudo and create passwordless group
         run: |
           apt-get update
@@ -38,12 +42,14 @@ jobs:
           adduser --disabled-password --gecos '' nonroot
           adduser nonroot sudo
 
-      - name: List dirs as root
+      - name: Debug environment as root
         run: |
-          echo "Hello from $(whoami)"
-          whoami
-          pwd
-          ls -lR /__w
+          echo "whoami: $(whoami)"
+          echo "pwd: $(pwd)"
+          echo "HOME: $HOME"
+          echo "SHELL: $SHELL"
+          echo "USER: $USER"
+          echo "LOGNAME: $LOGNAME"
 
         # Use `su` to execute the script as r. r doesn't have permissions to
         # execute `{0}`. It resolves to a script whose content is the text
@@ -54,14 +60,14 @@ jobs:
         #
         # The alterative would be to use the default shell and include the
         # `su` command inline. That's not as clean as this solution.
-      - name: List dirs as nonroot
-        shell: su nonroot {0}
+      - name: Debug environment as root
         run: |
-          echo "Hello from $(whoami)"
-
-          whoami
-          pwd
-          ls -lR .
+          echo "whoami: $(whoami)"
+          echo "pwd: $(pwd)"
+          echo "HOME: $HOME"
+          echo "SHELL: $SHELL"
+          echo "USER: $USER"
+          echo "LOGNAME: $LOGNAME"
 
       # In a real interactive session the PATH is set automatically in the
       # expected way by sourcing bashrc. But Github Actions ignores any attempts
