@@ -1,5 +1,28 @@
 # Dotfiles for Ubuntu 💜
 
+## To be added to install.sh
+
+AWS Session Manager Plugin
+
+https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html
+
+```bash
+curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
+sudo dpkg -i session-manager-plugin.deb
+```
+
+aws-gate
+
+https://github.com/xen0l/aws-gate/
+
+```
+pipx install aws-gate 
+```
+
+Docker non-root stuff with newgrp and all that
+
+## Forked stuff
+
 My preferred starting configuration for Ubuntu Desktop. Current version 20.04 Focal Fossa.
 
 The [installation script included](https://github.com/victoriadrake/dotfiles/blob/ubuntu-20.04/scripts/install.sh) will install a suggested serving of programs and applications, found within the `scripts/` directory. Please verify that you want these before running the script.

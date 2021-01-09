@@ -65,7 +65,9 @@ jobs:
       - name: Set PATH the Github way
         shell: su r {0}
         run: |
-          echo "~/.local/bin" | sudo tee --append "${GITHUB_PATH}"
+          echo "${HOME}/.local/bin" |
+          sudo tee --append "${GITHUB_PATH}" |
+          xargs echo Added to path
 
       - name: Test commands
         shell: su r {0}
