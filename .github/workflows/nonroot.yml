@@ -28,7 +28,8 @@ jobs:
       
       - name: Install sudo and create passwordless group
         run: |
-          apt install sudo
+          apt-get update
+          apt-get --assume-yes install sudo
           echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
       
       # https://www.yegor256.com/2014/08/29/docker-non-root.html
