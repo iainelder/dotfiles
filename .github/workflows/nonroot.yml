@@ -26,12 +26,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
-      # https://www.yegor256.com/2014/08/29/docker-non-root.html
-      - name: Add non-root user
+      - name: Install sudo and create passwordless group
         run: |
-          adduser --disabled-password --gecos '' r
-          adduser r sudo
+          apt install sudo
           echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+      
+      # https://www.yegor256.com/2014/08/29/docker-non-root.html
+      - name: Add nonroot user
+        run: |
+          adduser --disabled-password --gecos '' nonroot
+          adduser nonroot sudo
 
       - name: List dirs as root
         run: |
@@ -49,8 +53,8 @@ jobs:
         #
         # The alterative would be to use the default shell and include the
         # `su` command inline. That's not as clean as this solution.
-      - name: List dirs as r
-        shell: su r {0}
+      - name: List dirs as nonroot
+        shell: su nonroot {0}
         run: |
           echo "Hello from $(whoami)"
 
@@ -73,7 +77,7 @@ jobs:
       # in the PATH expression. That way the right path should still be
       # available to r after all of Github Action's PATH processing.
       - name: Set PATH the Github way
-        shell: su r {0}
+        shell: su nonroot {0}
         run: |
           echo "${HOME}/.local/bin" |
           sudo tee --append "${GITHUB_PATH}" |
@@ -83,7 +87,7 @@ jobs:
         run: |
           echo $PATH | tr ':' '\n'
 
-      - name: Check path as r
-        shell: su r {0}
+      - name: Check path as nonroot
+        shell: su nonroot {0}
         run: |
           echo $PATH | tr ':' '\n'
