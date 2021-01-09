@@ -1,9 +1,11 @@
 #!/bin/bash -euxo pipefail
 
-sudo apt install composer
+sudo apt --assume-yes install composer
 
 PATH=~/.config/composer/vendor/bin:"${PATH}"
 
 composer global require pipelines
+
+sudo apt --assume-yes install composer
 
 pipelines --version
