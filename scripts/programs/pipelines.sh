@@ -1,4 +1,5 @@
-#!/bin/bash -euxo pipefail
+#!/bin/bash
+set -euxo pipefail
 
 sudo apt --assume-yes install composer
 
