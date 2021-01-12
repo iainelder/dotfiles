@@ -1,5 +1,19 @@
 # Dotfiles for Ubuntu 💜
 
+## To upgrade after installing
+
+```
+pipx upgrade-all --skip taskcat
+
+TODO: more things
+```
+
+TODO: Make this into a snappy function.
+
+```bash
+(cd ~/Descargas; youtube-dl --extract-audio --write-description 'https://www.youtube.com/watch?v=...')
+```
+
 ## To be added to install.sh
 
 AWS Session Manager Plugin
@@ -20,6 +34,35 @@ pipx install aws-gate
 ```
 
 Docker non-root stuff with newgrp and all that
+
+youtube-dl:
+
+```
+pipx install youtube-dl
+apt install ffmpeg
+```
+
+sox and mplayer:
+
+https://www.unixmen.com/record-voice-ubuntu/
+
+Zoom (these steps might not work):
+
+```
+wget 'https://zoom.us/client/latest/zoom_amd64.deb'
+
+sudo apt install ./zoom_amd64.deb
+```
+
+DBeaver:
+
+```
+sudo add-apt-repository ppa:serge-rider/dbeaver-ce
+```
+
+
+
+
 
 ## Forked stuff
 
