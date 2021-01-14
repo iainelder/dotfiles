@@ -60,7 +60,17 @@ DBeaver:
 sudo add-apt-repository ppa:serge-rider/dbeaver-ce
 ```
 
+Git diff-so-fancy
 
+Install:
+
+```text
+add-apt-repository -y ppa:aos1/diff-so-fancy
+apt update
+apt install -y diff-so-fancy
+```
+
+Config:
 
 
 
