@@ -1,12 +1,7 @@
 #!/bin/bash
 set -euxo pipefail
 
-# Set up bash profile.
-cp .bashrc ~/.bashrc
-mkdir --parents ~/.dotfiles
-cp setpath.sh ~/.dotfiles
-cp ruby.sh ~/.dotfiles
-cp composer.sh ~/.dotfiles
+./copy.sh
 
 # Create user tmp dir
 mkdir --parents ~/tmp

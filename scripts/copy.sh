@@ -1,12 +1,8 @@
-#!/bin/bash
+# Set up bash profile.
+cp .bashrc ~/.bashrc
+mkdir --parents ~/.dotfiles
+cp setpath.sh ~/.dotfiles
+cp ruby.sh ~/.dotfiles
+cp composer.sh ~/.dotfiles
+cp npm.sh ~/.dotfiles
 
-# Up from scripts dir
-cd ..
-
-cp -r .config ${HOME}
-cp -r .fonts ${HOME}
-cp .bashrc ${HOME}
-cp .git-completion.bash ${HOME}
-cp .gitmessage ${HOME}
-cp .bash_profile ${HOME}
-cp .vimrc ${HOME}
