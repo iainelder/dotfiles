@@ -8,10 +8,18 @@ pipx upgrade-all --skip taskcat
 TODO: more things
 ```
 
-TODO: Make this into a snappy function.
+Add this to .bashrc with a test.
 
 ```bash
-(cd ~/Descargas; youtube-dl --extract-audio --write-description 'https://www.youtube.com/watch?v=...')
+function ydl() {
+  (
+    cd ~/Descargas
+    youtube-dl \
+    --extract-audio \
+    --write-description \
+    "${1}"
+  )
+}
 ```
 
 ## To be added to install.sh
@@ -62,6 +70,8 @@ sudo add-apt-repository ppa:serge-rider/dbeaver-ce
 
 Git diff-so-fancy
 
+https://github.com/so-fancy/diff-so-fancy/issues/383
+
 Install:
 
 ```text
@@ -72,7 +82,54 @@ apt install -y diff-so-fancy
 
 Config:
 
+https://github.com/so-fancy/diff-so-fancy
 
+```
+git config --global color.ui true
+
+git config --global color.diff-highlight.oldNormal    "red bold"
+git config --global color.diff-highlight.oldHighlight "red bold 52"
+git config --global color.diff-highlight.newNormal    "green bold"
+git config --global color.diff-highlight.newHighlight "green bold 22"
+
+git config --global color.diff.meta       "11"
+git config --global color.diff.frag       "magenta bold"
+git config --global color.diff.commit     "yellow bold"
+git config --global color.diff.old        "red bold"
+git config --global color.diff.new        "green bold"
+git config --global color.diff.whitespace "red reverse"
+```
+
+AWS Amplify:
+
+Depends on Node.js 10, which is in the Ubuntu repo.
+
+https://github.com/aws-amplify/amplify-cli
+
+```
+sudo apt install nodejs
+sudo apt install npm
+```
+
+Then to finish setting up npm, allowing packages to be installed as non-root:
+
+https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md
+
+```
+mkdir "${HOME}/.npm-packages"
+npm config set prefix "${HOME}/.npm-packages"
+```
+
+```
+npm install -g @aws-amplify/cli
+```
+
+
+Microsoft Teams for Linux:
+
+```
+https://www.microsoft.com/en-us/microsoft-teams/download-app#allDevicesSection
+```
 
 ## Forked stuff
 
