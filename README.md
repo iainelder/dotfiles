@@ -131,6 +131,48 @@ Microsoft Teams for Linux:
 https://www.microsoft.com/en-us/microsoft-teams/download-app#allDevicesSection
 ```
 
+Clustergit
+
+```
+cd ~/Repos
+git clone git@github.com:mnagel/clustergit.git
+ln ~/Repos/clustergit/clustergit ~/.local/bin/clustergit
+```
+
+## Virtualbox
+
+https://www.virtualbox.org/wiki/Linux_Downloads
+
+```
+echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian focal contrib" |
+sudo tee /etc/apt/sources.list.d/virtualbox.list > /dev/null
+
+wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+
+sudo apt-get update
+sudo apt-get install virtualbox-6.1
+```
+
+Enter a passsword for secure boot. You don't need to save this in 1 Password.
+You just need to remember it for the coming reboot.
+
+Restart Ubuntu.
+
+Choose "Enrol MOK".
+
+Choose "Key 0".
+
+Enter the password for secure boot again.
+
+Restart again.
+
+Wait for Ubuntu to boot.
+
+Set up Virtualbox with a virtual machine and launch.
+
+Confirm that Virtualbox can launch a virtual machine.
+
 ## Forked stuff
 
 My preferred starting configuration for Ubuntu Desktop. Current version 20.04 Focal Fossa.
