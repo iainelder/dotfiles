@@ -122,6 +122,10 @@ fi
 # Minimal prompt.
 PS1="$ "
 
+# Fix CTRL+S, CTRL+Q nonsense.
+# https://unix.stackexchange.com/questions/332791/how-to-permanently-disable-ctrl-s-in-terminal
+stty -ixon
+
 for f in ~/.dotfiles/*.sh; do
   source "$f";
 done

@@ -173,6 +173,39 @@ Set up Virtualbox with a virtual machine and launch.
 
 Confirm that Virtualbox can launch a virtual machine.
 
+Install VirtualBox Guest Additions in any virtual machine for 
+
+## VirtualBox Webcam Passthrough
+
+For PSI exam software.
+
+Download the Extension Pack linked here:
+
+https://www.virtualbox.org/wiki/Downloads
+
+Start VirtualBox.
+
+Add the extension pack (File > Preferences > Extensions > Add new package).
+
+Follow the instructions to install it.
+
+Use VBoxManage to check available webcams.
+
+```text
+$ VBoxManage list webcams
+Video Input Devices: 2
+.1 "Integrated Camera: Integrated C"
+/dev/video0
+.2 "Integrated Camera: Integrated C"
+/dev/video1
+```
+
+https://www.virtualbox.org/manual/ch01.html#intro-installing
+
+https://www.virtualbox.org/manual/ch09.html#webcam-passthrough
+
+https://scribles.net/using-webcam-in-virtualbox-guest-os-on-windows-host/
+
 ## Forked stuff
 
 My preferred starting configuration for Ubuntu Desktop. Current version 20.04 Focal Fossa.
