@@ -206,6 +206,12 @@ https://www.virtualbox.org/manual/ch09.html#webcam-passthrough
 
 https://scribles.net/using-webcam-in-virtualbox-guest-os-on-windows-host/
 
+## Cronopete
+
+Like macOS Time Machine.
+
+https://rastersoft.com/programas/cronopete.html
+
 ## Forked stuff
 
 My preferred starting configuration for Ubuntu Desktop. Current version 20.04 Focal Fossa.

@@ -7,3 +7,4 @@ cp composer.sh ~/.dotfiles
 cp npm.sh ~/.dotfiles
 cp terraform.sh ~/.dotfiles
 cp capslock.sh ~/.dotfiles
+cp clustergit.sh ~/.dotfiles
