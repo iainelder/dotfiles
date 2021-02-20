@@ -4,7 +4,7 @@
 
 set -euxo pipefail
 
-cd ~/tmp
+cd "$(mktemp)"
 
 browser_download_url=$(
   curl -Ss 'https://api.github.com/repos/ankitects/anki/releases/latest' |
