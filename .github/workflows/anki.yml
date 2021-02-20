@@ -31,7 +31,8 @@ jobs:
           curl \
           jq \
           xdg-utils \
-          libnss3
+          libnss3 \
+          libxkbcommon0
         env:
           # For tzdata via xdg-utils
           DEBIAN_FRONTEND: noninteractive
