@@ -31,6 +31,9 @@ jobs:
           curl \
           jq \
           xdg-utils
+        env:
+          # For tzdata
+          DEBIAN_FRONTEND: noninteractive
 
       - name: Check out code
         uses: actions/checkout@v2
