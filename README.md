@@ -1,5 +1,11 @@
 # Dotfiles for Ubuntu 💜
 
+## Devopment environment for Github actions
+
+```bash
+docker run -it --rm --mount "type=bind,source=$(pwd),target=/code" ubuntu:20.04
+```
+
 ## To upgrade after installing
 
 ```
