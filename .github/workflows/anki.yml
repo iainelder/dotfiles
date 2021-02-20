@@ -23,9 +23,13 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       
-      # sudo is invoked by the install script.
-      - name: Install sudo
-        run: apt-get update && apt-get --assume-yes install sudo
+      - name: Bootstrap installer dependencies
+        run: |
+          apt-get update && \
+          apt-get --assume-yes install \
+          sudo \
+          curl \
+          jq
 
       - name: Check out code
         uses: actions/checkout@v2
