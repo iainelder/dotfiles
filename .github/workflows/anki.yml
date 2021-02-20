@@ -29,7 +29,8 @@ jobs:
           apt-get --assume-yes install \
           sudo \
           curl \
-          jq
+          jq \
+          xdg-utils
 
       - name: Check out code
         uses: actions/checkout@v2
