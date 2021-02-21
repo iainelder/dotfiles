@@ -1,12 +1,15 @@
 #!/bin/bash
 set -euxo pipefail
 
-sudo apt --assume-yes install composer
+# for tzdata
+export DEBIAN_FRONTEND=noninteractive
 
-PATH=~/.config/composer/vendor/bin:"${PATH}"
+apt-get update && apt-get --yes install \
+php-yaml \
+composer
 
-composer global require pipelines
+PATH=~/.composer/vendor/bin:"${PATH}"
 
-sudo apt --assume-yes install composer
+composer global require ktomk/pipelines
 
 pipelines --version
