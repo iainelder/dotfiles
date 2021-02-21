@@ -1,0 +1,23 @@
+name: PowerShell
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:20.04
+
+    steps:
+
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Install PowerShell
+        shell: bash # Avoids "Illegal option -o pipefail"
+        run: ./scripts/programs/powershell.bash
