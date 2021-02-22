@@ -21,6 +21,12 @@ jobs:
       - name: Fix missing .bashrc for Github Actions
         run: touch ~/.bashrc
 
+      - name: Install dependencies for Anki installer
+        run: |
+          apt-get update && \
+          apt-get --assume-yes install \
+          sudo
+
       - name: Install SnowSQL
         shell: bash # Avoids "Illegal option -o pipefail"
         run: ./scripts/programs/snowsql.bash

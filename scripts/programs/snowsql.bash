@@ -9,7 +9,7 @@ cd "$(mktemp --dir)"
 # for tzdata via software-properties-common
 export DEBIAN_FRONTEND=noninteractive
 
-apt-get update && apt-get install --yes \
+sudo apt-get update && sudo apt-get install --yes \
 curl \
 gpg \
 unzip
@@ -45,10 +45,11 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 37C7086698CB005C
 
 gpg --verify "$signature_filename" "$installer_filename"
 
-SNOWSQL_DEST=~/.local/bin \
+export SNOWSQL_DEST=~/.local/bin
+
 SNOWSQL_LOGIN_SHELL=~/.bashrc \
 bash "$installer_filename"
 
 LC_ALL=C.UTF-8 \
 LANG=C.UTF-8 \
-~/.local/bin/snowsql --version
+"${SNOWSQL_DEST}/snowsql" --version
