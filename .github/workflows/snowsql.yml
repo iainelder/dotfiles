@@ -18,10 +18,10 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Fix missing .bashrc for Github Actions
+      - name: Fix missing .bashrc
         run: touch ~/.bashrc
 
-      - name: Install dependencies for Anki installer
+      - name: Install sudo
         run: |
           apt-get update && \
           apt-get --assume-yes install \
