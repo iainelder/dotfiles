@@ -2,8 +2,19 @@
 
 ## Devopment environment for Github actions
 
+The program installer scripts assume the existence of sudo and may invoke it to do things that require root on the desktop, such as installing apt packages.
+
+The scripts are tested in an Ubuntu container that lacks a non-root login and sudo.
+
+We fix the missing sudo by installing it before running the script like this.
+
+This same technique is used in each Github Actions workflow.
+
 ```bash
-docker run -it --rm --mount "type=bind,source=$(pwd),target=/code" ubuntu:20.04
+docker run -it --rm \
+--mount "type=bind,source=$(pwd),target=/code" \
+ubuntu:20.04 \
+bash -c "apt -y update && apt -y install sudo && /code/scripts/programs/program.bash"
 ```
 
 ## To upgrade after installing
