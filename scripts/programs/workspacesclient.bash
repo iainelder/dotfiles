@@ -26,8 +26,6 @@ export DEBIAN_FRONTEND=noninteractive
 sudo --preserve-env apt-get install --yes \
 workspacesclient
 
-dpkg -L workspacesclient
-
 # The command ignores the --version option and produces an error
 # 
 # Unable to init server: Could not connect: Connection refused
