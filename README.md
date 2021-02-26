@@ -10,11 +10,13 @@ We fix the missing sudo by installing it before running the script like this.
 
 This same technique is used in each Github Actions workflow.
 
+Set the `program` environment variable and then run:
+
 ```bash
 docker run -it --rm \
 --mount "type=bind,source=$(pwd),target=/code" \
 ubuntu:20.04 \
-bash -c "apt -y update && apt -y install sudo && /code/scripts/programs/program.bash"
+bash -c "apt -y update && apt -y install sudo && bash /code/scripts/programs/${program}.bash; bash"
 ```
 
 ## To upgrade after installing
