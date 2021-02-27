@@ -6,6 +6,13 @@ set -euxo pipefail
 
 cd "$(mktemp --dir)"
 
+sudo apt-get update
+
+# Installer dependencies
+sudo apt-get --assume-yes install \
+curl \
+jq
+
 browser_download_url=$(
   curl -Ss 'https://api.github.com/repos/ankitects/anki/releases/latest' |
   jq -r '.assets[] | select(.name | test("linux")) | .browser_download_url'
@@ -27,4 +34,17 @@ extract_folder=$(basename "$download_filename" ".tar.bz2")
 
 cd "$extract_folder"
 
+# For tzdata via xdg-utils
+export DEBIAN_FRONTEND=noninteractive
+
+# Application dependencies
+sudo --preserve-env=DEBIAN_FRONTEND \
+apt-get --assume-yes install \
+xdg-utils \
+libnss3 \
+libxkbcommon0
+
 sudo ./install.sh
+
+# The --version option requires but ignores a non-empty argument.
+LC_CTYPE=C.UTF-8 /usr/local/bin/anki --version 'x'

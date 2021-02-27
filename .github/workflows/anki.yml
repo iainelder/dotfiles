@@ -22,25 +22,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      
-      - name: Install dependencies for Anki installer
-        run: |
-          apt-get update && \
-          apt-get --assume-yes install \
-          sudo \
-          curl \
-          jq
-
-      - name: Install dependencies for Anki application
-        run: |
-          apt-get update && \
-          apt-get --assume-yes install \
-          xdg-utils \
-          libnss3 \
-          libxkbcommon0
-        env:
-          # For tzdata via xdg-utils
-          DEBIAN_FRONTEND: noninteractive
 
       - name: Check out code
         uses: actions/checkout@v2
@@ -48,9 +29,3 @@ jobs:
       - name: Install Anki
         shell: bash # Avoids "Illegal option -o pipefail"
         run: ./scripts/programs/anki.bash
-
-      # The version option requires an ignored argument.
-      - name: Test Anki version
-        run: /usr/local/bin/anki --version 1
-        env:
-          LC_CTYPE: C.UTF-8
