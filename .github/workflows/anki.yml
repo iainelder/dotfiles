@@ -26,6 +26,12 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
+      - name: Install sudo
+        run: |
+          apt-get update && \
+          apt-get --assume-yes install \
+          sudo
+
       - name: Install Anki
         shell: bash # Avoids "Illegal option -o pipefail"
         run: ./scripts/programs/anki.bash
