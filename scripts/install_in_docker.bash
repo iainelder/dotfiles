@@ -12,4 +12,4 @@ apt -y update && apt -y install sudo
 export DEBIAN_FRONTEND=noninteractive
 echo "Defaults env_keep += \"DEBIAN_FRONTEND\"" >> /etc/sudoers
 
-bash "${program}"
+"${program}"
