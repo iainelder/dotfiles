@@ -22,7 +22,7 @@ and then run this command from the repo root:
 docker run -it --rm \
 --mount "type=bind,source=$(pwd),target=/code" \
 ubuntu:20.04 \
-bash -c "apt -y update && apt -y install sudo && bash /code/${script}; bash"
+bash -c "/code/scripts/install_in_docker.bash /code/${script}; bash"
 ```
 
 ## To upgrade after installing
