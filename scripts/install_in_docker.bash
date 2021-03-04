@@ -12,4 +12,7 @@ apt -y update && apt -y install sudo
 export DEBIAN_FRONTEND=noninteractive
 echo "Defaults env_keep += \"DEBIAN_FRONTEND\"" >> /etc/sudoers
 
+# Create the user's bin directory. Already exists for a normal Ubuntu user.
+mkdir --parents ~/.local/bin
+
 "${program}"
