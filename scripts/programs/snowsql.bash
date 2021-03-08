@@ -44,7 +44,7 @@ gpg --verify "$signature_filename" "$installer_filename"
 
 sudo \
 SNOWSQL_DEST=/usr/local/bin \
-SNOWSQL_LOGIN_SHELL=~/.bashrc \
+SNOWSQL_LOGIN_SHELL=/dev/null \
 bash "$installer_filename"
 
 LC_ALL=C.UTF-8 \
