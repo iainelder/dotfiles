@@ -42,11 +42,10 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 37C7086698CB005C
 
 gpg --verify "$signature_filename" "$installer_filename"
 
-export SNOWSQL_DEST=~/.local/bin
-
+SNOWSQL_DEST=/usr/local/bin \
 SNOWSQL_LOGIN_SHELL=~/.bashrc \
 bash "$installer_filename"
 
 LC_ALL=C.UTF-8 \
 LANG=C.UTF-8 \
-"${SNOWSQL_DEST}/snowsql" --version
+snowsql --version
