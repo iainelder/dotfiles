@@ -1,0 +1,27 @@
+name: awscli
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:20.04
+
+    steps:
+
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Install awscli
+        shell: bash # Avoids "Illegal option -o pipefail"
+        run: ./scripts/install_in_docker.bash ./scripts/programs/awscli.bash
+
+      - name: Install awscli again (test idempotency)
+        shell: bash # Avoids "Illegal option -o pipefail"
+        run: ./scripts/install_in_docker.bash ./scripts/programs/awscli.bash
