@@ -6,23 +6,16 @@ The program installer scripts assume the existence of sudo and may invoke it to 
 
 The scripts are tested in an Ubuntu container that lacks a non-root login and sudo.
 
-We fix the missing sudo by installing it before running the script like this.
+We fix the missing sudo by installing it before running a script to prepare the
+Docker environment.
 
 This same technique is used in each Github Actions workflow.
 
-Set the `program` environment variable to a path relative to the repo root, for example
-
-```
-script="scripts/install_programs.bash"
-```
-
-and then run this command from the repo root:
+To test a script locally in a prepared Docker environment, use the
+test_local.bash script.
 
 ```bash
-docker run -it --rm \
---mount "type=bind,source=$(pwd),target=/code" \
-ubuntu:20.04 \
-bash -c "/code/scripts/install_in_docker.bash /code/${script}; bash"
+./test_local.bash scripts/install_programs.bash
 ```
 
 ## To upgrade after installing
