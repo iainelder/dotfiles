@@ -2,13 +2,13 @@
 
 # https://github.com/tfutils/tfenv/blob/master/README.md
 
+set -euxo pipefail
+
 command -v terraform && {
   echo >&2 "Is Terraform installed from Hashicorp's apt repo?"
   echo >&2 "Uninstall Terraform before installed tfenv."
   exit 1
 }
-
-set -euxo pipefail
 
 cd "$(mktemp --dir)"
 
