@@ -15,4 +15,11 @@ echo "Defaults env_keep += \"DEBIAN_FRONTEND\"" >> /etc/sudoers
 # Create the user's bin directory. Already exists for a normal Ubuntu user.
 mkdir --parents ~/.local/bin
 
-"${program}"
+# Create non-root user norm and add it to the passwordless sudo group.
+echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+adduser --disabled-password --gecos '' norm
+adduser norm sudo
+
+
+# Run program install script as norm user.
+su --login norm $(realpath "${program}")
