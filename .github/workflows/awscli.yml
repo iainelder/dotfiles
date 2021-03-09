@@ -24,4 +24,4 @@ jobs:
 
       - name: Install awscli again (test idempotency)
         shell: bash # Avoids "Illegal option -o pipefail"
-        run: ./scripts/install_in_docker.bash ./scripts/programs/awscli.bash
+        run: ./scripts/programs/awscli.bash
