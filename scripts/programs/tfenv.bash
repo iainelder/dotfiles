@@ -23,7 +23,7 @@ else
   (cd ~/tfenv && git pull)
 fi
 
-sudo ln -s ~/tfenv/bin/* /usr/local/bin
+sudo ln --symbolic --force ~/tfenv/bin/* /usr/local/bin
 
 tfenv install latest
 
