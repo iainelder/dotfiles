@@ -19,10 +19,10 @@ unzip
 
 git clone https://github.com/tfutils/tfenv.git ~/tfenv
 
-ln -s ~/tfenv/bin/* ~/.local/bin/
+sudo ln -s ~/tfenv/bin/* /usr/local/bin
 
-~/.local/bin/tfenv install latest
+tfenv install latest
 
-~/.local/bin/tfenv use latest
+tfenv use latest
 
-~/.local/bin/terraform version
+terraform version
