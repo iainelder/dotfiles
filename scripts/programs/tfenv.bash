@@ -4,9 +4,9 @@
 
 set -euxo pipefail
 
-command -v terraform && {
+dpkg-query -l terraform && {
   echo >&2 "Is Terraform installed from Hashicorp's apt repo?"
-  echo >&2 "Uninstall Terraform before installed tfenv."
+  echo >&2 "Uninstall Terraform before installing tfenv."
   exit 1
 }
 
@@ -17,7 +17,11 @@ git \
 curl \
 unzip
 
-git clone https://github.com/tfutils/tfenv.git ~/tfenv
+if ! test -d ~/tfenv; then
+  git clone https://github.com/tfutils/tfenv.git ~/tfenv
+else
+  (cd ~/tfenv && git pull)
+fi
 
 sudo ln -s ~/tfenv/bin/* /usr/local/bin
 
