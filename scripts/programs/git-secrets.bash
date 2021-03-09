@@ -8,23 +8,22 @@ cd "$(mktemp --dir)"
 
 sudo apt-get update && sudo apt-get install --yes \
 git \
-make \
+make
 
-git_repo_url="https://github.com/awslabs/git-secrets.git"
+repo_url="https://github.com/awslabs/git-secrets.git"
 
-git_repo_local_path="${HOME}/Repos/git-secrets"
+local_path="/opt/git-secrets"
 
-mkdir --parents "${git_repo_local_path}"
+sudo mkdir --parents "${local_path}"
 
-git -C "$(dirname ${git_repo_local_path})" clone "${git_repo_url}"
+sudo git -C "$(dirname ${local_path})" clone "${repo_url}" || \
+sudo git -C "${local_path}" pull
 
-cd "${git_repo_local_path}"
-
-git status
-
-make install
+(cd "${local_path}" && sudo make install)
 
 # Test basic commands on self
+
+git init
 
 git secrets --install
 
