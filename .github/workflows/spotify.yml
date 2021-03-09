@@ -18,6 +18,9 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
+      - name: Prepare Docker
+        run: ./scripts/prepare_docker.bash
+
       - name: Install Spotify
-        shell: bash # Avoids "Illegal option -o pipefail"
-        run: ./scripts/install_in_docker.bash ./scripts/programs/spotify.bash
+        shell: su --login norm bash
+        run: ./scripts/programs/spotify.bash
