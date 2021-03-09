@@ -21,3 +21,7 @@ jobs:
       - name: Install tfenv
         shell: bash # Avoids "Illegal option -o pipefail"
         run: ./scripts/install_in_docker.bash ./scripts/programs/tfenv.bash
+
+      - name: Install tfenv again (test idempotency)
+        shell: bash # Avoids "Illegal option -o pipefail"
+        run: ./scripts/programs/tfenv.bash
