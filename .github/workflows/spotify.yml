@@ -22,5 +22,5 @@ jobs:
         run: ./scripts/prepare_docker.bash
 
       - name: Install Spotify
-        shell: su --login norm {0}
+        shell: su norm {0}
         run: ./scripts/programs/spotify.bash
