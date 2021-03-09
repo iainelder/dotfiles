@@ -18,10 +18,13 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
+      - name: Prepare Docker
+        run: ./scripts/prepare_docker.bash
+
       - name: Install tfenv
-        shell: bash # Avoids "Illegal option -o pipefail"
-        run: ./scripts/install_in_docker.bash ./scripts/programs/tfenv.bash
+        shell: su norm --command "bash --login {0}"
+        run: ./scripts/programs/tfenv.bash
 
       - name: Install tfenv again (test idempotency)
-        shell: bash # Avoids "Illegal option -o pipefail"
+        shell: su norm --command "bash --login {0}"
         run: ./scripts/programs/tfenv.bash
