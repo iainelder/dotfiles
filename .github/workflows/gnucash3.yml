@@ -1,4 +1,4 @@
-name: GnuCash
+name: GnuCash 3
 on:
   push:
     branches: [ master ]
@@ -18,6 +18,6 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Install GnuCash
+      - name: Install GnuCash 3
         shell: bash # Avoids "Illegal option -o pipefail"
-        run: ./scripts/install_in_docker.bash ./scripts/programs/gnucash.bash
+        run: ./scripts/install_in_docker.bash ./scripts/programs/gnucash3.bash
