@@ -18,6 +18,32 @@ test_local.bash script.
 ./test_local.bash scripts/install_programs.bash
 ```
 
+## Continuous integration (CI) with Github Actions
+
+Each installer script is tested with a CI workflow.
+
+Each worflow prepares the Ubuntu container as in the development environment,
+runs the installer, and then runs the installer again to test idempotency.
+
+A worflow for each installer can be generated automatically from a template.
+
+To generate the workflow for all installers, use the generate_ci.bash script.
+
+```
+./generate_ci.bash
+```
+
+You should regenerate the workflows after either changing the template or adding
+a new installer script.
+
+Push the result to Github to run the workflow using Github Actions.
+
+```
+git add .github/workflow
+git commit
+git push
+```
+
 ## To upgrade after installing
 
 ```
