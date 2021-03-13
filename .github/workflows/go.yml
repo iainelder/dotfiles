@@ -23,8 +23,8 @@ jobs:
 
       - name: Install Golang
         shell: su norm --command "bash --login {0}"
-        run: ./scripts/programs/az.bash
+        run: ./scripts/programs/golang.bash
 
       - name: Install Golang again (test idempotency)
         shell: su norm --command "bash --login {0}"
-        run: ./scripts/programs/az.bash
+        run: ./scripts/programs/golang.bash
