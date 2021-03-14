@@ -48,7 +48,7 @@ curl
 # Source here to test goenv command.
 # Tolerate unset GOROOT and GOPATH.
 set +u
-source /etc/profile
+source /etc/profile.d/goenv.sh
 set -u
 
 goenv --version
