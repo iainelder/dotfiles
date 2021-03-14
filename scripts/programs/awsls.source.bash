@@ -2,9 +2,9 @@
 
 set -euxo pipefail
 
-cd "$(mktemp --dir)"
-
 script_dir=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+
+cd "$(mktemp --dir)"
 
 sudo apt-get install --yes \
 git \
