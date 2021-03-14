@@ -18,7 +18,8 @@ sudo apt-get build-dep --yes \
 gnucash
 
 # GnuCash 4 dependencies
-sudo apt-get install libboost-program-options1.71-dev
+sudo apt-get --yes install \
+libboost-program-options1.71-dev
 
 
 ## Get sources
