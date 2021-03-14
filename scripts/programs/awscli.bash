@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html
+# Name: awscli
+# Source: https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html
 
 set -euxo pipefail
 

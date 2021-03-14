@@ -18,6 +18,13 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
+      - name: Prepare Docker
+        run: ./scripts/prepare_docker.bash
+
       - name: Install SnowSQL
-        shell: bash # Avoids "Illegal option -o pipefail"
-        run: ./scripts/install_in_docker.bash ./scripts/programs/snowsql.bash
+        shell: su norm --command "bash --login {0}"
+        run: scripts/programs/snowsql.bash
+
+      - name: Install SnowSQL again (test idempotency)
+        shell: su norm --command "bash --login {0}"
+        run: scripts/programs/snowsql.bash

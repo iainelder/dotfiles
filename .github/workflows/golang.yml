@@ -1,4 +1,4 @@
-name: AWS Workspaces Client
+name: Golang
 on:
   push:
     branches: [ master ]
@@ -21,10 +21,10 @@ jobs:
       - name: Prepare Docker
         run: ./scripts/prepare_docker.bash
 
-      - name: Install AWS Workspaces Client
+      - name: Install Golang
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/workspacesclient.bash
+        run: scripts/programs/golang.bash
 
-      - name: Install AWS Workspaces Client again (test idempotency)
+      - name: Install Golang again (test idempotency)
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/workspacesclient.bash
+        run: scripts/programs/golang.bash

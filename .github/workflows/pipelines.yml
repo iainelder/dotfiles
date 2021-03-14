@@ -1,5 +1,4 @@
 name: Bitbucket Pipelines CLI
-
 on:
   push:
     branches: [ master ]
@@ -15,8 +14,17 @@ jobs:
       image: ubuntu:20.04
 
     steps:
+
       - name: Check out code
         uses: actions/checkout@v2
 
+      - name: Prepare Docker
+        run: ./scripts/prepare_docker.bash
+
       - name: Install Bitbucket Pipelines CLI
-        run: ./scripts/programs/pipelines.sh
+        shell: su norm --command "bash --login {0}"
+        run: scripts/programs/pipelines.bash
+
+      - name: Install Bitbucket Pipelines CLI again (test idempotency)
+        shell: su norm --command "bash --login {0}"
+        run: scripts/programs/pipelines.bash

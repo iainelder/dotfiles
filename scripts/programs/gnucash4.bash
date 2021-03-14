@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Name: GnuCash 4
 # https://wiki.gnucash.org/wiki/Building_On_Linux
 # https://wiki.gnucash.org/wiki/GnuCash_Sources
 

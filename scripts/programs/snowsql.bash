@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# https://docs.snowflake.com/en/user-guide/snowsql-install-config.html#installing-snowsql-on-linux-using-the-installer
+# Name: SnowSQL
+# Source: https://docs.snowflake.com/en/user-guide/snowsql-install-config.html#installing-snowsql-on-linux-using-the-installer
 
 set -euxo pipefail
 

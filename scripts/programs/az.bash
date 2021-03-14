@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# https://docs.microsoft.com/es-es/cli/azure/install-azure-cli-linux?view=azure-cli-latest&pivots=apt
+# Name: Azure Devops CLI
+# Source: https://docs.microsoft.com/es-es/cli/azure/install-azure-cli-linux?view=azure-cli-latest&pivots=apt
 
 set -euxo pipefail
 

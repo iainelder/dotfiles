@@ -18,6 +18,13 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
+      - name: Prepare Docker
+        run: ./scripts/prepare_docker.bash
+
       - name: Install awsls
-        shell: bash # Avoids "Illegal option -o pipefail"
-        run: ./scripts/install_in_docker.bash ./scripts/programs/awsls.bash
+        shell: su norm --command "bash --login {0}"
+        run: scripts/programs/awsls.bash
+
+      - name: Install awsls again (test idempotency)
+        shell: su norm --command "bash --login {0}"
+        run: scripts/programs/awsls.bash

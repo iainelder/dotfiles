@@ -23,8 +23,8 @@ jobs:
 
       - name: Install tfenv
         shell: su norm --command "bash --login {0}"
-        run: ./scripts/programs/tfenv.bash
+        run: scripts/programs/tfenv.bash
 
       - name: Install tfenv again (test idempotency)
         shell: su norm --command "bash --login {0}"
-        run: ./scripts/programs/tfenv.bash
+        run: scripts/programs/tfenv.bash

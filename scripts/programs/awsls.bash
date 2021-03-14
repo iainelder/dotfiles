@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Name: awsls
 # https://github.com/jckuester/awsls/blob/master/README.md
 
 set -euxo pipefail

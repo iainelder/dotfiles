@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Name: GnuCash 3
+
 set -euxo pipefail
 
 cd "$(mktemp --dir)"

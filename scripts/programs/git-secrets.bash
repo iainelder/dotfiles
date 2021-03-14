@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Name: git-secrets
 # https://github.com/awslabs/git-secrets
 
 set -euxo pipefail

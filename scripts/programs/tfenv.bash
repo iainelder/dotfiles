@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# https://github.com/tfutils/tfenv/blob/master/README.md
+# Name: tfenv
+# Source: https://github.com/tfutils/tfenv/blob/master/README.md
 
 set -euxo pipefail
 

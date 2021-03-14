@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Name: AWS Workspaces Client
 # https://clients.amazonworkspaces.com/linux-install.html
 
 set -euxo pipefail

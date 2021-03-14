@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# Name: Bitbucket Pipelines CLI
+
 set -euxo pipefail
 
 # for tzdata

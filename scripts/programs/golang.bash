@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Name: Golang
+
 set -euxo pipefail
 
 cd "$(mktemp --dir)"

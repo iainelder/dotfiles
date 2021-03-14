@@ -18,6 +18,13 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
+      - name: Prepare Docker
+        run: ./scripts/prepare_docker.bash
+
       - name: Install PowerShell
-        shell: bash # Avoids "Illegal option -o pipefail"
-        run: ./scripts/programs/powershell.bash
+        shell: su norm --command "bash --login {0}"
+        run: scripts/programs/powershell.bash
+
+      - name: Install PowerShell again (test idempotency)
+        shell: su norm --command "bash --login {0}"
+        run: scripts/programs/powershell.bash
