@@ -23,12 +23,12 @@ download_filename=$(
   --write-out '%{filename_effective}'
 )
 
-dpkg -i $download_filename
+sudo dpkg -i $download_filename
 
-apt-get update
+sudo apt-get update
 
-add-apt-repository universe
+sudo add-apt-repository universe
 
-apt-get install --yes powershell
+sudo apt-get install --yes powershell
 
 pwsh --version
