@@ -4,10 +4,7 @@
 
 set -euxo pipefail
 
-# for tzdata
-export DEBIAN_FRONTEND=noninteractive
-
-apt-get update && apt-get --yes install \
+sudo apt-get --yes install \
 php-yaml \
 composer
 
