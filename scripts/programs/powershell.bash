@@ -7,10 +7,7 @@ set -euxo pipefail
 
 cd "$(mktemp --dir)"
 
-# for tzdata via software-properties-common
-export DEBIAN_FRONTEND=noninteractive
-
-apt-get update && apt-get install --yes \
+sudo apt-get install --yes \
 curl \
 software-properties-common
 
