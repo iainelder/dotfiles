@@ -21,6 +21,7 @@ goenv install --skip-existing 1.15.8
 goenv global 1.15.8
 
 git clone https://github.com/jckuester/awsls.git
+cd awsls
 git checkout feature/upgrade-to-aws-sdk-v.1.2
 
 go build
