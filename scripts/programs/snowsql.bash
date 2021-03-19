@@ -52,7 +52,8 @@ bash "$installer_filename"
 # write the libraries to ~/.snowsql.
 # And the libz.so.1 library doesn't work, so we need to use the system one
 # instead.
-ln -sf /usr/lib/x86_64-linux-gnu/libz.so.1 ~/.snowsql/1.2.11/libz.so.1
+# FIXME Install SnowSQL to system folder to avoid this madness
+# ln -sf /usr/lib/x86_64-linux-gnu/libz.so.1 ~/.snowsql/1.2.11/libz.so.1
 
 LC_ALL=C.UTF-8 \
 LANG=C.UTF-8 \
