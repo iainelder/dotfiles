@@ -185,18 +185,7 @@ ln ~/Repos/clustergit/clustergit ~/.local/bin/clustergit
 
 ## Virtualbox
 
-https://www.virtualbox.org/wiki/Linux_Downloads
-
-```
-echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian focal contrib" |
-sudo tee /etc/apt/sources.list.d/virtualbox.list > /dev/null
-
-wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
-wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
-
-sudo apt-get update
-sudo apt-get install virtualbox-6.1
-```
+Follow these instructions when prompted by the installer script.
 
 Enter a passsword for secure boot. You don't need to save this in 1 Password.
 You just need to remember it for the coming reboot.
@@ -216,8 +205,6 @@ Wait for Ubuntu to boot.
 Set up Virtualbox with a virtual machine and launch.
 
 Confirm that Virtualbox can launch a virtual machine.
-
-Install VirtualBox Guest Additions in any virtual machine for 
 
 ## VirtualBox Webcam Passthrough
 
