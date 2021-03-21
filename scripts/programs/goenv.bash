@@ -37,6 +37,7 @@ export PATH="${PATH}:${GOPATH}/bin"
 EOF
 
 
+# shellcheck disable=SC2016,SC2002
 cat goenv.sh |
 envsubst '${local_path}' |
 sudo tee /etc/profile.d/goenv.sh 1>/dev/null

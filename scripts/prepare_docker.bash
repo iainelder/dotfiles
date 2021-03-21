@@ -1,7 +1,5 @@
 #!/bin/bash
 
-program="${1}"
-
 set -euxo pipefail
 
 apt-get --yes update && apt-get --yes install sudo

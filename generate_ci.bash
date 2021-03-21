@@ -13,6 +13,7 @@ for program in scripts/programs/*.bash; do
   program_name="$(grep --perl-regexp --only-matching '(?<=# Name: ).*$' "${program}")"
   set -e
 
+  # shellcheck disable=SC2002
   cat "${template}" |
   program_name="${program_name:-$file_basename}" \
   program_script="${program}" \

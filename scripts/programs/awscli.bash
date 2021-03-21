@@ -17,15 +17,13 @@ latest_version=$(
   jq -r 'map(select(.name | startswith("2.")))[0].name'
 )
 
-echo $latest_version
-
 if command -v aws > /dev/null ; then
   current_version="$(aws --version | cut -d' ' -f 1 | cut -d'/' -f 2)"
 else
   current_version=0
 fi
 
-dpkg --compare-versions $current_version ge $latest_version && {
+dpkg --compare-versions "${current_version}" ge "${latest_version}" && {
   aws --version
   exit 0
 }
@@ -42,7 +40,7 @@ download_filename=$(
   --write-out '%{filename_effective}'
 )
 
-unzip -q $download_filename
+unzip -q "${download_filename}"
 
 sudo ./aws/install --update
 

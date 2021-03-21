@@ -23,7 +23,7 @@ download_filename=$(
   --write-out '%{filename_effective}'
 )
 
-sudo dpkg -i $download_filename
+sudo dpkg -i "${download_filename}"
 
 sudo apt-get update
 

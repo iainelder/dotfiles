@@ -1,0 +1,25 @@
+name: shellcheck
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:20.04
+
+    steps:
+
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Shellcheck
+        run: |-
+          apt-get --yes update
+          apt-get --yes install shellcheck
+          find -type f -executable -name '*.bash' | xargs shellcheck -ax
