@@ -22,6 +22,6 @@ fi
 sudo apt-get install --yes \
 python3
 
-sudo ln -sf /opt/clustergit/clustergit /usr/local/bin/clustergit
+sudo ln -sf "${local_path}"/clustergit /usr/local/bin/clustergit
 
 clustergit --help
