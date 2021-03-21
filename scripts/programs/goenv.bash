@@ -49,7 +49,7 @@ curl
 # Source here to test goenv command.
 # Tolerate unset GOROOT and GOPATH.
 set +u
-#shellcheck disable=SC1091
+# shellcheck disable=SC1091
 source /etc/profile.d/goenv.sh
 set -u
 
