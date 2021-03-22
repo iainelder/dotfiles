@@ -130,3 +130,6 @@ for f in ~/.dotfiles/*.sh; do
   source "$f";
 done
 
+for f in ~/.dotfiles/private/*.sh; do
+  source "$f";
+done
