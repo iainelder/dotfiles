@@ -17,4 +17,4 @@ for repo in $unclean; do
   (cd $repo && git status && bash -li)
 done
 
-clustergit --push
+clustergit --branch '' --recursive --exclude=/\.terraform/ --push
