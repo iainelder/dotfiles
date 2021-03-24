@@ -1,0 +1,2 @@
+# Terraform local state
+--ignore-directory=is:.terraform
