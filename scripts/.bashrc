@@ -119,9 +119,6 @@ fi
 # Everything above this line is stock .bashrc.
 # Everything below this line is from my dotfiles.
 
-# Minimal prompt.
-PS1="$ "
-
 # Fix CTRL+S, CTRL+Q nonsense.
 # https://unix.stackexchange.com/questions/332791/how-to-permanently-disable-ctrl-s-in-terminal
 stty -ixon
