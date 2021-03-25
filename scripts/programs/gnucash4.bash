@@ -53,4 +53,4 @@ make
 
 sudo make install
 
-/opt/gnucash/bin/gnucash --version
+/opt/gnucash/bin/gnucash-cli --version
