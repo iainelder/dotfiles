@@ -23,8 +23,8 @@ jobs:
 
       - name: Install SnowSQL
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/snowsql.bash
+        run: programs/snowsql/install.bash
 
       - name: Install SnowSQL again (test idempotency)
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/snowsql.bash
+        run: programs/snowsql/install.bash

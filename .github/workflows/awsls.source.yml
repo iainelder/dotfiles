@@ -23,8 +23,8 @@ jobs:
 
       - name: Install awsls.source
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/awsls.source.bash
+        run: programs/awsls.source/install.bash
 
       - name: Install awsls.source again (test idempotency)
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/awsls.source.bash
+        run: programs/awsls.source/install.bash

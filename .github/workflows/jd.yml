@@ -23,8 +23,8 @@ jobs:
 
       - name: Install jq
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/jd.bash
+        run: programs/jd/install.bash
 
       - name: Install jq again (test idempotency)
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/jd.bash
+        run: programs/jd/install.bash

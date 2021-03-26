@@ -23,8 +23,8 @@ jobs:
 
       - name: Install AWS Workspaces Client
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/workspacesclient.bash
+        run: programs/workspacesclient/install.bash
 
       - name: Install AWS Workspaces Client again (test idempotency)
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/workspacesclient.bash
+        run: programs/workspacesclient/install.bash

@@ -5,9 +5,9 @@ set +x
 
 template=".github/workflows/_program.yml.template"
 
-for program in scripts/programs/*.bash; do
+for program in programs/**/install.bash; do
 
-  file_basename="$(basename "${program}" .bash)"
+  workflow_filename="$(basename $(dirname "${program}"))"
 
   set +e
   program_name="$(grep --perl-regexp --only-matching '(?<=# Name: ).*$' "${program}")"
@@ -15,9 +15,9 @@ for program in scripts/programs/*.bash; do
 
   # shellcheck disable=SC2002
   cat "${template}" |
-  program_name="${program_name:-$file_basename}" \
+  program_name="${program_name:-$workflow_filename}" \
   program_script="${program}" \
   envsubst \
-  > .github/workflows/"${file_basename}.yml"
+  > .github/workflows/"${workflow_filename}.yml"
 
 done

@@ -23,8 +23,8 @@ jobs:
 
       - name: Install Vagrant
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/vagrant.bash
+        run: programs/vagrant/install.bash
 
       - name: Install Vagrant again (test idempotency)
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/vagrant.bash
+        run: programs/vagrant/install.bash

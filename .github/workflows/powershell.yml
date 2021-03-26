@@ -23,8 +23,8 @@ jobs:
 
       - name: Install PowerShell
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/powershell.bash
+        run: programs/powershell/install.bash
 
       - name: Install PowerShell again (test idempotency)
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/powershell.bash
+        run: programs/powershell/install.bash

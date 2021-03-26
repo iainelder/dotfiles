@@ -23,8 +23,8 @@ jobs:
 
       - name: Install Anki
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/anki.bash
+        run: programs/anki/install.bash
 
       - name: Install Anki again (test idempotency)
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/anki.bash
+        run: programs/anki/install.bash

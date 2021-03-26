@@ -23,8 +23,8 @@ jobs:
 
       - name: Install Terragrunt
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/terragrunt.bash
+        run: programs/terragrunt/install.bash
 
       - name: Install Terragrunt again (test idempotency)
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/terragrunt.bash
+        run: programs/terragrunt/install.bash

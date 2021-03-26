@@ -23,8 +23,8 @@ jobs:
 
       - name: Install awscli
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/awscli.bash
+        run: programs/awscli/install.bash
 
       - name: Install awscli again (test idempotency)
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/awscli.bash
+        run: programs/awscli/install.bash

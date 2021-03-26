@@ -23,8 +23,8 @@ jobs:
 
       - name: Install GnuCash 4
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/gnucash4.bash
+        run: programs/gnucash4/install.bash
 
       - name: Install GnuCash 4 again (test idempotency)
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/gnucash4.bash
+        run: programs/gnucash4/install.bash

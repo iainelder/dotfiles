@@ -23,8 +23,8 @@ jobs:
 
       - name: Install Bitbucket Pipelines CLI
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/pipelines.bash
+        run: programs/pipelines/install.bash
 
       - name: Install Bitbucket Pipelines CLI again (test idempotency)
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/pipelines.bash
+        run: programs/pipelines/install.bash

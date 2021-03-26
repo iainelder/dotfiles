@@ -23,8 +23,8 @@ jobs:
 
       - name: Install Azure Devops CLI
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/az.bash
+        run: programs/az/install.bash
 
       - name: Install Azure Devops CLI again (test idempotency)
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/az.bash
+        run: programs/az/install.bash

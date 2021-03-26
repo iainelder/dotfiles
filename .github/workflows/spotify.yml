@@ -23,8 +23,8 @@ jobs:
 
       - name: Install Spotify
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/spotify.bash
+        run: programs/spotify/install.bash
 
       - name: Install Spotify again (test idempotency)
         shell: su norm --command "bash --login {0}"
-        run: scripts/programs/spotify.bash
+        run: programs/spotify/install.bash
