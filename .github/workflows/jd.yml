@@ -1,4 +1,4 @@
-name: jq
+name: jd
 on:
   push:
     branches: [ master ]
@@ -21,10 +21,10 @@ jobs:
       - name: Prepare Docker
         run: ./scripts/prepare_docker.bash
 
-      - name: Install jq
+      - name: Install jd
         shell: su norm --command "bash --login {0}"
         run: programs/jd/install.bash
 
-      - name: Install jq again (test idempotency)
+      - name: Install jd again (test idempotency)
         shell: su norm --command "bash --login {0}"
         run: programs/jd/install.bash
