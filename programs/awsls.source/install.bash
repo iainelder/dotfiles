@@ -11,7 +11,7 @@ git \
 make \
 gcc
 
-"${script_dir}"/goenv.bash
+"${script_dir}"/../goenv/install.bash
 
 set +u
 source /etc/profile.d/goenv.sh
