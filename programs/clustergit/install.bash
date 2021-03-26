@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Name: clustergit
-# Source: https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html
+# Source: https://github.com/mnagel/clustergit/blob/master/README.md
 
 set -euxo pipefail
 
