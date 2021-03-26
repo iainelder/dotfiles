@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Name: jq
+# Name: jd
 # https://github.com/josephburnett/jd/blob/master/README.md
 
 set -euxo pipefail
