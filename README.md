@@ -52,20 +52,6 @@ pipx upgrade-all --skip taskcat
 TODO: more things
 ```
 
-Add this to .bashrc with a test.
-
-```bash
-function ydl() {
-  (
-    cd ~/Descargas
-    youtube-dl \
-    --extract-audio \
-    --write-description \
-    "${1}"
-  )
-}
-```
-
 ## To be added to install.sh
 
 AWS Session Manager Plugin
