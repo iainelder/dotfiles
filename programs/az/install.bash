@@ -14,15 +14,10 @@ sudo az extension add --system --upgrade --name azure-devops
 
 az --version
 
-# Fix bug in az devops login
+# Fix error in `az devops login` because of missing package.
 # https://github.com/Azure/azure-devops-cli-extension/issues/1099
-# https://github.com/Azure/azure-cli/issues/16858
 sudo apt-get install --yes python3-pip
-sudo pip3 install --upgrade pip --target /opt/az/lib/python3.6/site-packages/
+sudo pip3 install --target /opt/az/lib/python3.6/site-packages/ keyring~=17.1.1
 
-# Test command only works interactively.
-
-# Interactive output: "Failed to store PAT using keyring; falling back to file storage."
-# Scripted output: "Unable to use secure credential store in this environment. ... An error occurred. Pip failed with status code 2 for package keyring~=17.1.1. Use --debug for more information."
-# echo "faketoken" | az devops login --debug
-# az devops logout
+echo "faketoken" | az devops login
+az devops logout
