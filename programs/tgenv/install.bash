@@ -1,27 +1,30 @@
 #!/bin/bash
 
 # Name: tgenv
-# Source: https://github.com/tfutils/tfenv/blob/master/README.md
+# Source: https://github.com/cunymatthieu/tgenv/blob/master/README.md
 
 set -euxo pipefail
 
 cd "$(mktemp --dir)"
 
 sudo apt-get update && sudo apt-get install --yes \
-git # \
-# curl \
-# unzip
+git \
+curl
 
-if ! test -d ~/tfenv; then
-  git clone https://github.com/tfutils/tgenv.git ~/tfenv
+repo_url="https://github.com/cunymatthieu/tgenv"
+local_path="/opt/tgenv"
+
+if ! test -d "${local_path}"; then
+  sudo git clone "${repo_url}" "${local_path}"
 else
-  (cd ~/tgenv && git pull)
+  sudo git -C "${local_path}" pull
 fi
 
-sudo ln --symbolic --force ~/tgenv/bin/* /usr/local/bin
+sudo ln --symbolic --force "${local_path}"/bin/* /usr/local/bin
 
-tgenv install latest
+latest="$(tgenv list-remote | head --lines 1)"
+sudo tgenv install "${latest}"
 
-tfenv use latest
+tgenv --version
 
-terraform version
+terragrunt --version
