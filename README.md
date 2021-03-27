@@ -23,6 +23,13 @@ test_local.bash script.
 ./test_local.bash scripts/install_programs.bash
 ```
 
+Run test_local.bash without arguments to prepare the Docker environment and
+start an interactive shell for experimenting.
+
+```bash
+./test_local.bash
+```
+
 ## Continuous integration (CI) with Github Actions
 
 Each installer script is tested with a CI workflow.
