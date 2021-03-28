@@ -10,7 +10,7 @@ script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
 if test "_" != ${program}; then
   # Run program install script as norm user and bash to debug after.
-  su --login norm --command "bash --login -c '${program}'; bash"
+  su --login norm --command "bash --login -c '/code/${program}'; bash"
 else
   # Run interactive shell for experimenting.
   su --login norm --command "bash --login"
