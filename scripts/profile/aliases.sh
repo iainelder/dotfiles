@@ -2,3 +2,4 @@
 
 alias settemp='export tmp=$(mktemp --dir /tmp/bash.XXX)'
 alias setroot='r=$(git rev-parse --show-toplevel)'
+alias tftree='tree -a -I ".terraform" -I ".terragrunt-cache"'
