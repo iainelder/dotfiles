@@ -1,2 +1,3 @@
 # Terraform local state
 --ignore-directory=is:.terraform
+--ignore-directory=is:.terragrunt-cache
