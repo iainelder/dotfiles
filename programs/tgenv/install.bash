@@ -1,7 +1,10 @@
 #!/bin/bash
 
 # Name: tgenv
-# Source: https://github.com/cunymatthieu/tgenv/blob/master/README.md
+# Source: https://github.com/taosmountain/tgenv/blob/main/README.md
+
+# See this Github issue for why I changed the implementation:
+# https://github.com/cunymatthieu/tgenv/issues/11#issuecomment-812067189
 
 set -euxo pipefail
 
@@ -11,7 +14,7 @@ sudo apt-get update && sudo apt-get install --yes \
 git \
 curl
 
-repo_url="https://github.com/cunymatthieu/tgenv"
+repo_url="https://github.com/taosmountain/tgenv"
 local_path="/opt/tgenv"
 
 if ! test -d "${local_path}"; then
@@ -22,8 +25,9 @@ fi
 
 sudo ln --symbolic --force "${local_path}"/bin/* /usr/local/bin
 
-latest="$(tgenv list-remote | head --lines 1)"
-sudo tgenv install "${latest}"
+sudo tgenv install latest
+
+sudo tgenv use latest
 
 tgenv --version
 
