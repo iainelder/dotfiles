@@ -7,7 +7,7 @@ template=".github/workflows/_program.yml.template"
 
 for program in programs/**/install.bash; do
 
-  workflow_filename="$(basename $(dirname "${program}"))"
+  workflow_filename="$(basename "$(dirname "${program}")")"
 
   set +e
   program_name="$(grep --perl-regexp --only-matching '(?<=# Name: ).*$' "${program}")"
