@@ -15,7 +15,7 @@ jq
 
 browser_download_url=$(
   curl -Ss 'https://api.github.com/repos/josephburnett/jd/releases/latest' |
-  jq -r '.assets[] | select(.name | test("jd")) | .browser_download_url'
+  jq -r '.assets[] | select(.name == "jd-amd64-linux") | .browser_download_url'
 )
 
 download_filename=$(
@@ -32,5 +32,4 @@ chmod +x "${download_filename}"
 
 sudo mv "${download_filename}" /usr/local/bin/jd
 
-# Version printed at the end of the usage statement
-jd
+jd --version
