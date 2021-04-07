@@ -1,3 +1,8 @@
 # Terraform local state
 --ignore-directory=is:.terraform
 --ignore-directory=is:.terragrunt-cache
+
+# Terraform file types
+--type-add=terraform:ext:tf,tfvars
+--type-add=terraform:is:terragrunt.hcl
+--type-add=terragrunt:is:terragrunt.hcl
