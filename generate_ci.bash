@@ -1,11 +1,12 @@
 #!/bin/bash
 
-set -euxo pipefail
-set +x
+set -euo pipefail
 
 template=".github/workflows/_program.yml.template"
 
 for program in programs/**/install.bash; do
+
+  echo "Generating CI for ${program}"
 
   workflow_filename="$(basename "$(dirname "${program}")")"
 
