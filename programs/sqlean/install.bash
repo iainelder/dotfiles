@@ -11,14 +11,17 @@ sudo apt-get update
 
 sudo apt-get --assume-yes install \
 curl \
-jq
+jq \
+sqlite3
 
 readarray -t browser_download_urls < <(
   curl -Ss 'https://api.github.com/repos/nalgeon/sqlean/releases/latest' |
   jq -r '.assets[] | select(.name | test("\\.so$"))| .browser_download_url'
 )
 
-sudo mkdir /opt/sqlean
+if test ! -d /opt/sqlean; then
+  sudo mkdir /opt/sqlean
+fi
 
 for url in "${browser_download_urls[@]}"; do
 
@@ -35,4 +38,7 @@ for url in "${browser_download_urls[@]}"; do
   sudo mv "${download_filename}" /opt/sqlean/
 done
 
-# TODO: check that it works correctly; install sqlite to check
+sqlite3 <<EOF
+.load /opt/sqlean/math
+SELECT sqrt(9);
+EOF
