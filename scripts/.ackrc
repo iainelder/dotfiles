@@ -4,5 +4,8 @@
 
 # Terraform file types
 --type-add=terraform:ext:tf,tfvars
+--type-add=terraform:is:.terraform.lock.hcl
 --type-add=terraform:is:terragrunt.hcl
+
+# Terragrunt file types
 --type-add=terragrunt:is:terragrunt.hcl
