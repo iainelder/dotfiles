@@ -14,6 +14,7 @@ gcc
 "${script_dir}"/../goenv/install.bash
 
 set +u
+# shellcheck disable=SC1091
 source /etc/profile.d/goenv.sh
 set -u
 
