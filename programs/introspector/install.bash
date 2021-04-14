@@ -49,7 +49,7 @@ sudo pip3 install pipx
 sudo \
 PIPX_HOME=/opt/pipx \
 PIPX_BIN_DIR=/usr/local/bin \
-pipx install docker-compose
+pipx install --force docker-compose
 
 # FIXME: enable rootless docker
 # FIXME: Launch as a service
