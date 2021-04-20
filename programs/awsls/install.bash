@@ -22,6 +22,6 @@ installer_filename=$(
   --write-out '%{filename_effective}'
 )
 
-bash ./"${installer_filename}" -b ~/.local/bin
+sudo bash ./"${installer_filename}" -b /usr/local/bin
 
-~/.local/bin/awsls --version
+awsls --version
