@@ -254,3 +254,12 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb
 cat /etc/apt/sources.list.d/google-chrome.list
 ```
+
+## Unrar
+
+To avoid
+[Archive Manager’s Parsing Filters is Unsupported Message](https://delightlylinux.wordpress.com/2016/08/23/fixing-archive-managers-parsing-filters-is-unsupported-message/).
+
+```bash
+sudo apt install unrar
+```
