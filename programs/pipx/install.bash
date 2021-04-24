@@ -18,6 +18,7 @@ sudo cp "${script_dir}"/sudoers /etc/sudoers.d/pipx
 
 # Need to source it here for the installation.
 # It will be done automatically at next login.
+# shellcheck disable=SC1091
 source /etc/profile.d/pipx.sh
 
 sudo pipx install csvkit
