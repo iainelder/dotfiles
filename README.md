@@ -263,3 +263,11 @@ To avoid
 ```bash
 sudo apt install unrar
 ```
+
+## Cobang QR Reader
+
+```bash
+sudo add-apt-repository ppa:ng-hong-quan/ppa
+sudo apt update
+sudo apt install cobang
+```
