@@ -21,6 +21,8 @@ sudo cp "${script_dir}"/sudoers /etc/sudoers.d/pipx
 # shellcheck disable=SC1091
 source /etc/profile.d/pipx.sh
 
-sudo pipx install csvkit
+pipx --version
 
-csvstat --version
+sudo pipx install --force print-hello-world
+
+print-hello-world
