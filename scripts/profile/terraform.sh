@@ -6,3 +6,7 @@ export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
 # https://www.terraform.io/upgrade-guides/0-14.html
 # https://github.com/hashicorp/terraform/issues/27139
 # export TF_X_CONCISE_DIFF=0
+
+alias tfplan='terraform plan --out ~/tmp/$$.tfout'
+
+alias tfapply='terraform apply ~/tmp/$$.tfout'
