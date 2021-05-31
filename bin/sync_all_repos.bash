@@ -3,7 +3,7 @@
 set -euxo pipefail
 
 sync_repos() {
-  cd $1
+  cd "${1}"
 
   unclean="$(
     clustergit --branch '' --recursive --exclude=/\.terraform/ |
