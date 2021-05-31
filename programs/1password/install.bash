@@ -15,7 +15,7 @@ gpg
 
 # Add the key for the 1Password apt repository.
 curl -sS https://downloads.1password.com/linux/keys/1password.asc |
-gpg --dearmor --output - \
+gpg --dearmor --output - |
 sudo tee /usr/share/keyrings/1password-archive-keyring.gpg
 
 # Add the 1Password apt repository.
@@ -30,7 +30,7 @@ sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
 sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
 
 curl -sS https://downloads.1password.com/linux/keys/1password.asc |
-gpg --dearmor --output - \
+gpg --dearmor --output - |
 sudo tee /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
 
 # Install 1Password.
