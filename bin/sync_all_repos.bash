@@ -5,15 +5,15 @@ set -euxo pipefail
 sync_repos() {
   cd "${1}"
 
-  # Waiting output is generated for some (slower?) repos. When the repo
-  # processing is complete the line no longer appears in the terminal but it
-  # remains in stdout. The '\r' means that in the terminal the line gets
-  # overwritten but in the stream it's prepended to the line.
+  # `--print-asap` avoids printing a "Waiting" message before the final
+  # result that breaks the filter. `--workers 1` maintains the serial
+  # execution order.
   # https://github.com/mnagel/clustergit/blob/78c4562e3e47253dccc91d49f1f1bd24d18a4fc2/clustergit#L525
   # https://github.com/mnagel/clustergit/issues/38
   unclean="$(
-    clustergit --branch '' --recursive --exclude=/\.terraform/ |
-    tr '\r' '\n' |
+    clustergit \
+    --print-asap --workers 1 \
+    --branch '' --recursive --exclude=/\.terraform/ |
     grep ':' |
     grep -v Clean |
     awk '{print $1}'
