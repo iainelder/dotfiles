@@ -14,9 +14,7 @@ sync_repos() {
     clustergit \
     --print-asap --workers 1 \
     --branch '' --recursive --exclude=/\.terraform/ |
-    grep ':' |
-    grep -v Clean |
-    awk '{print $1}'
+    awk '/:/ && !/Clean/ {print $1}'
   )"
 
   for repo in $unclean; do
