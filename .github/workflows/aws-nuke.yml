@@ -1,0 +1,30 @@
+name: aws-nuke
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:20.04
+
+    steps:
+
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Prepare Docker
+        run: ./scripts/prepare_docker.bash
+
+      - name: Install aws-nuke
+        shell: su norm --command "bash --login {0}"
+        run: programs/aws-nuke/install.bash
+
+      - name: Install aws-nuke again (test idempotency)
+        shell: su norm --command "bash --login {0}"
+        run: programs/aws-nuke/install.bash
