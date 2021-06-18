@@ -271,3 +271,22 @@ sudo add-apt-repository ppa:ng-hong-quan/ppa
 sudo apt update
 sudo apt install cobang
 ```
+
+## OpenRazer
+
+https://openrazer.github.io/#download
+
+```bash
+sudo add-apt-repository ppa:openrazer/stable
+sudo apt update
+sudo apt install openrazer-meta
+```
+
+## Audio Recorder
+
+https://ubunlog.com/audio-recorder-una-aplicacion-para-grabar-y-registrar-audio-en-tu-sistema/
+
+```
+sudo add-apt-repository ppa:osmoma/audio-recorder
+
+```
