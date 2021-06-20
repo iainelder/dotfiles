@@ -284,9 +284,10 @@ sudo apt install openrazer-meta
 
 ## Audio Recorder
 
-https://ubunlog.com/audio-recorder-una-aplicacion-para-grabar-y-registrar-audio-en-tu-sistema/
+https://launchpad.net/~audio-recorder/+archive/ubuntu/ppa
 
 ```
-sudo add-apt-repository ppa:osmoma/audio-recorder
-
+sudo add-apt-repository ppa:audio-recorder/ppa
+sudo apt-get -y update
+sudo apt-get install --reinstall audio-recorder
 ```
