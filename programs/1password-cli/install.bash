@@ -14,7 +14,8 @@ sudo apt-get update
 # Installer dependencies
 sudo apt-get --assume-yes install \
 curl \
-libxml2-utils
+libxml2-utils \
+unzip
 
 # Get latest version URL
 curl -Ss 'https://app-updates.agilebits.com/product_history/CLI' > all_versions
@@ -38,3 +39,9 @@ download_filename=$(
   --remote-name \
   --write-out '%{filename_effective}'
 )
+
+unzip "$download_filename"
+
+sudo cp op /usr/local/bin
+
+op --version
