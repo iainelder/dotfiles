@@ -134,7 +134,6 @@ done
 # See http://mywiki.wooledge.org/BashFAQ/024.
 while read profile_dir ; do
   for f in "${profile_dir}"/*; do
-    echo $f
     source "$f";
   done
 done < ~/.private_profiles
