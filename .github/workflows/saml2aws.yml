@@ -1,0 +1,30 @@
+name: saml2aws
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:20.04
+
+    steps:
+
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Prepare Docker
+        run: ./scripts/prepare_docker.bash
+
+      - name: Install saml2aws
+        shell: su norm --command "bash --login {0}"
+        run: programs/saml2aws/install.bash
+
+      - name: Install saml2aws again (test idempotency)
+        shell: su norm --command "bash --login {0}"
+        run: programs/saml2aws/install.bash
