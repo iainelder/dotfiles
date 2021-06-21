@@ -291,3 +291,9 @@ sudo add-apt-repository ppa:audio-recorder/ppa
 sudo apt-get -y update
 sudo apt-get install --reinstall audio-recorder
 ```
+
+## RocketChat
+
+https://github.com/RocketChat/Rocket.Chat.Electron/releases
+
+Download and install the latest .deb package.
