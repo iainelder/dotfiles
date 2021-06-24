@@ -1,0 +1,8 @@
+/code/programs/pipx/install.bash
+
+source /etc/profile.d/pipx.sh
+
+sudo pipx install mitmproxy
+
+# Generate the certificate
+timeout --kill-after 1 mitmproxy
