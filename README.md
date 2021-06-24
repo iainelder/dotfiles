@@ -297,3 +297,27 @@ sudo apt-get install --reinstall audio-recorder
 https://github.com/RocketChat/Rocket.Chat.Electron/releases
 
 Download and install the latest .deb package.
+
+## mitmproxy
+
+Install and run in one terminal:
+
+```
+pipx install mitmproxy
+mitmproxy
+```
+
+Running generates a certificate. Test it first with curl.
+
+```
+curl --proxy 127.0.0.1:8080 --cacert ~/.mitmproxy/mitmproxy-ca-cert.pem https://example.com/
+```
+
+If that works then install it globally:
+
+```
+sudo mv ~/.mitmproxy/mitmproxy-ca-cert.pem /usr/local/share/ca-certificates/mitmproxy.crt
+sudo update-ca-certificates
+```
+
+Install certificate in Firefox as well because it does not use the the OS root certificates.
