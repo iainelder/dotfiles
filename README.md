@@ -321,3 +321,21 @@ sudo update-ca-certificates
 ```
 
 Install certificate in Firefox as well because it does not use the the OS root certificates.
+
+## Steam
+
+https://linuxconfig.org/how-to-install-steam-on-ubuntu-20-04-focal-fossa-linux
+
+```bash
+sudo add-apt-repository multiverse
+sudo apt update
+sudo apt install steam
+```
+
+## VS Code Extensions
+
+Install these extensions for Visual Studio Code:
+
+* Cfn-Nag Linter
+* CloudFormation Linter
+* AWS CloudFormation Resource Provider Schema Linter
