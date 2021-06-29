@@ -31,8 +31,6 @@ download_filename=$(
 
 tar --extract --gzip --file "$download_filename"
 
-extract_folder=$(basename "$download_filename" ".tar.bz2")
-
 sudo mv geckodriver /usr/local/bin
 
 geckodriver --version
