@@ -39,7 +39,11 @@ signature_filename=$(
   --write-out '%{filename_effective}'
 )
 
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 37C7086698CB005C
+# The original instructions used keys.gpg.net. That hostname no longer resolves.
+# Don't use keys.openpgp.org. It strips the user ID required for verification.
+# Thanks to @Matthew_1P from the 1Password forums for a clear explanation.
+# https://1password.community/discussion/114834/cant-verify-pgp-on-cli-tools
+gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys 37C7086698CB005C
 
 gpg --verify "$signature_filename" "$installer_filename"
 
