@@ -5,6 +5,13 @@ set -euxo pipefail
 sync_repos() {
   cd "${1}"
 
+  # Set awk's field separator to handle long names that fuse with the colon.
+  # ./aws-sa-pro                            : Clean
+  # ./aws-sam-cli                           : Clean
+  # ./aws-security-reference-architecture-examples: Changes
+  # ./aws-solutions-architect-professional  : Clean
+  # ./awscurl                               : Clean
+  #
   # `--print-asap` avoids printing a "Waiting" message before the final
   # result that breaks the filter. `--workers 1` maintains the serial
   # execution order.
@@ -14,7 +21,7 @@ sync_repos() {
     clustergit \
     --print-asap --workers 1 \
     --branch '' --recursive --exclude=/\.terraform/ |
-    awk '/:/ && !/Clean/ {print $1}'
+    awk -F'\\s*:' '/:/ && !/Clean/ {print $1}'
   )"
 
   for repo in $unclean; do
