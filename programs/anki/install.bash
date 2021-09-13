@@ -49,5 +49,6 @@ libxkbcommon0
 
 sudo ./install.sh
 
-# The --version option requires but ignores a non-empty argument.
+# The version option requires but ignores a non-empty argument.
+# Anki requires a UTF-8 locale.
 LC_CTYPE=C.UTF-8 /usr/local/bin/anki --version 'x'
