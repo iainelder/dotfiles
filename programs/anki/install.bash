@@ -45,7 +45,8 @@ sudo --preserve-env=DEBIAN_FRONTEND \
 apt-get --assume-yes install \
 xdg-utils \
 libnss3 \
-libxkbcommon0
+libxkbcommon0 \
+libxdamage1
 
 sudo ./install.sh
 
