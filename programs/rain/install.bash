@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Name: Anki
+# Name: Rain
 # https://github.com/aws-cloudformation/rain
 
 set -euxo pipefail
