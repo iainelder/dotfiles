@@ -1,4 +1,4 @@
-name: Anki
+name: yq
 on:
   push:
     branches: [ master ]
@@ -21,10 +21,10 @@ jobs:
       - name: Prepare Docker
         run: ./scripts/prepare_docker.bash
 
-      - name: Install Anki
+      - name: Install yq
         shell: su norm --command "bash --login {0}"
         run: programs/yq/install.bash
 
-      - name: Install Anki again (test idempotency)
+      - name: Install yq again (test idempotency)
         shell: su norm --command "bash --login {0}"
         run: programs/yq/install.bash
