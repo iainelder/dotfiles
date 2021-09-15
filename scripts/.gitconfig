@@ -18,3 +18,5 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+[alias]
+	root = rev-parse --show-toplevel
