@@ -23,5 +23,6 @@ sudo ln -sf "${local_path}"/local_builds/codebuild_build.sh /usr/local/bin/codeb
 
 command -V codebuild_build.sh
 
-echo -n "Version: " \
-&& git -C "${local_path}" log --max-count 1 --oneline /local_builds/codebuild_build.sh
+version="$(git -C "${local_path}" log --max-count 1 --oneline local_builds/codebuild_build.sh)"
+
+echo "Version: ${version}"
