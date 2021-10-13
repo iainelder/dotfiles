@@ -4,6 +4,32 @@ Iain Samuel McLean Elder's dotfiles for Ubuntu 20.04.
 
 Based on Victoria Drake's dotfiles, and slowly evolving into its own thing.
 
+## Configuring private profiles sourced by .bashrc
+
+.bashrc sources all the files in all the folders listed in ~/.private_profiles.
+
+The ~/.private_profiles file is not managed by any of the commands in this repo.
+
+Typically the file will refer to folders containing files with setup commands for client projects or other stuff that I can't make public.
+
+Example of how to set it up for a client ABC:
+
+```bash
+mkdir ~/abc_profile
+echo "${HOME}/abc_profile" > ~/.private_profiles
+vim ~/abc_profile/add-abc-commands-to-path
+```
+
+Where add-abc-commands-to-path would contain:
+
+```bash
+# Add abc commands to the path
+cd ~/Repos/ABC/abc-tools/
+export PATH="${PATH}:$(pwd)/bin"
+```
+
+Now the ~/Repos/ABC/abc-tools/bin folder will be on the path when you next init the terminal.
+
 ## Devopment environment for Github actions
 
 The program installer scripts assume the existence of sudo and may invoke it to
