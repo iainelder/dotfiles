@@ -365,3 +365,9 @@ Install these extensions for Visual Studio Code:
 * Cfn-Nag Linter
 * CloudFormation Linter
 * AWS CloudFormation Resource Provider Schema Linter
+
+## Paxmod
+
+[Paxmod](https://github.com/numirias/paxmod) is a Firefox add-on for multiple tab rows and dynamic, site-dependent tab colors.
+
+Needs Firefox Developer version to work.
