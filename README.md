@@ -371,3 +371,21 @@ Install these extensions for Visual Studio Code:
 [Paxmod](https://github.com/numirias/paxmod) is a Firefox add-on for multiple tab rows and dynamic, site-dependent tab colors.
 
 Needs Firefox Developer version to work.
+
+## Simple Screen Recorder
+
+https://www.maartenbaert.be/simplescreenrecorder/
+
+It's in the Ubuntu repo, but it might be out of date. If so:
+
+```bash
+sudo apt-add-repository ppa:maarten-baert/simplescreenrecorder
+sudo apt-get update
+sudo apt-get install simplescreenrecorder
+```
+
+To compress a recording (half the audio channels, audio samples, video height and video width) and use a common format:
+
+```bash
+ffmpeg -i simplescreenrecorder-*.mkv -ar 24000 -ac 1 -vf:scale=960:540 output.mkv
+```
