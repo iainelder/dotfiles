@@ -9,3 +9,6 @@
 
 # Terragrunt file types
 --type-add=terragrunt:is:terragrunt.hcl
+
+# Python
+--ignore-dir=.mypy_cache
