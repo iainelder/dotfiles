@@ -9,3 +9,19 @@ alias dtree='tree --dirsfirst'
 alias cdtemp='cd $(mktemp --dir ~/tmp/tmp.$(date --iso).XXXXXXXX)'
 alias gittree='find -type d -exec sh -c '\''test -d "$1"/.git'\'' -- {} \; -print -prune'
 alias pytree='tree -a -I ".git|__pycache__|.mypy_cache|.pytest_cache" --dirsfirst'
+
+function gut() {
+    case $@ in
+        "push")
+            printf "💩\n"
+            ;;
+
+        "status")
+            printf "hungry\n"
+            ;;
+
+        *)
+            command gut $@
+            ;;
+    esac
+}
