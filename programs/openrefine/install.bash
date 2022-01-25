@@ -32,7 +32,7 @@ download_filename=$(
 
 tar --extract --gzip --file "$download_filename"
 
-extract_folder="$(find -mindepth 1 -maxdepth 1 -type d)"
+extract_folder="$(find . -mindepth 1 -maxdepth 1 -type d)"
 
 local_path=/opt/openrefine
 
@@ -49,11 +49,13 @@ export PATH="${PATH}:${local_path}"
 EOF
 
 export local_path
+# shellcheck disable=SC2016,SC2002
 cat openrefine.sh |
 envsubst '${local_path}' |
 sudo tee /etc/profile.d/openrefine.sh 1>/dev/null
 
 # Source here to test dsutils commands.
+# shellcheck disable=SC1091
 source /etc/profile.d/openrefine.sh
 
 # Application dependencies
