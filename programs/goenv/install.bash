@@ -12,7 +12,7 @@ git \
 gettext-base
 
 repo_url="https://github.com/syndbg/goenv.git"
-export local_path="/opt/goenv" # exported for envsubst
+local_path="/opt/goenv"
 
 if ! test -d "${local_path}"; then
   sudo git clone "${repo_url}" "${local_path}"
@@ -36,15 +36,11 @@ export PATH="${PATH}:${GOROOT}/bin"
 export PATH="${PATH}:${GOPATH}/bin"
 EOF
 
-
+export local_path
 # shellcheck disable=SC2016,SC2002
 cat goenv.sh |
 envsubst '${local_path}' |
 sudo tee /etc/profile.d/goenv.sh 1>/dev/null
-
-# Required for goenv install
-sudo apt --yes install \
-curl
 
 # Source here to test goenv command.
 # Tolerate unset GOROOT and GOPATH.
@@ -52,5 +48,9 @@ set +u
 # shellcheck disable=SC1091
 source /etc/profile.d/goenv.sh
 set -u
+
+# Required for goenv install
+sudo apt --yes install \
+curl
 
 goenv --version
