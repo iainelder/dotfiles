@@ -63,4 +63,5 @@ sudo apt-get --assume-yes install \
 default-jre
 
 # Refine has no version output, so the help will do.
+# FIXME: help command has exit code 1.
 refine -h
