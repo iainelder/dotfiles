@@ -16,7 +16,7 @@ jq
 
 browser_download_url=$(
   curl -Ss 'https://api.github.com/repos/harelba/q/releases/latest' |
-  jq -r '.assets[] | select(.name | test("amd64.deb")) | .browser_download_url'
+  jq -r '.assets[] | select(.name | test("x86_64.deb")) | .browser_download_url'
 )
 
 download_filename=$(
