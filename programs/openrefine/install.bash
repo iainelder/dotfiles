@@ -65,7 +65,7 @@ default-jre
 # Refine has no version output and never seems to output a zero exit code.
 # Start the server, capture its output, and grep it for a ready message.
 set +e
-timeout --preserve-status 2s refine run > refine-output.txt
+timeout --preserve-status 10s refine run > refine-output.txt
 set -e
 
 ready_message="Point your browser to http://127.0.0.1:3333/ to start using Refine."
