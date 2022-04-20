@@ -1,9 +1,13 @@
 name: Azure Devops CLI
+
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  # Disabled until the following issue is resolved.
+  # https://github.com/Azure/azure-devops-cli-extension/issues/1272
+  # "az devops login: Pip failed with status code 2 for package keyring~=17.1.1"
+  # push:
+  #   branches: [ master ]
+  # pull_request:
+  #   branches: [ master ]
 
   workflow_dispatch:
 

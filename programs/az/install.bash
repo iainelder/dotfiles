@@ -17,7 +17,8 @@ az --version
 # Fix error in `az devops login` because of missing package.
 # https://github.com/Azure/azure-devops-cli-extension/issues/1099
 sudo apt-get install --yes python3-pip
-sudo pip3 install --target /opt/az/lib/python3.6/site-packages/ keyring~=17.1.1
+sudo pip3 install --target /opt/az/lib/python3.6/site-packages/ --upgrade pip
+sudo pip3 install --target /opt/az/lib/python3.6/site-packages/ --upgrade keyring~=17.1.1
 
 echo "faketoken" | az devops login
 az devops logout
