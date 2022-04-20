@@ -14,11 +14,12 @@ sudo apt-get update
 # Installer dependencies
 sudo apt-get --assume-yes install \
 curl \
-jq
+jq \
+zstd
 
 browser_download_url=$(
   curl -Ss 'https://api.github.com/repos/ankitects/anki/releases/latest' |
-  jq -r '.assets[] | select(.name | test("linux")) | .browser_download_url'
+  jq -r '.assets[] | select(.name | test("linux-qt5.tar.zst")) | .browser_download_url'
 )
 
 download_filename=$(
@@ -31,9 +32,9 @@ download_filename=$(
   --write-out '%{filename_effective}'
 )
 
-tar --extract --bzip2 --file "$download_filename"
+tar --extract --auto-compress --file "$download_filename"
 
-extract_folder=$(basename "$download_filename" ".tar.bz2")
+extract_folder=$(basename "$download_filename" ".tar.zst")
 
 cd "$extract_folder"
 
@@ -46,7 +47,8 @@ apt-get --assume-yes install \
 xdg-utils \
 libnss3 \
 libxkbcommon0 \
-libxdamage1
+libxdamage1 \
+libasound2
 
 sudo ./install.sh
 
