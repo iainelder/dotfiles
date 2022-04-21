@@ -20,3 +20,4 @@
 	whitespace = red reverse
 [alias]
 	root = rev-parse --show-toplevel
+	ack = ! git ls-files --others --cached --exclude-standard | ack -x
