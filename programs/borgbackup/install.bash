@@ -29,6 +29,6 @@ download_filename=$(
   --write-out '%{filename_effective}'
 )
 
-sudo install -T $download_filename /usr/local/bin/borg
+sudo install -T "$download_filename" /usr/local/bin/borg
 
 borg --version
