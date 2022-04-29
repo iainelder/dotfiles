@@ -38,4 +38,8 @@ function gut() {
     esac
 }
 
+function got() {
+    printf "🥤\n"
+}
+
 alias query='sqlite3 --readonly --csv --header'
