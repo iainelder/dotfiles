@@ -43,3 +43,5 @@ function got() {
 }
 
 alias query='sqlite3 --readonly --csv --header'
+
+alias prepsquash='git log --reverse --format=format:"* %s%n%b" master..'
