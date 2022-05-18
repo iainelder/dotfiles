@@ -12,7 +12,7 @@ curl
 
 latest_version="$(
   curl -Ss 'https://releases.hashicorp.com/vagrant/' |
-  grep -oP '(?<=vagrant/).*?(?=/)' |
+  grep -oP '(?<=vagrant_).*?(?=</a>)' |
   head -n 1
 )"
 
