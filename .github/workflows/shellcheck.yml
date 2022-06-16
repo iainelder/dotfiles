@@ -1,4 +1,4 @@
-name: shellcheck
+name: Anki
 on:
   push:
     branches: [ master ]
@@ -18,8 +18,13 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Shellcheck
-        run: |-
-          apt-get --yes update
-          apt-get --yes install shellcheck
-          find -type f -executable -name '*.bash' | xargs shellcheck -ax
+      - name: Prepare Docker
+        run: ./scripts/prepare_docker.bash
+
+      - name: Install Anki
+        shell: su norm --command "bash --login {0}"
+        run: programs/shellcheck/install.bash
+
+      - name: Install Anki again (test idempotency)
+        shell: su norm --command "bash --login {0}"
+        run: programs/shellcheck/install.bash
