@@ -16,7 +16,7 @@ jq
 
 browser_download_url=$(
   curl -Ss 'https://api.github.com/repos/errata-ai/vale/releases/latest' |
-  jq -r '.assets[] | select(.name | test("Linux")) | .browser_download_url'
+  jq -r '.assets[] | select(.name | test("Linux_64")) | .browser_download_url'
 )
 
 download_filename=$(
