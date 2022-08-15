@@ -8,7 +8,8 @@ set -euxo pipefail
 cd "$(mktemp --dir)"
 
 sudo apt-get install --yes \
-curl
+curl \
+gnupg
 
 package="https://go.microsoft.com/fwlink/?LinkID=760868"
 
