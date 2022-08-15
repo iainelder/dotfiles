@@ -25,8 +25,4 @@ download_filename="$(
 
 sudo apt-get install --yes "./${download_filename}"
 
-# Normally you would use `code --version` to check the version.
-# But it fails with an X11 error in a non-GUI environment.
-# This is good enough because it proves that the package is installed
-# via apt.
-apt-cache policy code
+code --version
