@@ -16,7 +16,15 @@ latest_version="$(
   head -n 1
 )"
 
-package_url="https://releases.hashicorp.com/vagrant/${latest_version}/vagrant_${latest_version}_x86_64.deb"
+# At version 2.3.0 the name format of the deb package changed.
+# It also looks like they hid the normal release version and replaced it with a
+# patched release. So fetch whatever the name of the 64-bit deb package is.
+deb_package="$(
+  curl -Ss "https://releases.hashicorp.com/vagrant/${latest_version}/" |
+  grep -oP "(?<=>)vagrant_.*?_(x86_64|amd64)\.deb(?=</a>)"
+)"
+
+package_url="https://releases.hashicorp.com/vagrant/${latest_version}/${deb_package}"
 
 package_filename=$(
   curl \
