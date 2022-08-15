@@ -23,7 +23,7 @@ download_filename="$(
   --write-out '%{filename_effective}'
 )"
 
-sudo apt install --yes "./${download_filename}"
+sudo apt-get install --yes "./${download_filename}"
 
 # Normally you would use `code --version` to check the version.
 # But it fails with an X11 error in a non-GUI environment.
