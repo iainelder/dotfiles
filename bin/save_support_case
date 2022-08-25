@@ -1,0 +1,47 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+tmp="$(mktemp --dir)"
+
+support_case_id=$1
+
+aws support describe-cases \
+--display-id "$support_case_id" \
+--no-include-communications \
+--query 'cases[0]' \
+> "$tmp"/case.json
+
+aws support describe-communications \
+--case-id $(jq --raw-output '.caseId' "$tmp"/case.json) \
+> "$tmp"/communications.json
+
+cat "$tmp"/communications.json \
+| jq --raw-output '.communications[].attachmentSet[].attachmentId' \
+> "$tmp"/attachments.txt
+
+cat "$tmp"/attachments.txt | while read aid; do
+    aws support describe-attachment \
+    --attachment-id "$aid" \
+    | jq --arg aid "$aid" '{attachmentId: $aid} + .attachment'
+done \
+| jq --slurp '{attachmentSet: .}' \
+> "$tmp"/attachments.json
+
+jq \
+--null-input \
+--rawfile case "$tmp"/case.json \
+--rawfile communications "$tmp"/communications.json \
+--rawfile attachments "$tmp"/attachments.json \
+'($case | fromjson) + ($communications | fromjson) + ($attachments | fromjson)' \
+> "$tmp"/complete_case.json
+
+account_id=$(
+    aws sts get-caller-identity \
+    --query 'Account' \
+    --output text
+)
+
+cp \
+"$tmp"/complete_case.json \
+docs/support_case_"${support_case_id}"_account_"${account_id}".json
