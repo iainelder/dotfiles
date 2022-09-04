@@ -9,13 +9,19 @@ cd "$(mktemp --dir)"
 
 sudo apt-get --yes install \
 wget \
-gnupg
+gnupg \
+lsb-release \
+moreutils # Provides sponge.
 
-echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian focal contrib" |
-sudo tee /etc/apt/sources.list.d/virtualbox.list > /dev/null
+dist=$(lsb_release --codename --short)
 
-wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
-wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+key="/usr/share/keyrings/oracle-virtualbox-2016.gpg"
+
+echo "deb [arch=amd64 signed-by=$key] https://download.virtualbox.org/virtualbox/debian $dist contrib" \
+| sudo sponge /etc/apt/sources.list.d/virtualbox.list
+
+wget -q -O- https://www.virtualbox.org/download/oracle_vbox_2016.asc \
+| sudo gpg --dearmor --yes --output "$key"
 
 sudo apt-get update
 sudo apt-get --yes install \
