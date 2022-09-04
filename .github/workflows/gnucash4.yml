@@ -14,7 +14,9 @@ jobs:
       matrix:
         os:
           - "ubuntu:20.04"
-          - "ubuntu:22.04"
+          # GnuCash 4.8 is in the Ubuntu 22 repository.
+          # https://launchpad.net/ubuntu/jammy/+source/gnucash
+          # - "ubuntu:22.04"
 
     runs-on: ubuntu-latest
     container:
