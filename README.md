@@ -56,6 +56,8 @@ start an interactive shell for experimenting.
 ./test_local.bash
 ```
 
+To test the transition to Ubuntu 22, use `test_local_22.bash` in the same way.
+
 ## Continuous integration (CI) with Github Actions
 
 Each installer script is tested with a CI workflow.
