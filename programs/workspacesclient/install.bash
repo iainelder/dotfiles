@@ -9,17 +9,19 @@ cd "$(mktemp --dir)"
 
 sudo apt-get update && sudo apt-get install --yes \
 wget \
-gnupg
+gnupg \
+file \
+moreutils # Provides sponge.
 
-wget -q -O - https://workspaces-client-linux-public-key.s3-us-west-2.amazonaws.com/ADB332E7.asc | sudo apt-key add -
+key="/usr/share/keyrings/workspaces-client-linux-public-key.gpg"
 
-echo "deb [arch=amd64] https://d3nt0h4h6pmmc4.cloudfront.net/ubuntu bionic main" |
-sudo tee /etc/apt/sources.list.d/amazon-workspaces-clients.list 
+wget -q -O - https://workspaces-client-linux-public-key.s3-us-west-2.amazonaws.com/ADB332E7.asc \
+| sudo gpg --dearmor --yes --output "$key"
+
+echo "deb [arch=amd64 signed-by=$key] https://d3nt0h4h6pmmc4.cloudfront.net/ubuntu bionic main" \
+| sudo sponge /etc/apt/sources.list.d/amazon-workspaces-clients.list 
 
 sudo apt-get update
-
-# apt-file update
-# apt-file list workspacesclient
 
 # For tzdata and keyboard-configuration
 export DEBIAN_FRONTEND=noninteractive
