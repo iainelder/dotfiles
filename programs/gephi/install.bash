@@ -37,6 +37,10 @@ sudo mv "${extract_folder}" /opt/gephi
 
 sudo ln -sf /opt/gephi/bin/gephi /usr/local/bin/gephi
 
+# Gephi will return a non-zero exit code, and we don't want this to fail the
+# installer. See comments on `gephi_exit_code` below.
+set +e
+
 # There is no `--version` option. Any of the `org.gephi` modules report the
 # public version, so we parse that out from the modules list.
 #
@@ -54,10 +58,12 @@ sudo ln -sf /opt/gephi/bin/gephi /usr/local/bin/gephi
 # and the pkill command produces no output.
 #
 # The gephi command launches two new processes with very long command lines that
-# each contain the word "gephi" somewhere.
+# each contain the word "gephi" somewhere. By sending SIGINT to the oldest one,
+# Gephi terminates as if by pressing CTRL+C.
 #
 # In the local test environment pid 1 may also contain the word "gephi", so
 # limit the search to children of this script's process.
+#
 #
 # [1]: https://github.com/iainelder/dotfiles/actions/runs/2988076611
 # [2]: https://superuser.com/questions/1450928/how-to-kill-a-pipeline-once-some-output-has-occurred
@@ -65,6 +71,19 @@ sudo ln -sf /opt/gephi/bin/gephi /usr/local/bin/gephi
 gephi --modules --list \
 | {
     grep --max-count 1 org.gephi.welcome.screen; \
-    pkill --parent $$ --oldest --full gephi;
+    pkill --signal INT --parent $$ --oldest --full gephi;
   } \
 | awk '{print $2}'
+
+# pkill sends SIGINT with code 2 [4]. The exit code in Bash is
+# `128 + 2 = 130` [5]. This is normal here, so translate it to 0.
+#
+# [4]: https://man7.org/linux/man-pages/man7/signal.7.html
+# [5]: https://www.gnu.org/software/bash/manual/html_node/Exit-Status.html
+gephi_exit_code=$?
+
+if [[ "$gephi_exit_code" == "130" ]]; then
+    exit 0
+else
+    exit $gephi_exit_code
+fi
