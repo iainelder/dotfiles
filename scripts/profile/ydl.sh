@@ -1,9 +1,8 @@
-function ydl() {
-  (
-    cd ~/Descargas
+function ytdl() {
     youtube-dl \
+    --verbose \
     --extract-audio \
-    --write-description \
+    --write-info-json \
+    --write-all-thumbnails \
     "${1}"
-  )
 }
