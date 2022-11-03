@@ -26,6 +26,11 @@ sudo apt-get update
 # For tzdata and keyboard-configuration
 export DEBIAN_FRONTEND=noninteractive
 
+# FIXME: This has started breaking on Ubuntu 20 and 22.
+#
+# The following packages have unmet dependencies:
+#  workspacesclient : Depends: libhiredis0.13 but it is not installable
+# E: Unable to correct problems, you have held broken packages.
 sudo --preserve-env apt-get install --yes \
 workspacesclient
 
