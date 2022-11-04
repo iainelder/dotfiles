@@ -44,4 +44,4 @@ account_id=$(
 
 cp \
 "$tmp"/complete_case.json \
-docs/support_case_"${support_case_id}"_account_"${account_id}".json
+support_case_"${support_case_id}"_account_"${account_id}".json
