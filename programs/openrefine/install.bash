@@ -63,11 +63,16 @@ source /etc/profile.d/openrefine.sh
 sudo apt-get --assume-yes install \
 default-jre
 
-# Refine has no version output and never seems to output a zero exit code.
-# Start the server, capture its output, and grep it for a ready message.
-set +e
-timeout --preserve-status 10s refine run > refine-output.txt
-set -e
+# The refine command has no way to print the version.
+# The version number appears in the name of an internal component.
+version="$(
+  find /opt/openrefine/server/target/lib/ \
+  -name 'openrefine-*-server.jar' \
+  -printf '%f\n' \
+  | grep -oP '(?<=openrefine-).*?(?=-server\.jar)'
+)"
 
-ready_message="Point your browser to http://127.0.0.1:3333/ to start using Refine."
-grep "${ready_message}" refine-output.txt
+echo "$version"
+
+# Could check that `refine -h` returns help output, but that command returns a
+# non-zero exit code and I don't want to adapt Gephi's handler for that.
