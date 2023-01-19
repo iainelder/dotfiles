@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euxo pipefail
+set -euo pipefail
 
 sync_repos() {
   cd "${1}"
@@ -17,14 +17,14 @@ sync_repos() {
   # execution order.
   # https://github.com/mnagel/clustergit/blob/78c4562e3e47253dccc91d49f1f1bd24d18a4fc2/clustergit#L525
   # https://github.com/mnagel/clustergit/issues/38
-  unclean="$(
+  mapfile -t < <(
     clustergit \
     --print-asap --workers 1 \
     --branch '' --recursive --exclude=/\.terraform/ |
     awk -F'\\s*:' '/:/ && !/Clean/ {print $1}'
-  )"
+  ) unclean
 
-  for repo in $unclean; do
+  for repo in "${unclean[@]}"; do
     echo "Entering ${repo} in an interactive subshell."
     echo "Finalize the working copy, git commit, and exit bash."
     (cd "${repo}" && git status && bash -li)
