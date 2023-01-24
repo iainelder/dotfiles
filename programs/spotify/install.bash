@@ -17,6 +17,8 @@ sudo apt-key add -
 echo "deb http://repository.spotify.com stable non-free" |
 sudo tee /etc/apt/sources.list.d/spotify.list
 
-sudo apt-get update && sudo apt-get install --yes spotify-client
+sudo apt-get update
+
+sudo apt-get install --yes spotify-client
 
 spotify --version
