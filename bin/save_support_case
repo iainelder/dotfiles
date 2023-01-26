@@ -6,6 +6,10 @@ tmp="$(mktemp --dir)"
 
 support_case_id=$1
 
+# AWS Support is a global service, even when the Global Infrastructure page suggests otherwise.
+# https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/
+export AWS_DEFAULT_REGION=us-east-1
+
 aws support describe-cases \
 --display-id "$support_case_id" \
 --no-include-communications \
