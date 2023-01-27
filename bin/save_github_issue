@@ -1,0 +1,37 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+tmp="$(mktemp --dir)"
+
+issue_id=$1
+
+get() {
+  curl \
+  --silent \
+  --show-error \
+  --header "Accept: application/vnd.github+json" \
+  --header "X-GitHub-Api-Version: 2022-11-28" \
+  --url "$1"
+}
+
+get "https://api.github.com/repos/$issue_id" > "$tmp"/issue.json
+
+get "https://api.github.com/repos/$issue_id/comments" > "$tmp"/comments.json
+
+jq \
+--null-input \
+--rawfile issue "$tmp"/issue.json \
+--rawfile comments "$tmp"/comments.json \
+'($issue | fromjson) + {conversation: ($comments | fromjson)}' \
+> "$tmp"/complete_issue.json
+
+# Replace slashes.
+# See "3.5.3 Shell Parameter Expansion" in Bash Reference Manual.
+# See "If there are two slashes separating parameter and pattern".
+# https://www.gnu.org/software/bash/manual/bash.html
+outfile="${issue_id//\//_}.json"
+
+cp \
+"$tmp"/complete_issue.json \
+"$outfile"
