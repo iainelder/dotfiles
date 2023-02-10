@@ -23,12 +23,6 @@
 	ack = ! git ls-files --others --cached --exclude-standard | ack -x
 [log]
 	date = iso
-[credential]
-	helper = 
-	helper = /usr/local/share/gcm-core/git-credential-manager-core
-	credentialStore = cache
-	msauthFlow = embedded
-	cacheOptions = --timeout 43200
 [credential "https://dev.azure.com"]
 	useHttpPath = true
 [credential "https://git-codecommit.eu-west-1.amazonaws.com"]
