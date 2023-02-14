@@ -25,6 +25,8 @@
 	date = iso
 [credential "https://dev.azure.com"]
 	useHttpPath = true
+	helper =
+	helper = !az account get-access-token --query accessToken --output tsv | xargs printf 'password=%s\n'
 [credential "https://git-codecommit.eu-west-1.amazonaws.com"]
 	provider = generic
 [credential "https://github.com"]
