@@ -49,3 +49,15 @@ alias prepsquash='git log --reverse --format=format:"* %s%n%b" master..'
 function fakeword() {
     gpw 1 8
 }
+
+function s3-tree() {
+    bucket="$1"
+    shift
+    tree_params="$@"
+
+    aws s3api list-objects-v2 \
+    --bucket "$bucket" \
+    --query 'Contents[].[Key]' \
+    --output text \
+    | tree --fromfile . $tree_params
+}
