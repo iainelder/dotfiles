@@ -18,8 +18,6 @@ echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 adduser --disabled-password --gecos '' norm || true
 adduser norm sudo
 
-GITHUB_TOKEN="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"
-
 # Authenticate norm's GitHub API requests to increase rate limit.
 cat > ~norm/.netrc <<EOF
 machine api.github.com
