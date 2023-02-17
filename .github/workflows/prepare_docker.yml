@@ -21,6 +21,8 @@ jobs:
       - name: Prepare Docker
         shell: bash # Avoids "Illegal option -o pipefail"
         run: ./scripts/prepare_docker.bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Prepare Docker again (test idempotency)
         shell: bash # Avoids "Illegal option -o pipefail"
