@@ -2,7 +2,7 @@
 
 set -euxo pipefail
 
-apt-get --yes update && apt-get --yes install sudo curl
+apt-get --yes update && apt-get --yes install sudo
 
 # Make `apt-get install` work correctly in sudo for packages depending on those
 # such as tzdata and keyboard-configuration that freeze the Docker installation
@@ -18,6 +18,9 @@ echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 adduser --disabled-password --gecos '' norm || true
 adduser norm sudo
 
+# Remain unauthenticated outside CI.
+GITHUB_TOKEN="${GITHUB_TOKEN:-x}"
+
 # Authenticate norm's GitHub API requests to increase rate limit.
 cat > ~norm/.netrc <<EOF
 machine api.github.com
@@ -32,7 +35,8 @@ curl() {
 }
 EOF
 
-# Test norm's rate limit.
-su norm --command "
-  bash --login -c 'curl -Ss -I https://api.github.com/' | grep x-ratelimit-limit
-"
+# FIXME: See rate limit in README.
+# # Test norm's rate limit.
+# su norm --command "
+#   bash --login -c 'curl -Ss -I https://api.github.com/' | grep x-ratelimit-limit
+# "
