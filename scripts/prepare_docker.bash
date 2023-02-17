@@ -25,7 +25,10 @@ machine api.github.com
   password $GITHUB_TOKEN
 EOF
 
+cat > ~/.bash_aliases <<EOF
 alias curl="curl --netrc"
+EOF
 
 # Remove after testing.
-cat ~/.netrc
+source ~/.bashrc
+curl -I api.github.com
