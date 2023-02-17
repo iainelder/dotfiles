@@ -22,7 +22,7 @@ adduser norm sudo
 cat > ~/.netrc <<EOF
 machine api.github.com
   login iainelder
-  password ${GITHUB_TOKEN}
+  password ${{ secrets.GITHUB_TOKEN }}
 EOF
 
 alias curl="curl --netrc"
