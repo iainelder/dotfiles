@@ -28,7 +28,7 @@ EOF
 # Patch existing curl calls to use netrc.
 cat > /etc/profile.d/curl_netrc.sh <<"EOF"
 curl() {
-  command curl --netrc "$@"
+  command curl --verbose --netrc "$@"
 }
 EOF
 
