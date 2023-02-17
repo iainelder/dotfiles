@@ -21,11 +21,13 @@ adduser norm sudo
 # Authenticate GitHub API requests to increase rate limit.
 cat > ~/.netrc <<EOF
 machine api.github.com
-  login iainelder
-  password $GITHUB_TOKEN
+login iainelder
+password $GITHUB_TOKEN
 EOF
 
-echo "alias curl='curl --netrc'" >> /etc/profile.d/curl_netrc.sh
-
-# Remove after testing.
-bash --login -c "curl -I api.github.com"
+# Patch existing curl calls to use netrc.
+cat > /etc/profile.d/curl_netrc.sh <<"EOF"
+curl() {
+  command curl --netrc "$@"
+}
+EOF
