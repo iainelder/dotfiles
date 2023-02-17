@@ -25,10 +25,8 @@ machine api.github.com
   password $GITHUB_TOKEN
 EOF
 
-cat > ~/.bash_aliases <<EOF
-alias curl="curl --netrc"
-EOF
+echo "alias curl='curl --netrc'" >> /etc/profile.d/curl_netrc.sh
 
 # Remove after testing.
-source ~/.bashrc
+exec bash --login
 curl -I api.github.com
