@@ -33,4 +33,15 @@ download_filename=$(
 sudo apt-get --assume-yes install \
 default-jre
 
-java -jar plantuml.jar -authors
+sudo mkdir /opt/plantuml
+sudo cp plantuml.jar /opt/plantuml
+
+cat > plantuml <<"EOF"
+java -jar /opt/plantuml/plantuml.jar "$@"
+EOF
+
+chmod +x plantuml
+
+sudo cp plantuml /usr/local/bin
+
+plantuml -authors
