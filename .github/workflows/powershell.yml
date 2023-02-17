@@ -27,6 +27,8 @@ jobs:
 
       - name: Prepare Docker
         run: ./scripts/prepare_docker.bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install PowerShell
         shell: su norm --command "bash --login {0}"
