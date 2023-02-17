@@ -28,5 +28,4 @@ EOF
 echo "alias curl='curl --netrc'" >> /etc/profile.d/curl_netrc.sh
 
 # Remove after testing.
-exec bash --login
-curl -I api.github.com
+bash --login "curl -I api.github.com"
