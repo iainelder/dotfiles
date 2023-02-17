@@ -18,6 +18,9 @@ echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 adduser --disabled-password --gecos '' norm || true
 adduser norm sudo
 
+# Test substitution.
+echo "GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
+
 # Authenticate GitHub API requests to increase rate limit.
 cat > ~/.netrc <<EOF
 machine api.github.com
