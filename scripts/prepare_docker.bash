@@ -17,3 +17,15 @@ mkdir --parents ~/.local/bin
 echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 adduser --disabled-password --gecos '' norm || true
 adduser norm sudo
+
+# Authenticate GitHub API requests to increase rate limit.
+cat > ~/.netrc <<EOF
+machine api.github.com
+  login iainelder
+  password ${GITHUB_TOKEN}
+EOF
+
+alias curl="curl --netrc"
+
+# Remove after testing.
+cat ~/.netrc
