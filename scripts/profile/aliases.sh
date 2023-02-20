@@ -61,3 +61,7 @@ function s3-tree() {
     --output text \
     | tree --fromfile . $tree_params
 }
+
+function datecalc() {
+    ipython -i -c 'from datetime import datetime, timedelta'
+}
