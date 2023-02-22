@@ -62,6 +62,12 @@ function s3-tree() {
     | tree --fromfile . $tree_params
 }
 
+# Converts an ISO timestamp to AWS logs format.
+function logtime() {
+    iso_timestamp="$1"
+    date --date "$iso_timestamp" --utc +%s000
+}
+
 function datecalc() {
     ipython -i -c 'from datetime import datetime, timedelta'
 }
