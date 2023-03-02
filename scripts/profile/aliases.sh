@@ -71,3 +71,6 @@ function logtime() {
 function datecalc() {
     ipython --no-confirm-exit -i -c 'from datetime import datetime, timedelta, time'
 }
+
+# Pipe to clipboard.
+alias copy="xclip -selection c"
