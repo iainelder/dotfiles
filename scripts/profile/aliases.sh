@@ -69,5 +69,5 @@ function logtime() {
 }
 
 function datecalc() {
-    ipython -i -c 'from datetime import datetime, timedelta'
+    ipython --no-confirm-exit -i -c 'from datetime import datetime, timedelta, time'
 }
