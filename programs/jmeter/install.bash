@@ -51,7 +51,7 @@ chmod +x JMeter.desktop
 
 # Avoid idempotency error from mv.
 # `mv: cannot move ‘jmeter’ to ‘/opt/jmeter’: File exists`
-rm -rf /opt/jmeter
+sudo rm -rf /opt/jmeter
 
 sudo mv jmeter /opt/
 
