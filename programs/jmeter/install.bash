@@ -2,6 +2,7 @@
 
 # Name: JMeter
 # Source: https://dlcdn.apache.org/jmeter/
+# Source: https://www.how2shout.com/linux/2-ways-to-install-apache-jmeter-on-ubuntu-22-04-lts-linux/
 
 set -euxo pipefail
 
@@ -35,8 +36,23 @@ tar \
 --transform 's:[^/]*:jmeter:' \
 --file "$download_filename"
 
-sudo mv jmeter /opt
+# See Ubuntu wiki for details of the launcher format.
+# https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles
+cat > JMeter.desktop <<"EOF"
+[Desktop Entry]
+Name=JMeter
+Type=Application
+Exec=/opt/jmeter/bin/jmeter
+Icon=/opt/jmeter/docs/images/jmeter_square.png
+Terminal=false
+EOF
+
+chmod +x JMeter.desktop
+
+sudo mv jmeter /opt/
 
 sudo ln -sf /opt/jmeter/bin/jmeter /usr/local/bin/jmeter
+
+sudo cp JMeter.desktop /usr/share/applications
 
 jmeter -n -v
