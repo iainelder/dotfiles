@@ -10,9 +10,7 @@ cd "$(mktemp --dir)"
 sudo apt-get install --yes \
 curl
 
-# The fix for empty repos hasn't been merged yet.
-# https://github.com/mnagel/clustergit/pull/44
-browser_download_url="https://raw.githubusercontent.com/ypid/clustergit/fix/no-commits-yet/clustergit"
+browser_download_url="https://raw.githubusercontent.com/mnagel/clustergit/master/clustergit"
 
 download_filename=$(
   curl \
