@@ -34,6 +34,10 @@ tar --extract --auto-compress --file "$download_filename" --strip-components 1
 make
 sudo make install
 
+# GNU Parallel make installs to /usr/local/bin/parallel
+# APT package moreutils installs a different tool to /usr/bin/parall.
+# The moreutils tool is not useful but has precedence.
+# So move it in the same way that APT package parallel (for GNU Parallel) does.
 grep -b "for each argument, run command with argument, in parallel" /usr/bin/parallel
 is_moreutils="$?"
 
