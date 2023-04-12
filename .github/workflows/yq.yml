@@ -2,8 +2,8 @@ name: yq
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/yq/**
 
   workflow_dispatch:
 

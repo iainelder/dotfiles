@@ -2,8 +2,8 @@ name: BorgBackup
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/BorgBackup/**
 
   workflow_dispatch:
 

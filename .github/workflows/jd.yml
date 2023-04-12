@@ -2,8 +2,8 @@ name: jd
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/jd/**
 
   workflow_dispatch:
 

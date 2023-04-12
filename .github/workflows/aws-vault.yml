@@ -2,8 +2,8 @@ name: aws-vault
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/aws-vault/**
 
   workflow_dispatch:
 

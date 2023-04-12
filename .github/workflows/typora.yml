@@ -2,8 +2,8 @@ name: Typora
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/Typora/**
 
   workflow_dispatch:
 

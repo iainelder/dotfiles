@@ -2,8 +2,8 @@ name: Rocketchat
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/Rocketchat/**
 
   workflow_dispatch:
 

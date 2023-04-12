@@ -2,8 +2,8 @@ name: tgenv
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/tgenv/**
 
   workflow_dispatch:
 

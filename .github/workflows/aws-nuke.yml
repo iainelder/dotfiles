@@ -2,8 +2,8 @@ name: aws-nuke
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/aws-nuke/**
 
   workflow_dispatch:
 

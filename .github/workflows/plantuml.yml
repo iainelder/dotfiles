@@ -2,8 +2,8 @@ name: PlantUML
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/PlantUML/**
 
   workflow_dispatch:
 

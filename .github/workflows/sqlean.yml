@@ -2,8 +2,8 @@ name: SQLean
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/SQLean/**
 
   workflow_dispatch:
 

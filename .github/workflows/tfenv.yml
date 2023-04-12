@@ -2,8 +2,8 @@ name: tfenv
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/tfenv/**
 
   workflow_dispatch:
 

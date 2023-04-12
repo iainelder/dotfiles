@@ -2,8 +2,8 @@ name: geckodriver
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/geckodriver/**
 
   workflow_dispatch:
 

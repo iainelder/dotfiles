@@ -2,8 +2,8 @@ name: Parallel
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/Parallel/**
 
   workflow_dispatch:
 

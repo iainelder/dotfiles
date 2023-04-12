@@ -2,8 +2,8 @@ name: Anki
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/Anki/**
 
   workflow_dispatch:
 

@@ -2,8 +2,8 @@ name: Introspector
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/Introspector/**
 
   workflow_dispatch:
 

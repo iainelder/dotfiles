@@ -2,8 +2,8 @@ name: Visual Studio Code
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/Visual Studio Code/**
 
   workflow_dispatch:
 

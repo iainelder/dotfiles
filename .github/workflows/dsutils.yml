@@ -2,8 +2,8 @@ name: dsutils
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/dsutils/**
 
   workflow_dispatch:
 

@@ -2,8 +2,8 @@ name: Vagrant
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/Vagrant/**
 
   workflow_dispatch:
 

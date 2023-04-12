@@ -2,8 +2,8 @@ name: GitHub CLI
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/GitHub CLI/**
 
   workflow_dispatch:
 

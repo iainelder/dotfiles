@@ -2,8 +2,8 @@ name: Act
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/Act/**
 
   workflow_dispatch:
 

@@ -2,8 +2,8 @@ name: Packer
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/Packer/**
 
   workflow_dispatch:
 

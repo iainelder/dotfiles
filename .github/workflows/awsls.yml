@@ -2,8 +2,8 @@ name: awsls
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/awsls/**
 
   workflow_dispatch:
 

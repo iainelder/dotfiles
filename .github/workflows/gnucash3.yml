@@ -2,8 +2,8 @@ name: GnuCash 3
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/GnuCash 3/**
 
   workflow_dispatch:
 

@@ -2,8 +2,8 @@ name: Gephi
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/Gephi/**
 
   workflow_dispatch:
 

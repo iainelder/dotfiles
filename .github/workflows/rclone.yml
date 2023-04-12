@@ -2,8 +2,8 @@ name: rclone
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/rclone/**
 
   workflow_dispatch:
 

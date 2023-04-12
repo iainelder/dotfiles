@@ -2,8 +2,8 @@ name: DVC (Data Version Control)
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/DVC (Data Version Control)/**
 
   workflow_dispatch:
 

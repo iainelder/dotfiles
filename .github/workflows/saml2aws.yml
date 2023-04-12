@@ -2,8 +2,8 @@ name: saml2aws
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/saml2aws/**
 
   workflow_dispatch:
 

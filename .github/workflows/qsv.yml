@@ -2,8 +2,8 @@ name: qsv
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/qsv/**
 
   workflow_dispatch:
 

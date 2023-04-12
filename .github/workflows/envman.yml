@@ -2,8 +2,8 @@ name: Envman
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/Envman/**
 
   workflow_dispatch:
 

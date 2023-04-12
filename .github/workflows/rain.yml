@@ -2,8 +2,8 @@ name: Rain
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/Rain/**
 
   workflow_dispatch:
 

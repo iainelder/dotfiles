@@ -2,8 +2,8 @@ name: Vale
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/Vale/**
 
   workflow_dispatch:
 

@@ -2,8 +2,8 @@ name: Terragrunt
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/Terragrunt/**
 
   workflow_dispatch:
 

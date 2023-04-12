@@ -2,8 +2,8 @@ name: PowerShell
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/PowerShell/**
 
   workflow_dispatch:
 

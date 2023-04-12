@@ -2,8 +2,8 @@ name: SnowSQL
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/SnowSQL/**
 
   workflow_dispatch:
 

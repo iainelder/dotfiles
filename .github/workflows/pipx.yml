@@ -2,8 +2,8 @@ name: Pipx
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/Pipx/**
 
   workflow_dispatch:
 

@@ -2,8 +2,8 @@ name: .NET SDK
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/.NET SDK/**
 
   workflow_dispatch:
 

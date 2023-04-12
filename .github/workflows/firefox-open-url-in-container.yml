@@ -2,8 +2,8 @@ name: firefox-container
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/firefox-container/**
 
   workflow_dispatch:
 

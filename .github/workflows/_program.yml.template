@@ -2,8 +2,8 @@ name: ${program_name}
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/${program_name}/**
 
   workflow_dispatch:
 

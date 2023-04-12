@@ -2,8 +2,8 @@ name: ShellCheck
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/ShellCheck/**
 
   workflow_dispatch:
 

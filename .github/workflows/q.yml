@@ -2,8 +2,8 @@ name: q
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/q/**
 
   workflow_dispatch:
 

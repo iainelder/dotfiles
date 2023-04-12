@@ -2,8 +2,8 @@ name: NICE DCV Viewer
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/NICE DCV Viewer/**
 
   workflow_dispatch:
 

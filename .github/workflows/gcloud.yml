@@ -2,8 +2,8 @@ name: gcloud CLI
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/gcloud CLI/**
 
   workflow_dispatch:
 

@@ -2,8 +2,8 @@ name: JMeter
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/JMeter/**
 
   workflow_dispatch:
 

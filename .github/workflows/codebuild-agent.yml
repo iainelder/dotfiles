@@ -2,8 +2,8 @@ name: AWS CodeBuild agent
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/AWS CodeBuild agent/**
 
   workflow_dispatch:
 

@@ -2,8 +2,8 @@ name: diff-pdf
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/diff-pdf/**
 
   workflow_dispatch:
 

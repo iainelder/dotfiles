@@ -2,8 +2,8 @@ name: VirtualBox
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/VirtualBox/**
 
   workflow_dispatch:
 

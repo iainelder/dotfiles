@@ -2,8 +2,8 @@ name: AWS Workspaces Client
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/AWS Workspaces Client/**
 
   workflow_dispatch:
 

@@ -2,8 +2,8 @@ name: goenv
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/goenv/**
 
   workflow_dispatch:
 

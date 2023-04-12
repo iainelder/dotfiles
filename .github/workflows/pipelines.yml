@@ -2,8 +2,8 @@ name: Bitbucket Pipelines CLI
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+      paths:
+        - programs/Bitbucket Pipelines CLI/**
 
   workflow_dispatch:
 
