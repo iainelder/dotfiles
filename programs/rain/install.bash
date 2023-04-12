@@ -15,15 +15,6 @@ curl \
 jq \
 unzip
 
-# What type is curl?
-type curl
-
-# Check what's in netrc.
-cat ~/.netrc
-
-# Check API limit in installer.
-curl --netrc https://api.github.com/rate_limit
-
 browser_download_url=$(
   curl -Ss 'https://api.github.com/repos/aws-cloudformation/rain/releases/latest' |
   jq -r '.assets[] | select(.name | test("linux-amd64.zip")) | .browser_download_url'

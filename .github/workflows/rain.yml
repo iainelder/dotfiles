@@ -25,16 +25,6 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Check GitHub API limit
-        run: |
-          apt-get update && apt-get install -y curl
-
-          curl -L \
-            -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"\
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            https://api.github.com/rate_limit
-
       - name: Prepare Docker
         run: ./scripts/prepare_docker.bash
         env:
