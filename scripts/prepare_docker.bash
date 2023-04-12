@@ -34,6 +34,8 @@ echo "Patch curl"
 curl() {
   command curl --verbose --netrc "$@"
 }
+
+export -f curl
 EOF
 
 # FIXME: See rate limit in README.
