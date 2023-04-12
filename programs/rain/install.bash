@@ -15,8 +15,11 @@ curl \
 jq \
 unzip
 
+# Check what's in netrc.
+cat ~/.netrc
+
 # Check API limit in installer.
-curl https://api.github.com/rate_limit
+curl --netrc https://api.github.com/rate_limit
 
 browser_download_url=$(
   curl -Ss 'https://api.github.com/repos/aws-cloudformation/rain/releases/latest' |
