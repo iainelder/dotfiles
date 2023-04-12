@@ -15,6 +15,9 @@ curl \
 jq \
 unzip
 
+# What type is curl?
+type curl
+
 # Check what's in netrc.
 cat ~/.netrc
 
