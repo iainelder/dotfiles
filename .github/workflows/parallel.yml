@@ -1,0 +1,39 @@
+name: Parallel
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  test_idempotent_installation:
+
+    strategy:
+      matrix:
+        os:
+          - "ubuntu:20.04"
+          - "ubuntu:22.04"
+
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ matrix.os }}"
+
+    steps:
+
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Prepare Docker
+        run: ./scripts/prepare_docker.bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install Parallel
+        shell: su norm --command "bash --login {0}"
+        run: programs/parallel/install.bash
+
+      - name: Install Parallel again (test idempotency)
+        shell: su norm --command "bash --login {0}"
+        run: programs/parallel/install.bash
