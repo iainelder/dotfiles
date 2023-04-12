@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/${program_name}/**
+        - ${program_script}
 
   workflow_dispatch:
 

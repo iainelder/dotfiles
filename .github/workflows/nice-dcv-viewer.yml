@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/NICE DCV Viewer/**
+        - programs/nice-dcv-viewer/install.bash
 
   workflow_dispatch:
 

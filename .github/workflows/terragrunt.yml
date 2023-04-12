@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/Terragrunt/**
+        - programs/terragrunt/install.bash
 
   workflow_dispatch:
 

@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/PowerShell/**
+        - programs/powershell/install.bash
 
   workflow_dispatch:
 

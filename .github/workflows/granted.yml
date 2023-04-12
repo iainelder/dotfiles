@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/Granted/**
+        - programs/granted/install.bash
 
   workflow_dispatch:
 

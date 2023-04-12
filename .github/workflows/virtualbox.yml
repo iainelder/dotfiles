@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/VirtualBox/**
+        - programs/virtualbox/install.bash
 
   workflow_dispatch:
 

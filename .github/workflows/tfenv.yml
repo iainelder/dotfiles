@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/tfenv/**
+        - programs/tfenv/install.bash
 
   workflow_dispatch:
 

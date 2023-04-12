@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/Anki/**
+        - programs/anki/install.bash
 
   workflow_dispatch:
 

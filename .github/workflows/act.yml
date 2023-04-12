@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/Act/**
+        - programs/act/install.bash
 
   workflow_dispatch:
 

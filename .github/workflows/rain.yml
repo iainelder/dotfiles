@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/Rain/**
+        - programs/rain/install.bash
 
   workflow_dispatch:
 

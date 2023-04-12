@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/s5cmd/**
+        - programs/s5cmd/install.bash
 
   workflow_dispatch:
 

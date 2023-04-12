@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/Pipx/**
+        - programs/pipx/install.bash
 
   workflow_dispatch:
 

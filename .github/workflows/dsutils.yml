@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/dsutils/**
+        - programs/dsutils/install.bash
 
   workflow_dispatch:
 

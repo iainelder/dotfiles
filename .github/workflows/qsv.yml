@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/qsv/**
+        - programs/qsv/install.bash
 
   workflow_dispatch:
 

@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/Vagrant/**
+        - programs/vagrant/install.bash
 
   workflow_dispatch:
 

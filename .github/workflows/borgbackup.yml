@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/BorgBackup/**
+        - programs/borgbackup/install.bash
 
   workflow_dispatch:
 

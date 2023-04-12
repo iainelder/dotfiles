@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/Introspector/**
+        - programs/introspector/install.bash
 
   workflow_dispatch:
 

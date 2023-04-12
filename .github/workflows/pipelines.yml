@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/Bitbucket Pipelines CLI/**
+        - programs/pipelines/install.bash
 
   workflow_dispatch:
 

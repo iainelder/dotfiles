@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/DVC (Data Version Control)/**
+        - programs/dvc/install.bash
 
   workflow_dispatch:
 

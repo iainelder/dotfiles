@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/Typora/**
+        - programs/typora/install.bash
 
   workflow_dispatch:
 

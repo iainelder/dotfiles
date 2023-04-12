@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/Visual Studio Code/**
+        - programs/vscode/install.bash
 
   workflow_dispatch:
 

@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/geckodriver/**
+        - programs/geckodriver/install.bash
 
   workflow_dispatch:
 

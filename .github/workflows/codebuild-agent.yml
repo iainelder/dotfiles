@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/AWS CodeBuild agent/**
+        - programs/codebuild-agent/install.bash
 
   workflow_dispatch:
 

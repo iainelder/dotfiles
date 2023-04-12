@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/Parallel/**
+        - programs/parallel/install.bash
 
   workflow_dispatch:
 

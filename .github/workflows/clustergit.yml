@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/clustergit/**
+        - programs/clustergit/install.bash
 
   workflow_dispatch:
 

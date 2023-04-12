@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/awscli/**
+        - programs/awscli/install.bash
 
   workflow_dispatch:
 

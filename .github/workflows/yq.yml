@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/yq/**
+        - programs/yq/install.bash
 
   workflow_dispatch:
 

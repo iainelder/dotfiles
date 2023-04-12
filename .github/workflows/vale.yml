@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/Vale/**
+        - programs/vale/install.bash
 
   workflow_dispatch:
 

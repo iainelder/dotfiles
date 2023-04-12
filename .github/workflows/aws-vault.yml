@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/aws-vault/**
+        - programs/aws-vault/install.bash
 
   workflow_dispatch:
 

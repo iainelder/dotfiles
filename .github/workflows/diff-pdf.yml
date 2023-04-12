@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/diff-pdf/**
+        - programs/diff-pdf/install.bash
 
   workflow_dispatch:
 

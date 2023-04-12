@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/AWS Workspaces Client/**
+        - programs/workspacesclient/install.bash
 
   workflow_dispatch:
 

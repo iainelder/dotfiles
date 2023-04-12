@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/jd/**
+        - programs/jd/install.bash
 
   workflow_dispatch:
 

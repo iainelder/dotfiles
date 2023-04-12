@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/saml2aws/**
+        - programs/saml2aws/install.bash
 
   workflow_dispatch:
 

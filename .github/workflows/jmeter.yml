@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/JMeter/**
+        - programs/jmeter/install.bash
 
   workflow_dispatch:
 

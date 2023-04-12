@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/Gephi/**
+        - programs/gephi/install.bash
 
   workflow_dispatch:
 

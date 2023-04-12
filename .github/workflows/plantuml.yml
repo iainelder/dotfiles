@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/PlantUML/**
+        - programs/plantuml/install.bash
 
   workflow_dispatch:
 

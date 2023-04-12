@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/firefox-container/**
+        - programs/firefox-open-url-in-container/install.bash
 
   workflow_dispatch:
 

@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/goenv/**
+        - programs/goenv/install.bash
 
   workflow_dispatch:
 

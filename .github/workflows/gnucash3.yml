@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/GnuCash 3/**
+        - programs/gnucash3/install.bash
 
   workflow_dispatch:
 

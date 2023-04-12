@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/ShellCheck/**
+        - programs/shellcheck/install.bash
 
   workflow_dispatch:
 

@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/.NET SDK/**
+        - programs/dotnetsdk/install.bash
 
   workflow_dispatch:
 

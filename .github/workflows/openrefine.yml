@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/OpenRefine/**
+        - programs/openrefine/install.bash
 
   workflow_dispatch:
 

@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/awsls/**
+        - programs/awsls/install.bash
 
   workflow_dispatch:
 

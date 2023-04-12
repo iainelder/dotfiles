@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/SnowSQL/**
+        - programs/snowsql/install.bash
 
   workflow_dispatch:
 

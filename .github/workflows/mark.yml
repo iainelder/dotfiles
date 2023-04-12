@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
       paths:
-        - programs/mark/**
+        - programs/mark/install.bash
 
   workflow_dispatch:
 
