@@ -15,6 +15,9 @@ curl \
 jq \
 unzip
 
+# Check API limit in installer.
+curl https://api.github.com/rate_limit
+
 browser_download_url=$(
   curl -Ss 'https://api.github.com/repos/aws-cloudformation/rain/releases/latest' |
   jq -r '.assets[] | select(.name | test("linux-amd64.zip")) | .browser_download_url'
