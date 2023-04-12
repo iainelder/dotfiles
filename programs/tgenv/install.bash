@@ -14,7 +14,7 @@ sudo apt-get update && sudo apt-get install --yes \
 git \
 curl
 
-repo_url="https://github.com/taosmountain/tgenv"
+repo_url="https://github.com/tgenv/tgenv"
 local_path="/opt/tgenv"
 
 if ! test -d "${local_path}"; then
