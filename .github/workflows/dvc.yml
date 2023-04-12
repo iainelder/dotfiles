@@ -1,9 +1,8 @@
 name: DVC (Data Version Control)
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/dvc/install.bash
+    paths:
+      - programs/dvc/install.bash
 
   workflow_dispatch:
 

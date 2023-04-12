@@ -1,9 +1,8 @@
 name: .NET SDK
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/dotnetsdk/install.bash
+    paths:
+      - programs/dotnetsdk/install.bash
 
   workflow_dispatch:
 

@@ -1,9 +1,8 @@
 name: ${program_name}
 on:
   push:
-    branches: [ master ]
-      paths:
-        - ${program_script}
+    paths:
+      - ${program_script}
 
   workflow_dispatch:
 

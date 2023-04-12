@@ -1,9 +1,8 @@
 name: Packer
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/packer/install.bash
+    paths:
+      - programs/packer/install.bash
 
   workflow_dispatch:
 

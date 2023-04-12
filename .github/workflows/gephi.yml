@@ -1,9 +1,8 @@
 name: Gephi
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/gephi/install.bash
+    paths:
+      - programs/gephi/install.bash
 
   workflow_dispatch:
 

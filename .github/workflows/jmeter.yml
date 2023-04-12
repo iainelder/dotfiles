@@ -1,9 +1,8 @@
 name: JMeter
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/jmeter/install.bash
+    paths:
+      - programs/jmeter/install.bash
 
   workflow_dispatch:
 

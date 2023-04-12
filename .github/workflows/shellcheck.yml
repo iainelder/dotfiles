@@ -1,9 +1,8 @@
 name: ShellCheck
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/shellcheck/install.bash
+    paths:
+      - programs/shellcheck/install.bash
 
   workflow_dispatch:
 

@@ -1,9 +1,8 @@
 name: yq
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/yq/install.bash
+    paths:
+      - programs/yq/install.bash
 
   workflow_dispatch:
 

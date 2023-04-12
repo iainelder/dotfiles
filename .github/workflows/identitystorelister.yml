@@ -1,9 +1,8 @@
 name: Anki
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/identitystorelister/install.bash
+    paths:
+      - programs/identitystorelister/install.bash
 
   workflow_dispatch:
 

@@ -1,9 +1,8 @@
 name: qsv
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/qsv/install.bash
+    paths:
+      - programs/qsv/install.bash
 
   workflow_dispatch:
 

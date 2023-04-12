@@ -1,9 +1,8 @@
 name: Rocketchat
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/rocketchat/install.bash
+    paths:
+      - programs/rocketchat/install.bash
 
   workflow_dispatch:
 

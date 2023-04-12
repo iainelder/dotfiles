@@ -1,9 +1,8 @@
 name: aws-vault
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/aws-vault/install.bash
+    paths:
+      - programs/aws-vault/install.bash
 
   workflow_dispatch:
 

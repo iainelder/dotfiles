@@ -1,9 +1,8 @@
 name: Anki
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/htmlq/install.bash
+    paths:
+      - programs/htmlq/install.bash
 
   workflow_dispatch:
 

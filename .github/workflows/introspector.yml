@@ -1,9 +1,8 @@
 name: Introspector
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/introspector/install.bash
+    paths:
+      - programs/introspector/install.bash
 
   workflow_dispatch:
 

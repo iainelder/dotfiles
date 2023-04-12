@@ -1,9 +1,8 @@
 name: Pipx
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/pipx/install.bash
+    paths:
+      - programs/pipx/install.bash
 
   workflow_dispatch:
 

@@ -1,9 +1,8 @@
 name: goenv
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/goenv/install.bash
+    paths:
+      - programs/goenv/install.bash
 
   workflow_dispatch:
 

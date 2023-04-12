@@ -1,9 +1,8 @@
 name: q
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/q/install.bash
+    paths:
+      - programs/q/install.bash
 
   workflow_dispatch:
 

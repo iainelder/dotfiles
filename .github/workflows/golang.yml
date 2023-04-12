@@ -1,9 +1,8 @@
 name: Golang
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/golang/install.bash
+    paths:
+      - programs/golang/install.bash
 
   workflow_dispatch:
 

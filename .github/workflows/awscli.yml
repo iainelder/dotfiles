@@ -1,9 +1,8 @@
 name: awscli
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/awscli/install.bash
+    paths:
+      - programs/awscli/install.bash
 
   workflow_dispatch:
 

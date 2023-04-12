@@ -1,9 +1,8 @@
 name: Parallel
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/parallel/install.bash
+    paths:
+      - programs/parallel/install.bash
 
   workflow_dispatch:
 

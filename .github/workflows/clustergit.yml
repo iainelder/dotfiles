@@ -1,9 +1,8 @@
 name: clustergit
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/clustergit/install.bash
+    paths:
+      - programs/clustergit/install.bash
 
   workflow_dispatch:
 

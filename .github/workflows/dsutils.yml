@@ -1,9 +1,8 @@
 name: dsutils
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/dsutils/install.bash
+    paths:
+      - programs/dsutils/install.bash
 
   workflow_dispatch:
 

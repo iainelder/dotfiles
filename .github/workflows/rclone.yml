@@ -1,9 +1,8 @@
 name: rclone
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/rclone/install.bash
+    paths:
+      - programs/rclone/install.bash
 
   workflow_dispatch:
 

@@ -1,9 +1,8 @@
 name: OpenRefine
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/openrefine/install.bash
+    paths:
+      - programs/openrefine/install.bash
 
   workflow_dispatch:
 

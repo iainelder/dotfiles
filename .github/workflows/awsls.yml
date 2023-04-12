@@ -1,9 +1,8 @@
 name: awsls
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/awsls/install.bash
+    paths:
+      - programs/awsls/install.bash
 
   workflow_dispatch:
 

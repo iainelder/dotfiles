@@ -1,9 +1,8 @@
 name: Spotify
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/spotify/install.bash
+    paths:
+      - programs/spotify/install.bash
 
   workflow_dispatch:
 

@@ -1,9 +1,8 @@
 name: s5cmd
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/s5cmd/install.bash
+    paths:
+      - programs/s5cmd/install.bash
 
   workflow_dispatch:
 

@@ -1,9 +1,8 @@
 name: Vagrant
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/vagrant/install.bash
+    paths:
+      - programs/vagrant/install.bash
 
   workflow_dispatch:
 

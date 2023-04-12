@@ -1,9 +1,8 @@
 name: firefox-container
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/firefox-open-url-in-container/install.bash
+    paths:
+      - programs/firefox-open-url-in-container/install.bash
 
   workflow_dispatch:
 

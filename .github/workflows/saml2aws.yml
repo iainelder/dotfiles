@@ -1,9 +1,8 @@
 name: saml2aws
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/saml2aws/install.bash
+    paths:
+      - programs/saml2aws/install.bash
 
   workflow_dispatch:
 

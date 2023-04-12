@@ -1,9 +1,8 @@
 name: jd
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/jd/install.bash
+    paths:
+      - programs/jd/install.bash
 
   workflow_dispatch:
 

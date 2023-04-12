@@ -1,9 +1,8 @@
 name: gcloud CLI
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/gcloud/install.bash
+    paths:
+      - programs/gcloud/install.bash
 
   workflow_dispatch:
 

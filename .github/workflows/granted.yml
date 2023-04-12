@@ -1,9 +1,8 @@
 name: Granted
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/granted/install.bash
+    paths:
+      - programs/granted/install.bash
 
   workflow_dispatch:
 

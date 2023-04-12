@@ -1,9 +1,8 @@
 name: mark
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/mark/install.bash
+    paths:
+      - programs/mark/install.bash
 
   workflow_dispatch:
 

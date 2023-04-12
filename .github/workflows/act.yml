@@ -1,9 +1,8 @@
 name: Act
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/act/install.bash
+    paths:
+      - programs/act/install.bash
 
   workflow_dispatch:
 

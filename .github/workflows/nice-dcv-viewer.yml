@@ -1,9 +1,8 @@
 name: NICE DCV Viewer
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/nice-dcv-viewer/install.bash
+    paths:
+      - programs/nice-dcv-viewer/install.bash
 
   workflow_dispatch:
 

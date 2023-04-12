@@ -1,9 +1,8 @@
 name: PlantUML
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/plantuml/install.bash
+    paths:
+      - programs/plantuml/install.bash
 
   workflow_dispatch:
 

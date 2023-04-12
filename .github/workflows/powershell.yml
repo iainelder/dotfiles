@@ -1,9 +1,8 @@
 name: PowerShell
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/powershell/install.bash
+    paths:
+      - programs/powershell/install.bash
 
   workflow_dispatch:
 

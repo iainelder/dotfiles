@@ -1,9 +1,8 @@
 name: tgenv
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/tgenv/install.bash
+    paths:
+      - programs/tgenv/install.bash
 
   workflow_dispatch:
 

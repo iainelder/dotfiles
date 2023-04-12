@@ -1,9 +1,8 @@
 name: Rain
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/rain/install.bash
+    paths:
+      - programs/rain/install.bash
 
   workflow_dispatch:
 

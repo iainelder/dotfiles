@@ -1,9 +1,8 @@
 name: BorgBackup
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/borgbackup/install.bash
+    paths:
+      - programs/borgbackup/install.bash
 
   workflow_dispatch:
 

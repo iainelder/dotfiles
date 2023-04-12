@@ -1,9 +1,8 @@
 name: AWS CodeBuild agent
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/codebuild-agent/install.bash
+    paths:
+      - programs/codebuild-agent/install.bash
 
   workflow_dispatch:
 

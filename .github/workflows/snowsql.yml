@@ -1,9 +1,8 @@
 name: SnowSQL
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/snowsql/install.bash
+    paths:
+      - programs/snowsql/install.bash
 
   workflow_dispatch:
 

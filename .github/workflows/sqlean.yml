@@ -1,9 +1,8 @@
 name: SQLean
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/sqlean/install.bash
+    paths:
+      - programs/sqlean/install.bash
 
   workflow_dispatch:
 

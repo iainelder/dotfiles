@@ -1,9 +1,8 @@
 name: GitHub CLI
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/github-cli/install.bash
+    paths:
+      - programs/github-cli/install.bash
 
   workflow_dispatch:
 

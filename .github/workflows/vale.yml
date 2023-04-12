@@ -1,9 +1,8 @@
 name: Vale
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/vale/install.bash
+    paths:
+      - programs/vale/install.bash
 
   workflow_dispatch:
 

@@ -1,9 +1,8 @@
 name: Anki
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/anki/install.bash
+    paths:
+      - programs/anki/install.bash
 
   workflow_dispatch:
 

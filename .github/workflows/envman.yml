@@ -1,9 +1,8 @@
 name: Envman
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/envman/install.bash
+    paths:
+      - programs/envman/install.bash
 
   workflow_dispatch:
 

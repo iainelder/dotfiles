@@ -1,9 +1,8 @@
 name: aws-nuke
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/aws-nuke/install.bash
+    paths:
+      - programs/aws-nuke/install.bash
 
   workflow_dispatch:
 

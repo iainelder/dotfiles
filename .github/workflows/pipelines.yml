@@ -1,9 +1,8 @@
 name: Bitbucket Pipelines CLI
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/pipelines/install.bash
+    paths:
+      - programs/pipelines/install.bash
 
   workflow_dispatch:
 

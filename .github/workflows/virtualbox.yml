@@ -1,9 +1,8 @@
 name: VirtualBox
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/virtualbox/install.bash
+    paths:
+      - programs/virtualbox/install.bash
 
   workflow_dispatch:
 

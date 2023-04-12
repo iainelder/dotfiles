@@ -1,9 +1,8 @@
 name: Terragrunt
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/terragrunt/install.bash
+    paths:
+      - programs/terragrunt/install.bash
 
   workflow_dispatch:
 

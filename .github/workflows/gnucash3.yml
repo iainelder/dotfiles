@@ -1,9 +1,8 @@
 name: GnuCash 3
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/gnucash3/install.bash
+    paths:
+      - programs/gnucash3/install.bash
 
   workflow_dispatch:
 

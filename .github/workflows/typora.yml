@@ -1,9 +1,8 @@
 name: Typora
 on:
   push:
-    branches: [ master ]
-      paths:
-        - programs/typora/install.bash
+    paths:
+      - programs/typora/install.bash
 
   workflow_dispatch:
 
