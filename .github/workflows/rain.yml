@@ -27,7 +27,7 @@ jobs:
 
       - name: Check GitHub API limit
         run: |
-          apt install curl
+          apt-get update && apt-get install -y curl
 
           curl -L \
             -H "Accept: application/vnd.github+json" \
