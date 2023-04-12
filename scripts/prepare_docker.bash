@@ -22,8 +22,13 @@ adduser norm sudo
 GITHUB_TOKEN="${GITHUB_TOKEN:-x}"
 
 # Authenticate norm's GitHub API requests to increase rate limit.
+# Authenticate github.com as well for clones.
 cat > ~norm/.netrc <<EOF
 machine api.github.com
+login iainelder
+password $GITHUB_TOKEN
+
+machine github.com
 login iainelder
 password $GITHUB_TOKEN
 EOF
