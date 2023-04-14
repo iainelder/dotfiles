@@ -25,3 +25,9 @@ set +eu
 source ~/.local/bin/bashmarks.sh
 
 l --help
+
+# `l --help` terminates with SIGINT.
+exit_code="$?"
+if [ "130" != "$exit_code" ]; then
+  exit 1
+fi
