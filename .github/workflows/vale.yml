@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/vale/install.bash
+      - .github/workflows/Vale.yml
 
   workflow_dispatch:
 

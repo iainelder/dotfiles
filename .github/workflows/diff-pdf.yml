@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/diff-pdf/install.bash
+      - .github/workflows/diff-pdf.yml
 
   workflow_dispatch:
 

@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/snowsql/install.bash
+      - .github/workflows/SnowSQL.yml
 
   workflow_dispatch:
 

@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/envman/install.bash
+      - .github/workflows/Envman.yml
 
   workflow_dispatch:
 

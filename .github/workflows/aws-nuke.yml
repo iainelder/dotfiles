@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/aws-nuke/install.bash
+      - .github/workflows/aws-nuke.yml
 
   workflow_dispatch:
 

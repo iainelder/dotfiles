@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/firefox-open-url-in-container/install.bash
+      - .github/workflows/firefox-container.yml
 
   workflow_dispatch:
 

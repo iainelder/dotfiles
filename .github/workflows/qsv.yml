@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/qsv/install.bash
+      - .github/workflows/qsv.yml
 
   workflow_dispatch:
 

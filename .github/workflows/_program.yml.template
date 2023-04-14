@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - ${program_script}
+      - .github/workflows/${program_name}.yml
 
   workflow_dispatch:
 

@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/bashmarks/install.bash
+      - .github/workflows/Bashmarks.yml
 
   workflow_dispatch:
 

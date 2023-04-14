@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/shellcheck/install.bash
+      - .github/workflows/ShellCheck.yml
 
   workflow_dispatch:
 

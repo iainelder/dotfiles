@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/gnucash3/install.bash
+      - .github/workflows/GnuCash 3.yml
 
   workflow_dispatch:
 

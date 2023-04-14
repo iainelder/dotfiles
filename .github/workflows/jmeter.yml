@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/jmeter/install.bash
+      - .github/workflows/JMeter.yml
 
   workflow_dispatch:
 

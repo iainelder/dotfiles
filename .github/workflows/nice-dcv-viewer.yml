@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/nice-dcv-viewer/install.bash
+      - .github/workflows/NICE DCV Viewer.yml
 
   workflow_dispatch:
 

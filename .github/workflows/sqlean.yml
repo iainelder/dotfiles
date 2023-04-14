@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/sqlean/install.bash
+      - .github/workflows/SQLean.yml
 
   workflow_dispatch:
 

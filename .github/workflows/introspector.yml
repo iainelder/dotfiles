@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/introspector/install.bash
+      - .github/workflows/Introspector.yml
 
   workflow_dispatch:
 

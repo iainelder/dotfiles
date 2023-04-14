@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/golang/install.bash
+      - .github/workflows/Golang.yml
 
   workflow_dispatch:
 

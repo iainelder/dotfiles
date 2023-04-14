@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/dotnetsdk/install.bash
+      - .github/workflows/.NET SDK.yml
 
   workflow_dispatch:
 

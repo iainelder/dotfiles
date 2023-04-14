@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/powershell/install.bash
+      - .github/workflows/PowerShell.yml
 
   workflow_dispatch:
 

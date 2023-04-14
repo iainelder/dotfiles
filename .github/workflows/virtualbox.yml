@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/virtualbox/install.bash
+      - .github/workflows/VirtualBox.yml
 
   workflow_dispatch:
 

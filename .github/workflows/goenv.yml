@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/goenv/install.bash
+      - .github/workflows/goenv.yml
 
   workflow_dispatch:
 

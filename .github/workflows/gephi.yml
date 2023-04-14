@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/gephi/install.bash
+      - .github/workflows/Gephi.yml
 
   workflow_dispatch:
 

@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/vscode/install.bash
+      - .github/workflows/Visual Studio Code.yml
 
   workflow_dispatch:
 

@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/tgenv/install.bash
+      - .github/workflows/tgenv.yml
 
   workflow_dispatch:
 

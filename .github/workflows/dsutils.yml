@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/dsutils/install.bash
+      - .github/workflows/dsutils.yml
 
   workflow_dispatch:
 

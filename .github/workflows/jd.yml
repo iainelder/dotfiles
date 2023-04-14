@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/jd/install.bash
+      - .github/workflows/jd.yml
 
   workflow_dispatch:
 

@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/tfenv/install.bash
+      - .github/workflows/tfenv.yml
 
   workflow_dispatch:
 

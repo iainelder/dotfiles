@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/gcloud/install.bash
+      - .github/workflows/gcloud CLI.yml
 
   workflow_dispatch:
 

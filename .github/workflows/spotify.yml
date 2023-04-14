@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/spotify/install.bash
+      - .github/workflows/Spotify.yml
 
   workflow_dispatch:
 

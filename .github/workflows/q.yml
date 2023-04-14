@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/q/install.bash
+      - .github/workflows/q.yml
 
   workflow_dispatch:
 

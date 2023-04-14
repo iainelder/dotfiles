@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/act/install.bash
+      - .github/workflows/Act.yml
 
   workflow_dispatch:
 

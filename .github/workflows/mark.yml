@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/mark/install.bash
+      - .github/workflows/mark.yml
 
   workflow_dispatch:
 

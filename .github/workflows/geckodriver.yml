@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/geckodriver/install.bash
+      - .github/workflows/geckodriver.yml
 
   workflow_dispatch:
 

@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/typora/install.bash
+      - .github/workflows/Typora.yml
 
   workflow_dispatch:
 

@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/packer/install.bash
+      - .github/workflows/Packer.yml
 
   workflow_dispatch:
 

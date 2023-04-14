@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/terragrunt/install.bash
+      - .github/workflows/Terragrunt.yml
 
   workflow_dispatch:
 

@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/borgbackup/install.bash
+      - .github/workflows/BorgBackup.yml
 
   workflow_dispatch:
 

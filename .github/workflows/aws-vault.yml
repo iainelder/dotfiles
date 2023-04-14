@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/aws-vault/install.bash
+      - .github/workflows/aws-vault.yml
 
   workflow_dispatch:
 

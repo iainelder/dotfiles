@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/granted/install.bash
+      - .github/workflows/Granted.yml
 
   workflow_dispatch:
 

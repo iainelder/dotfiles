@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/github-cli/install.bash
+      - .github/workflows/GitHub CLI.yml
 
   workflow_dispatch:
 

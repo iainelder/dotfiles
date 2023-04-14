@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/openrefine/install.bash
+      - .github/workflows/OpenRefine.yml
 
   workflow_dispatch:
 

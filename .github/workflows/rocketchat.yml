@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/rocketchat/install.bash
+      - .github/workflows/Rocketchat.yml
 
   workflow_dispatch:
 

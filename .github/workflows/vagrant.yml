@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/vagrant/install.bash
+      - .github/workflows/Vagrant.yml
 
   workflow_dispatch:
 

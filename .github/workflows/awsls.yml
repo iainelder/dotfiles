@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/awsls/install.bash
+      - .github/workflows/awsls.yml
 
   workflow_dispatch:
 

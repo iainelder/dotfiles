@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/rclone/install.bash
+      - .github/workflows/rclone.yml
 
   workflow_dispatch:
 

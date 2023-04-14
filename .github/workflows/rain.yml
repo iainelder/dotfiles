@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/rain/install.bash
+      - .github/workflows/Rain.yml
 
   workflow_dispatch:
 

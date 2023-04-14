@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/anki/install.bash
+      - .github/workflows/Anki.yml
 
   workflow_dispatch:
 

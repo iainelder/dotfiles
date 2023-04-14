@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/pipx/install.bash
+      - .github/workflows/Pipx.yml
 
   workflow_dispatch:
 

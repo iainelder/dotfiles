@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/saml2aws/install.bash
+      - .github/workflows/saml2aws.yml
 
   workflow_dispatch:
 

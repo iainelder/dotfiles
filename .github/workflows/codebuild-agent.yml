@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/codebuild-agent/install.bash
+      - .github/workflows/AWS CodeBuild agent.yml
 
   workflow_dispatch:
 

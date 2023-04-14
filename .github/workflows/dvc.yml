@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/dvc/install.bash
+      - .github/workflows/DVC (Data Version Control).yml
 
   workflow_dispatch:
 

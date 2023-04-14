@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - programs/parallel/install.bash
+      - .github/workflows/Parallel.yml
 
   workflow_dispatch:
 
