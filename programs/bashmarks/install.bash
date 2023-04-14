@@ -23,11 +23,9 @@ make install
 # Reads environment variables `ZSH_VERSION` and `SDIRS`.
 set +eu
 source ~/.local/bin/bashmarks.sh
-
-l --help
+set -eu
 
 # `l --help` terminates with SIGINT.
-exit_code="$?"
-if [ "130" != "$exit_code" ]; then
-  exit 1
-fi
+trap "" SIGINT
+
+l --help
