@@ -3,6 +3,13 @@
 # Name: qsv
 # https://github.com/jqnatividad/qsv
 
+# One day, I'll figure out how to depend on ghr.
+# gh-release-install \
+# --extract "qsv" \
+# "jqnatividad/qsv" \
+# "qsv-{tag}-x86_64-unknown-linux-musl.zip" \
+# "${HOME}/.local/bin/qsv"
+
 set -euxo pipefail
 
 cd "$(mktemp --dir)"
