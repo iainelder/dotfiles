@@ -4,6 +4,11 @@ on:
     paths:
       - programs/codebuild-agent/install.bash
       - .github/workflows/AWS CodeBuild agent.yml
+  schedule:
+    # Not at the start of an hour or a day to decreate the chance of delay.
+    # See schedule documentation.
+    # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+    cron: "17 5 * * *"
 
   workflow_dispatch:
 
@@ -37,3 +42,4 @@ jobs:
       - name: Install AWS CodeBuild agent again (test idempotency)
         shell: su norm --command "bash --login {0}"
         run: programs/codebuild-agent/install.bash
+
