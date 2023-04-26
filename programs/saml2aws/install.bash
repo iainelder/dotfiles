@@ -12,10 +12,21 @@ sudo apt-get update
 # Installer dependencies
 sudo apt-get --assume-yes install \
 curl \
-jq
+jq \
+lsb-release
+
+dist=$(lsb_release --codename --short)
+
+if [[ "$dist" = "focal" ]]; then
+  # Last version to support Ubuntu 20.04.
+  # See https://github.com/Versent/saml2aws/issues/1010
+  version="tags/v2.36.4"
+else
+  version="latest"
+fi
 
 browser_download_url=$(
-  curl -Ss 'https://api.github.com/repos/Versent/saml2aws/releases/latest' |
+  curl -Ss "https://api.github.com/repos/Versent/saml2aws/releases/$version" |
   jq -r '.assets[] | select(.name | test("linux_amd64")) | .browser_download_url'
 )
 
