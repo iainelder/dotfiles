@@ -17,8 +17,7 @@ gettext-base
 
 browser_download_url=$(
   curl -Ss 'https://api.github.com/repos/openrefine/openrefine/releases/latest' \
-  | jq -r '.body' \
-  | grep -oP '(?<=\[Linux\]\().*?(?=\))'
+  | jq -r '.assets[] | select(.name | test("openrefine-linux-.*\\.tar\\.gz")) | .browser_download_url'
 )
 
 download_filename=$(
