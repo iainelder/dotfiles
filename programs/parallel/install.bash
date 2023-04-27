@@ -13,7 +13,15 @@ sudo apt-get update
 sudo apt-get --assume-yes install \
 curl \
 jq \
-make
+make \
+lsb-release
+
+dist=$(lsb_release --codename --short)
+
+# tar needs this on Ubuntu 22.
+if [ "$dist" = "jammy" ]; then
+  sudo apt-get --assume-yes install lbzip2
+fi
 
 browser_download_url="https://ftpmirror.gnu.org/parallel/parallel-latest.tar.bz2"
 
