@@ -17,17 +17,9 @@ lsb-release
 
 dist=$(lsb_release --codename --short)
 
-if [[ "$dist" = "focal" ]]; then
-  # Last version to support Ubuntu 20.04.
-  # See https://github.com/Versent/saml2aws/issues/1010
-  version="tags/v2.36.4"
-else
-  version="latest"
-fi
-
 browser_download_url=$(
-  curl -Ss "https://api.github.com/repos/Versent/saml2aws/releases/$version" |
-  jq -r '.assets[] | select(.name | test("linux_amd64")) | .browser_download_url'
+  curl -Ss "https://api.github.com/repos/Versent/saml2aws/releases/latest" |
+  jq -r '.assets[] | select(.name | test("saml2aws-u2f_.*?_linux_amd64.tar.gz")) | .browser_download_url'
 )
 
 download_filename=$(
