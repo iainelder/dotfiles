@@ -80,3 +80,7 @@ alias copy="xclip -selection c"
 # https://subscription.packtpub.com/book/networking-&-servers/9781782162742/1/ch01lvl1sec11/function-to-prepend-to-environment-variables
 # I include this mostly as a reminder to read at least one book about Bash.
 function prepend() { [ -d "$2" ] && eval $1=\"$2\$\{$1:+':'\$$1\}\" && export $1 ; }
+
+function grepenv() {
+    printenv | grep -P "$1"
+}
