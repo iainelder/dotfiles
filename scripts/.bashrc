@@ -126,14 +126,3 @@ stty -ixon
 for f in ~/.dotfiles/*.sh; do
   source "$f";
 done
-
-# .private_profiles contains a newline-separated list of folders containing
-# private bash profiles.
-# It needs to be a redirect for the sourcing to affect the user shell.
-# Tp cat the file and pipe into while would create a subshell.
-# See http://mywiki.wooledge.org/BashFAQ/024.
-while read profile_dir ; do
-  for f in "${profile_dir}"/*; do
-    source "$f";
-  done
-done < ~/.private_profiles
