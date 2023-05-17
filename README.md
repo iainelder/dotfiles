@@ -36,14 +36,14 @@ To test the transition to Ubuntu 22, use `test_local_22.bash` in the same way.
 
 Each installer script is tested with a CI workflow.
 
-Each worflow prepares the Ubuntu container as in the development environment,
+Each workflow prepares the Ubuntu container as in the development environment,
 runs the installer, and then runs the installer again to test idempotency.
 
-A worflow for each installer can be generated automatically from a template.
+A workflow for each installer can be generated automatically from a template.
 
 To generate the workflow for all installers, use the generate_ci.bash script.
 
-```
+```bash
 ./generate_ci.bash
 ```
 
@@ -52,18 +52,17 @@ a new installer script.
 
 Push the result to Github to run the workflow using Github Actions.
 
-```
+```bash
 git add .github/workflow
 git commit
 git push
 ```
 
-### Raise GitHub API rate limit
+## GitHub API limit
 
-The CI makes some API calls to the GitHub REST API for each installer that uses GitHub Releases.
+Many of the installers make an API call to GitHub Releases.
 
 In 2023, I added so many such installers that CI for GitHub-distributed programs would intermittently fail.
-
 
 When I stumbled across [deb-get](https://github.com/wimpysworld/deb-get), which needed to solve the same problem, I discovered the solution.
 
@@ -73,32 +72,7 @@ It limits authenticated requests to 5000 per hour per user.
 
 To authenicate as a user, include a personal access token in the request.
 
-Read Dino Chiesa's post for how to configure curl with a .netrc file: [Do you usecurl? Stop using -u. Please use curl -n and .netrc](https://www.googlecloudcommunity.com/gc/Cloud-Product-Articles/Do-you-use-curl-Stop-using-u-Please-use-curl-n-and-netrc/ta-p/75724).
-
-Even using GITHUB_TOKEN to authenticate curl doesn't solve the problem.
-
-[Example failure](https://github.com/iainelder/dotfiles/actions/runs/4203577788/jobs/7293155696): 
-
-```text
-+ su norm --command '
-  bash --login -c '\''curl -Ss -I https://api.github.com/'\'' | grep x-ratelimit-limit
-'
-x-ratelimit-limit: 1000
-```
-
-```text
-++ curl -Ss https://api.github.com/repos/nektos/act/releases/latest
-++ jq -r '.assets[] | select(.name | test("Linux_x86_64")) | .browser_download_url'
-jq: error (at <stdin>:1): Cannot iterate over null (null)
-+ browser_download_url=
-Error: Process completed with exit code 5.
-```
-
-Exit code 5 is jq's default error code (see halt_error in the manual).
-
-I need a more robust way to download from GitHub releases in CI.
-
-Maybe I can recofigure the CIs to run less often.
+Many of the installers use curl to call the GitHub API, and I don't want to rewrite them all to handle the authentication explicitly. Instead I hook into the top level `curl` command with a function that injects the authentication details via a `.netrc` file.  Dino Chisea's article "[Do you usecurl? Stop using -u. Please use curl -n and .netrc](https://www.googlecloudcommunity.com/gc/Cloud-Product-Articles/Do-you-use-curl-Stop-using-u-Please-use-curl-n-and-netrc/ta-p/75724)" taught me how to do this.
 
 ## To upgrade after installing
 

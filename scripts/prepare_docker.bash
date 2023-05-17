@@ -34,6 +34,7 @@ password $GITHUB_TOKEN
 EOF
 
 # Patch existing curl calls to use netrc.
+# See "GitHub API Limit" in the README.
 cat > /etc/profile.d/curl_netrc.sh <<"EOF"
 curl() {
   command curl --netrc "$@"
