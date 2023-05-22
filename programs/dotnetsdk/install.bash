@@ -12,9 +12,18 @@ sudo apt-get update
 # Installer dependencies
 sudo apt-get --assume-yes install \
 wget \
-lsb-release
+lsb-release \
+moreutils # For sponge.
 
 dist="$(lsb_release --release --short)"
+
+if [[ "$dist" = "22.04" ]]; then
+sudo sponge /etc/apt/preferences.d/dotnet.pref <<"EOF"
+Package: dotnet* aspnet* netstandard*
+Pin: origin "archive.ubuntu.com"
+Pin-Priority: -10
+EOF
+fi
 
 wget "https://packages.microsoft.com/config/ubuntu/$dist/packages-microsoft-prod.deb" -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
