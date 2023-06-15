@@ -1,9 +1,9 @@
-name: Anki
+name: htmlq
 on:
   push:
     paths:
       - programs/htmlq/install.bash
-      - .github/workflows/Anki.yml
+      - .github/workflows/htmlq.yml
   schedule:
     # Not at the start of an hour or a day to decreate the chance of delay.
     # See schedule documentation.
@@ -35,11 +35,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install Anki
+      - name: Install htmlq
         shell: su norm --command "bash --login {0}"
         run: programs/htmlq/install.bash
 
-      - name: Install Anki again (test idempotency)
+      - name: Install htmlq again (test idempotency)
         shell: su norm --command "bash --login {0}"
         run: programs/htmlq/install.bash
 

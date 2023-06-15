@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Name: jd
+# Name: DuckDB
 # https://github.com/duckdb/duckdb/blob/master/README.md
 
 set -euxo pipefail

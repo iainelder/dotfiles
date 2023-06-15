@@ -1,9 +1,9 @@
-name: jd
+name: DuckDB
 on:
   push:
     paths:
       - programs/duckdb/install.bash
-      - .github/workflows/jd.yml
+      - .github/workflows/DuckDB.yml
   schedule:
     # Not at the start of an hour or a day to decreate the chance of delay.
     # See schedule documentation.
@@ -35,11 +35,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install jd
+      - name: Install DuckDB
         shell: su norm --command "bash --login {0}"
         run: programs/duckdb/install.bash
 
-      - name: Install jd again (test idempotency)
+      - name: Install DuckDB again (test idempotency)
         shell: su norm --command "bash --login {0}"
         run: programs/duckdb/install.bash
 

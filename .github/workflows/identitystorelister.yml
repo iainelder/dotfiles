@@ -1,9 +1,9 @@
-name: Anki
+name: identitystorelister
 on:
   push:
     paths:
       - programs/identitystorelister/install.bash
-      - .github/workflows/Anki.yml
+      - .github/workflows/identitystorelister.yml
   schedule:
     # Not at the start of an hour or a day to decreate the chance of delay.
     # See schedule documentation.
@@ -35,11 +35,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install Anki
+      - name: Install identitystorelister
         shell: su norm --command "bash --login {0}"
         run: programs/identitystorelister/install.bash
 
-      - name: Install Anki again (test idempotency)
+      - name: Install identitystorelister again (test idempotency)
         shell: su norm --command "bash --login {0}"
         run: programs/identitystorelister/install.bash
 
