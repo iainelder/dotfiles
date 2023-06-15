@@ -19,7 +19,7 @@ dist=$(lsb_release --codename --short)
 
 browser_download_url=$(
   curl -Ss "https://api.github.com/repos/Versent/saml2aws/releases/latest" |
-  jq -r '.assets[] | select(.name | test("saml2aws-u2f_.*?_linux_amd64.tar.gz")) | .browser_download_url'
+  jq -r '.assets[] | select(.name | test("saml2aws-u2f_static_.*?_linux_amd64.tar.gz")) | .browser_download_url'
 )
 
 download_filename=$(
