@@ -1,7 +1,6 @@
 source ~/.local/bin/bashmarks.sh
 
-# Bashmarks `l` lists the bookmarks.
-# In my Ubuntu `l` is already an alias and that takes priority.
+# Remove Ubuntu's alias so that Bashmarks's command works.
 #
 # ```
 # $ type l
