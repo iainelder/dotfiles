@@ -37,8 +37,9 @@ function .env {
 # Register a new env or update an existing one. Prompts to confirm update.
 function lnenv {
     declare name="${1}"
+    declare path="${2}"
 
-    ln -s -i -T "$(pwd)/.envrc" "$ENVDIR/$name"
+    ln -s -i -T "$path" "$ENVDIR/$name"
 }
 
 # Unregister an env.
