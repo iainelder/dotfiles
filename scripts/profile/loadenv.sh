@@ -1,4 +1,4 @@
-# Maintains a global register of direnv locations.
+# Maintains a global register of env locations.
 # Starts a Bash session that uses the environment in any working directory.
 # Inspired by direnv and bashmarks.
 
@@ -18,7 +18,7 @@ function .env {
     # 1. Load bashrc because `init-file` overrides the normal load sequence.
     # 2. Add env name to shell prompt as Python's virtualenv does.
     # 3. Move into the envdir so that commands like `pwd` work in the .envrc
-    # 4. Load direnv stdlib because .envrc files may use it.
+    # 4. Load direnv stdlib because env files may use it.
     # 5. Load the .envrc without using direnv to use it in any directory.
     # 6. Move back so that when Bash goes interactive I'm in the same place.
     #
@@ -34,21 +34,21 @@ function .env {
     )
 }
 
-# Register a new .envrc or update an existing one. Prompts to confirm update.
+# Register a new env or update an existing one. Prompts to confirm update.
 function lnenv {
     declare name="${1}"
 
     ln -s -i -T "$(pwd)/.envrc" "$ENVDIR/$name"
 }
 
-# Unregister an .envrc.
+# Unregister an env.
 function rmenv {
     declare name="${1}"
 
     rm "$ENVDIR/$name"
 }
 
-# Lists registered .envrc files.
+# Lists registered env files.
 function lsenv {
     find "$ENVDIR" -mindepth 1 -maxdepth 1 -printf "%f -> %l\n"
 }
