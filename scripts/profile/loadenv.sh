@@ -10,6 +10,11 @@ mkdir --parents "$ENVDIR"
 function .env {
     declare name="${1}"
 
+    ! [ -L "$ENVDIR/$name" ] && {
+        echo "$name is not an env"
+        return 1
+    }
+
     envdir="$(dirname "$(realpath "$ENVDIR/$name")")"
 
     # Start a subshell as the simplest way to unload variables at the end.
