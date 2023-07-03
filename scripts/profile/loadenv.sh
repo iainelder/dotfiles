@@ -24,8 +24,9 @@ function .env {
     # 2. Add env name to shell prompt as Python's virtualenv does.
     # 3. Move into the envdir so that commands like `pwd` work in the .envrc
     # 4. Load direnv stdlib because env files may use it.
-    # 5. Load the .envrc without using direnv to use it in any directory.
-    # 6. Move back so that when Bash goes interactive I'm in the same place.
+    # 5. Load the file without using direnv to use it in any directory.
+    # 6. Ensure there is a newline after the file in case it didn't end with one.
+    # 7. Move back so that when Bash goes interactive I'm in the same place.
     #
     # 
     bash --init-file <(
@@ -35,6 +36,7 @@ function .env {
             <(cat <<< "pushd '$envdir' > /dev/null") \
             <(direnv stdlib) \
             "$ENVDIR/$name" \
+            <(echo) \
             <(cat <<< "popd > /dev/null") \
     )
 }
