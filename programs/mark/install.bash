@@ -16,7 +16,7 @@ jq
 
 browser_download_url=$(
   curl -Ss 'https://api.github.com/repos/kovetskiy/mark/releases/latest' |
-  jq -r '.assets[] | select(.name | test("mark_.*?_Linux_x86_64.tar.gz")) | .browser_download_url'
+  jq -r '.assets[] | select(.name | test("mark_Linux_x86_64.tar.gz")) | .browser_download_url'
 )
 
 download_filename=$(
