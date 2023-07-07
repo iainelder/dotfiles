@@ -1,0 +1,45 @@
+name: fzf
+on:
+  push:
+    paths:
+      - programs/fzf/install.bash
+      - .github/workflows/fzf.yml
+  schedule:
+    # Not at the start of an hour or a day to decreate the chance of delay.
+    # See schedule documentation.
+    # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+    - cron: "17 5 * * *"
+
+  workflow_dispatch:
+
+jobs:
+  test_idempotent_installation:
+
+    strategy:
+      matrix:
+        os:
+          - "ubuntu:20.04"
+          - "ubuntu:22.04"
+
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ matrix.os }}"
+
+    steps:
+
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Prepare Docker
+        run: ./scripts/prepare_docker.bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install fzf
+        shell: su norm --command "bash --login {0}"
+        run: programs/fzf/install.bash
+
+      - name: Install fzf again (test idempotency)
+        shell: su norm --command "bash --login {0}"
+        run: programs/fzf/install.bash
+
