@@ -28,6 +28,6 @@ package_filename=$(
   --write-out '%{filename_effective}'
 )
 
-sudo apt-get install "./${package_filename}"
+sudo apt-get install --yes "./${package_filename}"
 
 cw --version
