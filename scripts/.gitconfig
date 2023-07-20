@@ -21,6 +21,7 @@
 [alias]
 	root = rev-parse --show-toplevel
 	ack = ! git ls-files --others --cached --exclude-standard | ack -x
+	tree = "!f() { git ls-files \"${1-.}\" | tree --fromfile . ; }; f"
 [log]
 	date = iso
 [credential "https://dev.azure.com"]
