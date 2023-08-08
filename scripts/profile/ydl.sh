@@ -1,5 +1,5 @@
 function ytdl() {
-    youtube-dl \
+    yt-dlp \
     --verbose \
     --extract-audio \
     --write-info-json \
