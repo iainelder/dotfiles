@@ -64,13 +64,21 @@ function empty-config-file {
 
 function init-profiles-from-iam-admin-in-management-account {
   empty-config-file
-  process="aws-vault export --format=json --region=$AWS_DEFAULT_REGION $AWS_VAULT_PROFILE"
+  process="aws-vault export --format=json --no-session --region=$AWS_DEFAULT_REGION $AWS_VAULT_PROFILE"
   aws configure set credential_process "$process" --profile mgmt
   print-profiles-for-organization | crudini --merge "$AWS_CONFIG_FILE"
 }
 
 function print-profiles-for-organization {
+  source_account=$(
+    aws sts get-caller-identity --profile "$AWS_CONFIG_SOURCE_PROFILE" \
+    | jq -j '.Account'
+  )
+
   aws organizations list-accounts --profile "$AWS_CONFIG_SOURCE_PROFILE" \
+  | jq \
+  --arg SourceAccount "$source_account" \
+  '.Accounts |= [.[] | select(.Id != $SourceAccount)]' \
   | jq \
   --arg OrgName "$AWS_ORGANIZATION_NAME" \
   --arg DefaultRegion eu-central-1 \
