@@ -28,7 +28,7 @@ download_filename=$(
   --write-out '%{filename_effective}'
 )
 
-tar -x -z -f angle.tar.gz
+tar -x -z -f "$download_filename"
 
 sudo cp agrind /usr/local/bin 
 
