@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Name: jd
-# https://github.com/josephburnett/jd/blob/master/README.md
+# Name: Angle-Grinder
+# https://github.com/rcoh/angle-grinder
 
 set -euxo pipefail
 
