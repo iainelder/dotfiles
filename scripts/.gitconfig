@@ -21,6 +21,9 @@
 [alias]
 	root = rev-parse --show-toplevel
 	ack = ! git ls-files --others --cached --exclude-standard | ack -x
+
+    # See Unix & Linux Q&A for more implementations.
+	# https://unix.stackexchange.com/a/691245/48038
 	tree = "!f() { git ls-files \"${1-.}\" | tree --fromfile . ; }; f"
 [log]
 	date = iso
