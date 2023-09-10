@@ -84,3 +84,10 @@ function prepend() { [ -d "$2" ] && eval $1=\"$2\$\{$1:+':'\$$1\}\" && export $1
 function grepenv() {
     printenv | grep -P "$1"
 }
+
+# Most useful for converting IAM policies to CloudFormation.
+# Thanks to [Lars Windolf](https://lzone.de/blog/Convert-JSON-to-YAML-in-Linux-bash)
+# and [Cooper.Wu](https://stackoverflow.com/a/55171433) for the tips.
+function json2yaml {
+    python3 -c 'import sys, yaml, json; print(yaml.dump(json.loads(sys.stdin.read()), sort_keys=False))'
+}
