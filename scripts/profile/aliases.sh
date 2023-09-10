@@ -1,8 +1,20 @@
 # Useful things that I haven't organized in a better way.
 
 alias hh='history -w /dev/stdout | less'
-alias cdtemp='cd $(mktemp --dir ~/tmp/tmp.$(date --iso).XXXXXXXX)'
 alias gittree='find -type d -exec sh -c '\''test -d "$1"/.git'\'' -- {} \; -print -prune'
+
+# Use like this: `tmp="$(mktempdir)"`.
+function mktempdir() {
+    local prefix="${1:-dir}"
+    mktemp --directory --tmpdir "$prefix.XXX"
+}
+
+function cdtemp() {
+    local prefix="${1:-dir}"
+    local tmp="$(mktempdir "$prefix")"
+    cd "$tmp"
+    printf '%s\n' "$tmp"
+}
 
 function gut() {
     case $@ in
