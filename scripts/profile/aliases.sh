@@ -33,7 +33,7 @@ function gut() {
             ;;
 
         *)
-            command gut $@
+            command gut "$@"
             ;;
     esac
 }
