@@ -16,6 +16,40 @@ function cdtemp() {
     printf '%s\n' "$tmp"
 }
 
+# Change the terminal color scheme to deal with trendy tools that color the
+# output text without checking the background color. `vale` and `rain` use dark
+# grey text in their help output which is impossible to read on a dark
+# background.
+#
+# Based on FedKad's answer to "How do I script changing the color scheme in gnome
+# terminal?".
+# https://askubuntu.com/questions/1456938/how-do-i-script-changing-the-color-scheme-in-gnome-terminal
+function colors() {
+    local black="'#000000'"
+    local white="'#ffffff'"
+    local background_color
+    local foreground_color
+    local default_profile="/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9"
+
+    case $@ in
+        "dark")
+            background_color="$black"
+            foreground_color="$white"
+            ;;
+        "light")
+            background_color="$white"
+            foreground_color="$black"
+            ;;
+        *)
+            echo "Choose 'dark' or 'light'" >&2
+            return 1
+            ;;
+    esac
+
+    dconf write "$default_profile/background-color" "$background_color"
+    dconf write "$default_profile/foreground-color" "$foreground_color"
+}
+
 function gut() {
     case $@ in
         "push")
