@@ -22,9 +22,10 @@
 	root = rev-parse --show-toplevel
 	ack = ! git ls-files --others --cached --exclude-standard | ack -x
 
+    # The expression argument to git ls-files works like SQL COALESCE.
     # See Unix & Linux Q&A for more implementations.
 	# https://unix.stackexchange.com/a/691245/48038
-	tree = "!f() { git ls-files \"${1:-$GIT_PREFIX}\" | tree --fromfile . ; }; f"
+	tree = "!f() { git ls-files \"${1:-${GIT_PREFIX:-.}}\" | tree --fromfile . ; }; f"
 [log]
 	date = iso
 [credential "https://dev.azure.com"]
