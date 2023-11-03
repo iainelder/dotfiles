@@ -50,6 +50,32 @@ function colors() {
     dconf write "$default_profile/foreground-color" "$foreground_color"
 }
 
+# Gnome Terminal is based on Virtual Terminal Environment (VTE) [1].
+# VTE lacks documention, but escape codes appear in the source code [2] [3].
+#
+# * Code 0 sets the window and icon title. Only the window title changes [4].
+# * Code 1 sets the icon title, but is not supported [4].
+# * Code 2 sets the window title.
+#
+# Prints:
+#
+# * Operating system code (OSC) 2 (set window title)
+# * First parameter as the name of the window title
+# * String terminator (ST)
+#
+# Wikipedia's ANSI escape code document the ST code. [5] The Bash manual
+# documents the escape literal syntax (\0nnn) [6].
+#
+# [1]: https://help.gnome.org/users/gnome-terminal/3.40/overview.html.en
+# [2]: https://github.com/GNOME/vte/blob/f6658a23bb8c7126e9e040a49531d6f3ddf1e367/src/parser-osc.hh#L59
+# [3]  https://github.com/GNOME/vte/blob/f6658a23bb8c7126e9e040a49531d6f3ddf1e367/src/osc#L8
+# [4]: https://github.com/GNOME/vte/blob/f6658a23bb8c7126e9e040a49531d6f3ddf1e367/src/vteseq.cc#L6628
+# [5]: https://en.wikipedia.org/wiki/ANSI_escape_code
+# [6]: https://www.gnu.org/software/bash/manual/bash.html#ANSI_002dC-Quoting
+function title() {
+    printf "%s%s%s" $'\033]2;' "$1" $'\033\\'
+}
+
 function gut() {
     case $@ in
         "push")
