@@ -30,6 +30,7 @@ function init-profiles-from-identity-center {
   mkdir --parents "$(dirname "$AWS_CONFIG_FILE")"
   rm --force "$AWS_CONFIG_FILE"
 
+  AWS_MAX_RETRIES=100 \
   aws-sso-util configure populate \
   --sso-start-url "$AWS_SSO_START_URL" \
   --sso-region "$AWS_SSO_REGION" \
@@ -94,7 +95,7 @@ function print-profiles-for-organization {
     | .SourceProfile = $SourceProfile
     | .RoleArn = "arn:aws:iam::\(.Id):role/\($RoleToAssume)"
   ;
-  
+
   def format:
     [
       "[profile \(.ProfileName)]",
@@ -102,7 +103,7 @@ function print-profiles-for-organization {
       "role_arn = \(.RoleArn)"
     ] | join("\n")
   ;
-  
+
   [.Accounts[] | parse($OrgName; $DefaultRegion; $RoleToAssume) | format] | join("\n\n")
   '
 }
