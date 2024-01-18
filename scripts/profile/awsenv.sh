@@ -30,7 +30,7 @@ function init-profiles-from-identity-center {
   mkdir --parents "$(dirname "$AWS_CONFIG_FILE")"
   rm --force "$AWS_CONFIG_FILE"
 
-  AWS_MAX_RETRIES=100 \
+  AWS_MAX_ATTEMPTS=100 \
   aws-sso-util configure populate \
   --sso-start-url "$AWS_SSO_START_URL" \
   --sso-region "$AWS_SSO_REGION" \
