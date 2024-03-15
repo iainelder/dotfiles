@@ -1,7 +1,10 @@
 # Useful things that I haven't organized in a better way.
 
 alias hh='history -w /dev/stdout | less'
-alias gittree='find -type d -exec sh -c '\''test -d "$1"/.git'\'' -- {} \; -print -prune'
+
+function listrepos() {
+    find -path '*/.git' | grep -oP '.*(?=/.git$)'
+}
 
 # Use like this: `tmp="$(mktempdir)"`.
 function mktempdir() {
