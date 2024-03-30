@@ -1,0 +1,5 @@
+# Press CTRL+B to delete after the last /
+C-b:unix-filename-rubout
+
+# Enable bracketed paste
+set enable-bracketed-paste on
