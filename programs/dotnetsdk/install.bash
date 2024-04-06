@@ -22,6 +22,10 @@ sudo sponge /etc/apt/preferences.d/dotnet.pref <<"EOF"
 Package: dotnet* aspnet* netstandard*
 Pin: origin "archive.ubuntu.com"
 Pin-Priority: -10
+
+Package: dotnet* aspnet* netstandard*
+Pin: origin "security.ubuntu.com"
+Pin-Priority: -10
 EOF
 fi
 
