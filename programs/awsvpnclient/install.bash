@@ -22,7 +22,7 @@ elif [[ "$dist" = "20.04" ]]; then
     libicu="libicu66"
 fi
 
-sudo apt install "$libicu"
+sudo apt install --assume-yes "$libicu"
 
 # For Docker. Installing the package starts a systemd service.
 if [[ $(readlink /sbin/init) != "/lib/systemd/systemd" ]]; then
