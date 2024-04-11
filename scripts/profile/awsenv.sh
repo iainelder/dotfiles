@@ -1,3 +1,7 @@
+function login {
+  aws-sso-util login
+}
+
 function use-profile {
   export AWS_PROFILE="$(aws configure list-profiles | fzf)"
   printf "%s\n" "$AWS_PROFILE"
