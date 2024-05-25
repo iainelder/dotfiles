@@ -19,7 +19,9 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - "ubuntu:20.04"
+          # Mullvad supports the last two LTS versions.
+          # Ubuntu 24.04 came out April 2024.
+          # - "ubuntu:20.04"
           - "ubuntu:22.04"
 
     runs-on: ubuntu-latest
