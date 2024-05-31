@@ -30,9 +30,6 @@ jobs:
 
     steps:
 
-      - name: Tune GitHub-hosted runner network
-        uses: smorimoto/tune-github-hosted-runner-network@v1
-
       - name: Check out code
         uses: actions/checkout@v4
 
@@ -40,6 +37,10 @@ jobs:
         run: ./scripts/prepare_docker.bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Must come after "Prepare Docker" because it needs sudo.
+      - name: Tune GitHub-hosted runner network
+        uses: smorimoto/tune-github-hosted-runner-network@v1
 
       - name: Install Mullvad VPN
         shell: su norm --command "bash --login {0}"
