@@ -36,11 +36,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Fix flaky networking in GitHub Actions
-        run: |
-            sudo apt install ethtool
-            sudo ethtool -K eth0 tx off rx off
-
       - name: Install GitHub CLI
         shell: su norm --command "bash --login {0}"
         run: programs/github-cli/install.bash
