@@ -30,6 +30,9 @@ jobs:
 
     steps:
 
+      - name: Tune GitHub-hosted runner network
+        uses: smorimoto/tune-github-hosted-runner-network@v1
+
       - name: Check out code
         uses: actions/checkout@v4
 
