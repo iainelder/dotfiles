@@ -36,9 +36,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Must come after "Prepare Docker" because it needs sudo.
-      - name: Tune GitHub-hosted runner network
-        uses: smorimoto/tune-github-hosted-runner-network@v1
+      - name: Fix flaky networking in GitHub Actions
+        run: |
+            sudo apt install ethtool
+            sudo ethtool -K eth0 tx off rx off
 
       - name: Install clustergit
         shell: su norm --command "bash --login {0}"
