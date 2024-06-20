@@ -2,7 +2,12 @@
 
 set -euxo pipefail
 
-apt-get --yes update && apt-get --yes install sudo
+# The Ubuntu Docker image has no apt index.
+# Fail now if the the default indexes fail to install,
+# because any install command will fail later anyway.
+apt-get --yes update --error-on=any
+
+apt-get --yes install sudo
 
 # Make `apt-get install` work correctly in sudo for packages depending on those
 # such as tzdata and keyboard-configuration that freeze the Docker installation
