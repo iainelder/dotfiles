@@ -15,7 +15,7 @@ jq
 
 browser_download_url=$(
   curl -Ss 'https://api.github.com/repos/rcoh/angle-grinder/releases/latest' |
-  jq -r '.assets[] | select(.name == "agrind-x86_64-unknown-linux-musl.tar.gz") | .browser_download_url'
+  jq -r '.assets[] | select(.name == "agrind-x86_64-unknown-linux-gnu.tar.gz") | .browser_download_url'
 )
 
 download_filename=$(
