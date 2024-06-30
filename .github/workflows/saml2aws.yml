@@ -4,11 +4,6 @@ on:
     paths:
       - programs/saml2aws/install.bash
       - .github/workflows/saml2aws.yml
-  schedule:
-    # Not at the start of an hour or a day to decreate the chance of delay.
-    # See schedule documentation.
-    # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
-    - cron: "17 5 * * *"
 
   workflow_dispatch:
 
