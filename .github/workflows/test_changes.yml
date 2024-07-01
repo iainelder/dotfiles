@@ -1,0 +1,15 @@
+name: Test changes
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  list_changes:
+    name: List changed installers
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug
+        env:
+          GITHUB: ${{toJson(github)}}
+        run: |
+          echo "$GITHUB"
