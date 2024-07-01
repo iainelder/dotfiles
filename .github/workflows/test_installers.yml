@@ -1,0 +1,36 @@
+name: Test installers
+on:
+  workflow_call:
+    inputs:
+      installers:
+        description: A JSON list of install names
+        required: true
+        type: string
+
+jobs:
+  test_installers:
+    name: Test installers
+    runs-on: ubuntu-latest
+    container:
+      image: ${{matrix.os}}
+    strategy:
+      fail-fast: false
+      matrix:
+        installer: ${{ fromJson(inputs.installers) }}
+        os: ["ubuntu:20.04", "ubuntu:22.04"]
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Prepare Docker
+        run: ./scripts/prepare_docker.bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install ${{matrix.installer}}
+        shell: su norm --command "bash --login {0}"
+        run: programs/${{matrix.installer}}/install.bash
+
+      - name: Install ${{matrix.installer}} again (test idempotency)
+        shell: su norm --command "bash --login {0}"
+        run: programs/${{matrix.installer}}/install.bash

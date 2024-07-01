@@ -34,29 +34,14 @@ To test the transition to Ubuntu 22, use `test_local_22.bash` in the same way.
 
 ## Continuous integration (CI) with Github Actions
 
-Each installer script is tested with a CI workflow.
+A generic CI workflow tests each installer. It prepares the Ubuntu container as in the development environment, runs the installer, and then runs the installer again to test idempotency.
 
-Each workflow prepares the Ubuntu container as in the development environment,
+A helper workflow is scheduled once a day to test all installers.
+
+Another helper workflow detects changes and tests any changed installers.
+
+A generic workflow detects  prepares the Ubuntu container as in the development environment,
 runs the installer, and then runs the installer again to test idempotency.
-
-A workflow for each installer can be generated automatically from a template.
-
-To generate the workflow for all installers, use the generate_ci.bash script.
-
-```bash
-./generate_ci.bash
-```
-
-You should regenerate the workflows after either changing the template or adding
-a new installer script.
-
-Push the result to Github to run the workflow using Github Actions.
-
-```bash
-git add .github/workflow
-git commit
-git push
-```
 
 ### Duplicate workflow names
 
@@ -102,7 +87,7 @@ aws-gate
 https://github.com/xen0l/aws-gate/
 
 ```
-pipx install aws-gate 
+pipx install aws-gate
 ```
 
 Docker non-root stuff with newgrp and all that

@@ -1,15 +1,38 @@
-name: Test changes
+name: Test changed installers
 on:
   push:
-  workflow_dispatch:
 
 jobs:
-  list_changes:
+  list_installers:
     name: List changed installers
     runs-on: ubuntu-latest
+    outputs:
+      installers: ${{steps.dirs.outputs.changed_installers}}
     steps:
-      - name: Debug
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Get changed installer files
+        id: files
+        uses: tj-actions/changed-files@v44
+        with:
+          files: programs/**
+
+      - name: Get changed installer names
+        id: dirs
         env:
-          GITHUB: ${{toJson(github)}}
+          CHANGED_FILES: ${{steps.changed-installers.outputs.all_changed_files}}
         run: |
-          echo "$GITHUB"
+          {
+            printf "changed_installers="
+            printf "%s" "$CHANGED_FILES" \
+            | cut -d/ -f2 | sort -u | jq -R | jq -s -c -M
+          } >> "$GITHUB_OUTPUT"
+
+  test_installers:
+    name: Test installers
+    needs: list_installers
+    if: needs.list_installers.outputs.installers != '[]'
+    uses: ./.github/workflows/test_installers.yml
+    with:
+      installers: ${{needs.list_installers.outputs.installers}}
