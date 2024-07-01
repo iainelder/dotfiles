@@ -1,0 +1,17 @@
+name: Test all installers
+on:
+  schedule:
+    # To decrease the chance of delay, avoid the start of the hour.
+    # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+
+jobs:
+  list_installers:
+    name: List installers
+    runs-on: ubuntu-latest
+    outputs:
+      installers: ${{steps.list_step.outputs.installers}}
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
