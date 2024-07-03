@@ -21,7 +21,7 @@ jobs:
       - name: Get changed installer names
         id: dirs
         env:
-          CHANGED_FILES: ${{steps.changed-installers.outputs.all_changed_files}}
+          CHANGED_FILES: ${{steps.files.outputs.all_changed_files}}
         run: |
           {
             printf "changed_installers="
