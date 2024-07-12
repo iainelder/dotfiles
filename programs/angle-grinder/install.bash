@@ -30,7 +30,8 @@ download_filename=$(
 
 tar -x -z -f "$download_filename"
 
-sudo cp agrind /usr/local/bin 
+sudo cp agrind /usr/local/bin
 
-# Doesn't have a version option.
-agrind --help
+# Doesn't have a version option, but self-update reports the version as it
+# tries to update. This option basically does the job of this script.
+agrind --self-update
