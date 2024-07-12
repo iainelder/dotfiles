@@ -33,7 +33,11 @@
 	helper =
 	helper = !az account get-access-token --query accessToken --output tsv | xargs printf 'password=%s\n'
 [credential "https://git-codecommit.eu-west-1.amazonaws.com"]
-	provider = generic
+	helper = !aws codecommit credential-helper $@
+	UseHttpPath = true
+[credential "https://git-codecommit.eu-central-1.amazonaws.com"]
+	helper = !aws codecommit credential-helper $@
+	UseHttpPath = true
 [credential "https://github.com"]
 	helper =
 	helper = !/usr/bin/gh auth git-credential
