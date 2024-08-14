@@ -48,8 +48,12 @@ download_filename=$(
   --write-out '%{filename_effective}'
 )
 
-unzip "$download_filename" qsv
+# The musl variant is now called "qsvp". The "p" means "portable".
+# I still want my installed version to be called "qsv".
+# https://github.com/jqnatividad/qsv/commit/70bd244060946efe0cfd72cc663fbe5304cd4115
 
-sudo cp qsv /usr/local/bin
+unzip "$download_filename" qsvp
+
+sudo cp qsvp /usr/local/bin/qsv
 
 qsv --version
