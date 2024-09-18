@@ -3,7 +3,7 @@ function login {
 }
 
 function use-profile {
-  export AWS_PROFILE="$(aws configure list-profiles | fzf)"
+  export AWS_PROFILE="$(aws configure list-profiles | fzf --query "$1" --select-1)"
   printf "%s\n" "$AWS_PROFILE"
 }
 
