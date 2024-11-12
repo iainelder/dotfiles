@@ -4,6 +4,7 @@
 # https://apps.ankiweb.net/
 # https://github.com/ankitects/anki/releases
 # https://gist.github.com/lukechilds/a83e1d7127b78fef38c2914c4ececc3c#gistcomment-2574561
+# libxcb-cinerama0: https://github.com/NVlabs/instant-ngp/discussions/300
 
 set -euxo pipefail
 
@@ -48,7 +49,8 @@ xdg-utils \
 libnss3 \
 libxkbcommon0 \
 libxdamage1 \
-libasound2
+libasound2 \
+libxcb-xinerama0
 
 sudo ./install.sh
 
