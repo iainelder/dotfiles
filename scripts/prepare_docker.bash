@@ -7,7 +7,7 @@ set -euxo pipefail
 # because any install command will fail later anyway.
 apt-get --yes update --error-on=any
 
-apt-get --yes install sudo
+apt-get --yes install sudo adduser
 
 # Make `apt-get install` work correctly in sudo for packages depending on those
 # such as tzdata and keyboard-configuration that freeze the Docker installation
