@@ -42,6 +42,13 @@ cd "$extract_folder"
 # For tzdata via xdg-utils
 export DEBIAN_FRONTEND=noninteractive
 
+dist="$(lsb_release --release --short)"
+if [[ $dist = "24.04" ]]; then
+    libasound="libasound2t64"
+elif [[ $dist = "20.04" || $dist = "$22.04" ]]; then
+    libasound="libasound2"
+fi
+
 # Application dependencies
 sudo --preserve-env=DEBIAN_FRONTEND \
 apt-get --assume-yes install \
@@ -49,8 +56,8 @@ xdg-utils \
 libnss3 \
 libxkbcommon0 \
 libxdamage1 \
-libasound2 \
-libxcb-xinerama0
+libxcb-xinerama0 \
+"$libasound"
 
 sudo ./install.sh
 
