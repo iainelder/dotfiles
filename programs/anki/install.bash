@@ -53,6 +53,7 @@ fi
 sudo --preserve-env=DEBIAN_FRONTEND \
 apt-get --assume-yes install \
 xdg-utils \
+mplayer \
 libnss3 \
 libxkbcommon0 \
 libxdamage1 \
