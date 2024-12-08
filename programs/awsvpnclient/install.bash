@@ -16,11 +16,20 @@ lsb-release
 
 dist="$(lsb_release --release --short)"
 
-if [[ "$dist" = "22.04" ]]; then
-    libicu="libicu70"
-elif [[ "$dist" = "20.04" ]]; then
-    libicu="libicu66"
-fi
+case "$dist" in
+    "24.04")
+        libicu="libicu74"
+        repo_version="ubuntu"
+        ;;
+    "22.04")
+        libicu="libicu70"
+        repo_version="ubuntu"
+        ;;
+    "20.04")
+        libicu="libicu66"
+        repo_version="ubuntu-20.04"
+        ;;
+esac
 
 sudo apt install --assume-yes "$libicu"
 
@@ -32,7 +41,7 @@ fi
 wget -qO- https://d20adtppz83p9s.cloudfront.net/GTK/latest/debian-repo/awsvpnclient_public_key.asc \
 | sudo tee /etc/apt/trusted.gpg.d/awsvpnclient_public_key.asc
 
-echo "deb [arch=amd64] https://d20adtppz83p9s.cloudfront.net/GTK/latest/debian-repo ubuntu-20.04 main" \
+echo "deb [arch=amd64] https://d20adtppz83p9s.cloudfront.net/GTK/latest/debian-repo $repo_version main" \
 | sudo tee /etc/apt/sources.list.d/aws-vpn-client.list
 
 sudo apt-get update
