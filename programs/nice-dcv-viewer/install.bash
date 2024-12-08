@@ -16,11 +16,16 @@ curl
 # Load DISTRIB_RELEASE environment variable.
 source /etc/lsb-release
 
-if [[ "$DISTRIB_RELEASE" == "20.04" ]]; then
-    package_url="https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-viewer_amd64.ubuntu2004.deb"
-elif [[ "$DISTRIB_RELEASE" == "22.04" ]]; then
-    package_url="https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-viewer_amd64.ubuntu2204.deb"
-fi
+case "$DISTRIB_RELEASE" in
+    "20.04")
+        package_url="https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-viewer_amd64.ubuntu2004.deb"
+        ;;
+    "22.04")
+        package_url="https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-viewer_amd64.ubuntu2204.deb"
+        ;;
+    "24.04")
+        package_url="https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-viewer_amd64.ubuntu2404.deb"
+esac
 
 download_filename=$(
   curl \
