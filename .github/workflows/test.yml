@@ -33,7 +33,7 @@ jobs:
           bats-version: 1.2.1
 
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       # https://www.yegor256.com/2014/08/29/docker-non-root.html
       - name: Add non-root user
