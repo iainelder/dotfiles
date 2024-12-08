@@ -12,7 +12,8 @@ sudo apt-get update
 # Installer dependencies
 sudo apt-get --assume-yes install \
 curl \
-jq
+jq \
+lsb-release
 
 browser_download_url=$(
   curl -Ss 'https://api.github.com/repos/vslavik/diff-pdf/releases/latest' |
@@ -31,6 +32,13 @@ download_filename=$(
 
 tar --extract --auto-compress --file "$download_filename" --strip-components 1
 
+dist="$(lsb_release --release --short)"
+if [[ $dist = "24.04" ]]; then
+    gtk3="libwxgtk3.2-dev"
+else
+    gtk3="libwxgtk3.0-gtk3-dev"
+fi
+
 # Build dependencies.
 sudo apt-get install --assume-yes \
 make \
@@ -38,7 +46,7 @@ automake \
 g++ \
 libpoppler-glib-dev \
 poppler-utils \
-libwxgtk3.0-gtk3-dev
+"$gtk3"
 
 ./bootstrap
 ./configure
@@ -46,4 +54,5 @@ make
 sudo make install
 
 # There is no version option, but help exits 0.
+# Ignore the GTK initialization error.
 diff-pdf --help
