@@ -13,13 +13,12 @@ sudo apt-get update
 sudo apt-get --assume-yes install \
 curl \
 jq \
-make \
-lsb-release
+make
 
-dist=$(lsb_release --codename --short)
+source /etc/os-release
 
-# tar needs this on Ubuntu 22.
-if [ "$dist" = "jammy" ]; then
+# Somehow tar doesn't need this on Ubuntu 20.
+if [ $VERSION_ID != "20.04" ]; then
   sudo apt-get --assume-yes install lbzip2
 fi
 
@@ -44,7 +43,7 @@ sudo make install
 
 # make installs GNU Parallel to /usr/local/bin/parallel
 # APT package moreutils installs a different tool to /usr/bin/parallel.
-# If the moreutils version is installed, grep exits 0; otherwise it exits 1. 
+# If the moreutils version is installed, grep exits 0; otherwise it exits 1.
 # set allows Bash to continue on a non-zero exit code for this part.
 set +e
 grep -b "for each argument, run command with argument, in parallel" /usr/bin/parallel
