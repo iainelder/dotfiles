@@ -5,7 +5,8 @@
 install20() {
     set -euxo pipefail
 
-    sudo apt-get update && sudo apt-get install --yes \
+    sudo apt-get update
+    sudo apt-get install --yes \
     python3-pip \
     python3-venv
 
@@ -19,7 +20,7 @@ install24() {
     set -euxo pipefail
 
     sudo apt-get update
-    sudo apt-get install pipx
+    sudo apt-get install --yes pipx
 
     pipx --version
 }
