@@ -34,7 +34,7 @@ unzip
 # I have GLIBC version 2.31 here, which apparently is not favored.
 
 browser_download_url=$(
-  curl -Ss 'https://api.github.com/repos/jqnatividad/qsv/releases/latest' |
+  curl -Ss 'https://api.github.com/repos/dathere/qsv/releases/latest' |
   jq -r '.assets[] | select(.name | test("^qsv-.*?-x86_64-unknown-linux-musl.zip$")) | .browser_download_url'
 )
 
