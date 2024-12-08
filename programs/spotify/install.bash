@@ -19,6 +19,12 @@ sudo tee /etc/apt/sources.list.d/spotify.list
 
 sudo apt-get update
 
+source /etc/os-release
+
+if [[ $VERSION_ID == "24.04" ]]; then
+    sudo apt-get install --yes libasound2t64
+fi
+
 sudo apt-get install --yes spotify-client
 
 spotify --version
