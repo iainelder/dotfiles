@@ -25,7 +25,7 @@ wget -q -O- https://www.virtualbox.org/download/oracle_vbox_2016.asc \
 
 sudo apt-get update
 sudo apt-get --yes install \
-virtualbox-6.1
+virtualbox-7.1
 
 # Will also print a warning in Docker: "You will not be able to start VMs"
 VBoxManage --version
