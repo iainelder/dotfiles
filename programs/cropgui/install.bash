@@ -13,11 +13,19 @@ sudo apt-get update
 sudo apt-get --assume-yes install \
 curl \
 unzip \
-git
+git \
+lsb-release
+
+dist="$(lsb_release --release --short)"
+if [[ $dist = "24.04" ]]; then
+    distutils="python3-setuptools"
+else
+    distutils="python3-distutils"
+fi
 
 # Application dependencies
 sudo apt-get --assume-yes install \
-python3-distutils \
+"$distutils" \
 python3-pil.imagetk \
 libjpeg-progs \
 libimage-exiftool-perl
