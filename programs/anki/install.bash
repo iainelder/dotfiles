@@ -16,7 +16,8 @@ sudo apt-get update
 sudo apt-get --assume-yes install \
 curl \
 jq \
-zstd
+zstd \
+lsb-release
 
 browser_download_url=$(
   curl -Ss 'https://api.github.com/repos/ankitects/anki/releases/latest' |
@@ -45,7 +46,7 @@ export DEBIAN_FRONTEND=noninteractive
 dist="$(lsb_release --release --short)"
 if [[ $dist = "24.04" ]]; then
     libasound="libasound2t64"
-elif [[ $dist = "20.04" || $dist = "$22.04" ]]; then
+else
     libasound="libasound2"
 fi
 
