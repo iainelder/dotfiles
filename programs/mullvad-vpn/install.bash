@@ -25,6 +25,10 @@ echo "deb [signed-by=/usr/share/keyrings/mullvad-keyring.asc arch=${arch}] https
 
 # Install the package
 sudo apt update
+
+# Undeclared dependency.
+sudo apt install --assume-yes apparmor-profiles
+
 sudo apt install --assume-yes mullvad-vpn
 
 mullvad --version
