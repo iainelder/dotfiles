@@ -66,6 +66,11 @@ function empty-config-file {
   rm --force "$AWS_CONFIG_FILE"
 }
 
+function init-profiles-from-iam-admin-in-standalone-account {
+  empty-config-file
+  process="aws-vault export --format=json --no-session --region=$AWS_DEFAULT_REGION $AWS_VAULT_PROFILE"
+  aws configure set credential_process "$process" --profile mgmt
+}
 
 function init-profiles-from-iam-admin-in-management-account {
   empty-config-file
