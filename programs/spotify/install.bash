@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Name: Spotify
-# https://www.spotify.com/es/download/linux/
+# https://www.spotify.com/download/linux/
 
 set -euxo pipefail
 
