@@ -40,3 +40,5 @@
 	credentialStore = secretservice
 [init]
 	defaultBranch = master
+[include]
+	path = .private.gitconfig
