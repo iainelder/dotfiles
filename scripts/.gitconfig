@@ -35,7 +35,8 @@
 	helper =
 	helper = !/usr/bin/gh auth git-credential
 [credential "https://dev.azure.com"]
-	helper = 
+	useHttpPath = true
+	helper =
 	helper = /usr/local/bin/git-credential-manager
 	credentialStore = secretservice
 [init]
