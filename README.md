@@ -1,36 +1,35 @@
 # Dotfiles for Ubuntu 💜
 
-Iain Samuel McLean Elder's dotfiles for Ubuntu 20.04.
+Iain Samuel McLean Elder's dotfiles for Ubuntu.
 
-Based on Victoria Drake's dotfiles, and slowly evolving into its own thing.
+Forked from Victoria Drake's dotfiles, and evolved into its own thing.
 
 ## Devopment environment for Github actions
 
 The program installer scripts assume the existence of sudo and may invoke it to
 do things that require root on the desktop, such as installing apt packages.
 
-The scripts are tested in an Ubuntu container that lacks a non-root login and sudo.
+The scripts are tested in an Ubuntu 24 container that lacks a non-root login and sudo.
 
 We fix the missing sudo by installing it before running a script to prepare the
 Docker environment.
 
 This same technique is used in each Github Actions workflow.
 
-To test a script locally in a prepared Docker environment, use the
-test_local.bash script.
+To test a script locally in a prepared Docker environment, use the `test_local_24.bash` script.
 
 ```bash
-./test_local.bash scripts/install_programs.bash
+./test_local_24.bash scripts/install_programs.bash
 ```
 
-Run test_local.bash without arguments to prepare the Docker environment and
+Run the script without arguments to prepare the Docker environment and
 start an interactive shell for experimenting.
 
 ```bash
-./test_local.bash
+./test_local_24.bash
 ```
 
-To test the transition to Ubuntu 22, use `test_local_22.bash` in the same way.
+To test on Ubuntu 22, use `test_local_22.bash` in the same way.
 
 ## Continuous integration (CI) with Github Actions
 
@@ -40,7 +39,7 @@ A helper workflow is scheduled once a day to test all installers.
 
 Another helper workflow detects changes and tests any changed installers.
 
-A generic workflow detects  prepares the Ubuntu container as in the development environment,
+A generic workflow prepares the Ubuntu container as in the development environment,
 runs the installer, and then runs the installer again to test idempotency.
 
 ### Duplicate workflow names
@@ -61,7 +60,7 @@ It limits authenticated requests to 5000 per hour per user.
 
 To authenicate as a user, include a personal access token in the request.
 
-Many of the installers use curl to call the GitHub API, and I don't want to rewrite them all to handle the authentication explicitly. Instead I hook into the top level `curl` command with a function that injects the authentication details via a `.netrc` file.  Dino Chisea's article "[Do you usecurl? Stop using -u. Please use curl -n and .netrc](https://www.googlecloudcommunity.com/gc/Cloud-Product-Articles/Do-you-use-curl-Stop-using-u-Please-use-curl-n-and-netrc/ta-p/75724)" taught me how to do this.
+Many of the installers use curl to call the GitHub API, and I don't want to rewrite them all to handle the authentication explicitly. Instead I hook into the top level `curl` command with a function that injects the authentication details via a `.netrc` file.  Dino Chisea's article "[Do you use curl? Stop using -u. Please use curl -n and .netrc](https://www.googlecloudcommunity.com/gc/Cloud-Product-Articles/Do-you-use-curl-Stop-using-u-Please-use-curl-n-and-netrc/ta-p/75724)" taught me how to do this.
 
 ## To upgrade after installing
 
