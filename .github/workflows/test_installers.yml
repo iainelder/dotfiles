@@ -17,7 +17,7 @@ jobs:
       fail-fast: false
       matrix:
         installer: ${{ fromJson(inputs.installers) }}
-        os: ["ubuntu:20.04", "ubuntu:22.04", "ubuntu:24.04"]
+        os: ["ubuntu:22.04", "ubuntu:24.04"]
     steps:
       - name: Check out code
         uses: actions/checkout@v4
