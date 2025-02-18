@@ -38,7 +38,13 @@
 	useHttpPath = true
 	helper =
 	helper = /usr/local/bin/git-credential-manager
-	credentialStore = secretservice
+
+	# Used to use secretservice, but one day I deleted some stuff from the Secret Store and it broke.
+	# fatal: Failed to open secret service session [0x13]
+	# fatal: No such secret item at path: /org/freedesktop/secrets/collection/login/452
+	# No idea how to fix it.
+	# Maybe related to https://github.com/git-ecosystem/git-credential-manager/issues/694
+	credentialStore = cache
 [init]
 	defaultBranch = master
 [include]
