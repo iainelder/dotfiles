@@ -42,10 +42,6 @@ Another helper workflow detects changes and tests any changed installers.
 A generic workflow prepares the Ubuntu container as in the development environment,
 runs the installer, and then runs the installer again to test idempotency.
 
-### Duplicate workflow names
-
-Sometimes I forget to set a name for the new workflow when I copy from an existing one. See docs to [fix a duplicate workflow name](docs/Fix-a-duplicate-workflow-name.md). This check should be automated, but it's quicker just to fix it when it is noticed.
-
 ## GitHub API limit
 
 Many of the installers make an API call to GitHub Releases.
