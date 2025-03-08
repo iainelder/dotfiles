@@ -146,3 +146,10 @@ function grepenv() {
 function json2yaml {
     python3 -c 'import sys, yaml, json; print(yaml.dump(json.loads(sys.stdin.read()), sort_keys=False))'
 }
+
+# Test commands without network access.
+# Thanks to [Jakub Bochenski](https://unix.stackexchange.com/questions/68956/block-network-access-of-a-process#comment709175_83348)
+# and [Jane](https://askubuntu.com/a/1281079/143624).
+function nonet() {
+    sudo -p "[sudo] Password for %p to run unshare as %U: " unshare -n sudo -u $USER "$@"
+}
