@@ -153,3 +153,8 @@ function json2yaml {
 function nonet() {
     sudo -p "[sudo] Password for %p to run unshare as %U: " -E unshare -n sudo -u $USER -E "$@"
 }
+
+function pathfind {
+    IFS=: path_array=($PATH)
+    find "${path_array[@]}" "$@"
+}
