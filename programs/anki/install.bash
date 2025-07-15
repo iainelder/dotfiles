@@ -21,7 +21,7 @@ lsb-release
 
 browser_download_url=$(
   curl -Ss 'https://api.github.com/repos/ankitects/anki/releases/latest' |
-  jq -r '.assets[] | select(.name | test("linux-qt6.tar.zst")) | .browser_download_url'
+  jq -r '.assets[] | select(.name | test("linux.tar.zst")) | .browser_download_url'
 )
 
 download_filename=$(
@@ -38,7 +38,7 @@ tar --extract --auto-compress --file "$download_filename"
 
 extract_folder=$(basename "$download_filename" ".tar.zst")
 
-cd "$extract_folder"
+cd "anki-launcher"
 
 # For tzdata via xdg-utils
 export DEBIAN_FRONTEND=noninteractive
@@ -59,10 +59,9 @@ libnss3 \
 libxkbcommon0 \
 libxdamage1 \
 libxcb-xinerama0 \
-"$libasound"
+"$libasound" \
+libatomic1
 
 sudo ./install.sh
 
-# The version option requires but ignores a non-empty argument.
-# Anki requires a UTF-8 locale.
-LC_CTYPE=C.UTF-8 /usr/local/bin/anki --version 'x'
+anki --version
