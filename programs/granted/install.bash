@@ -14,14 +14,10 @@ sudo apt-get --assume-yes install \
 curl \
 jq
 
-latest_version=$(
-  curl -Ss 'https://api.github.com/repos/common-fate/granted/releases/latest' |
-  jq -r '.tag_name'
+browser_download_url=$(
+  curl -Ss 'https://api.github.com/repos/fwdcloudsec/granted/releases/latest' |
+  jq -r '.assets[] | select(.name | test("granted_.*?_linux_x86_64.tar.gz")) | .browser_download_url'
 )
-
-v_stripped=${latest_version#v}
-
-browser_download_url="releases.commonfate.io/granted/${latest_version}/granted_${v_stripped}_linux_x86_64.tar.gz"
 
 download_filename=$(
   curl \
