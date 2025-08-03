@@ -38,7 +38,7 @@ tar --extract --auto-compress --file "$download_filename"
 
 extract_folder=$(basename "$download_filename" ".tar.zst")
 
-cd "anki-launcher"
+cd "$extract_folder"
 
 # For tzdata via xdg-utils
 export DEBIAN_FRONTEND=noninteractive
