@@ -40,9 +40,8 @@ sudo find /opt/sqlean -mindepth 1 -maxdepth 1 -type f -name '*.so' -delete
 
 sudo mv *.so /opt/sqlean/
 
+# Load any module to get the version function.
 sqlite3 <<EOF
 .load /opt/sqlean/math
-SELECT sqrt(9);
+SELECT sqlite_version();
 EOF
-
-# TODO: Detect installed version. https://github.com/nalgeon/sqlean/issues/47
