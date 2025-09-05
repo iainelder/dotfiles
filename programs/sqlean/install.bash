@@ -17,7 +17,7 @@ sqlite3
 
 browser_download_url=$(
   curl -Ss 'https://api.github.com/repos/nalgeon/sqlean/releases/latest' |
-  jq -r '.assets[] | select(.name == "sqlean-linux-x86.zip")| .browser_download_url'
+  jq -r '.assets[] | select(.name == "sqlean-linux-x64.zip")| .browser_download_url'
 )
 
 download_filename="$(
