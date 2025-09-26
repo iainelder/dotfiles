@@ -15,13 +15,12 @@ sudo apt-get update
 # Installer dependencies
 sudo apt-get --assume-yes install \
 curl \
-jq \
 zstd \
 lsb-release
 
 browser_download_url=$(
-  curl -Ss 'https://api.github.com/repos/ankitects/anki/releases/latest' |
-  jq -r '.assets[] | select(.name | test("linux.tar.zst")) | .browser_download_url'
+  curl -Ss 'https://apps.ankiweb.net/' |
+  grep -oP 'https://github.com/ankitects/anki/releases/download/[^/]+/anki-launcher-[^-]+-linux.tar.zst'
 )
 
 download_filename=$(
@@ -62,6 +61,8 @@ libxcb-xinerama0 \
 "$libasound" \
 libatomic1
 
-sudo ./install.sh
+# It displays a prompt where "1" means install the latest version.
+# I don't think you can set that via options or environment variables.
+yes "1" | sudo ./install.sh
 
 anki --version
