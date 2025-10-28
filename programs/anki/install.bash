@@ -63,6 +63,6 @@ libatomic1
 
 # It displays a prompt where "1" means install the latest version.
 # I don't think you can set that via options or environment variables.
-yes "1" | sudo ./install.sh
+sudo ./install.sh <<< "1"
 
 anki --version
