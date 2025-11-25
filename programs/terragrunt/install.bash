@@ -15,7 +15,7 @@ jq
 
 browser_download_url=$(
   curl -Ss 'https://api.github.com/repos/gruntwork-io/terragrunt/releases/latest' |
-  jq -r '.assets[] | select(.name | test("linux_amd64")) | .browser_download_url'
+  jq -r '.assets[] | select(.name | test("linux_amd64$")) | .browser_download_url'
 )
 
 download_filename=$(
