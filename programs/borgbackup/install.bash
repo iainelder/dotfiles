@@ -16,7 +16,7 @@ jq
 
 browser_download_url=$(
   curl -Ss 'https://api.github.com/repos/borgbackup/borg/releases/latest' |
-  jq -r '.assets[] | select(.name | test("^borg-linux-glibc231$")) | .browser_download_url'
+  jq -r '.assets[] | select(.name | test("^borg-linux-glibc231-x86_64$")) | .browser_download_url'
 )
 
 download_filename=$(
