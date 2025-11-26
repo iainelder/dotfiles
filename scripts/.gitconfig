@@ -42,3 +42,5 @@
 	defaultBranch = master
 [include]
 	path = .private.gitconfig
+[push]
+	autoSetupRemote = true
