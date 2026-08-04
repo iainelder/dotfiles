@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    # Longer than the 3-day default: these actions change a few times a year,
+    # so the extra margin for a bad release to surface costs nothing.
+    cooldown:
+      default-days: 7
