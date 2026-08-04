@@ -22,11 +22,6 @@ sudo tee /etc/apt/sources.list.d/claude-desktop.list
 sudo apt-get update && sudo apt-get --assume-yes install \
 claude-desktop
 
-# Claude Desktop is an Electron app. Its Chromium sandbox needs to create user
-# and network namespaces, which the Docker default seccomp profile forbids, so
-# the executable aborts before printing anything. The setuid helper at
-# /usr/lib/claude-desktop/chrome-sandbox is installed correctly; only the
-# container denies it the syscalls. Disable the sandbox to check the version so
-# that the test works both on a real desktop and in the container. Running the
-# real app needs no such option.
+# --no-sandbox: Electron's Chromium sandbox uses clone(CLONE_NEWUSER) syscall.
+# Docker's seccomp profile blocks it.
 claude-desktop --no-sandbox --version

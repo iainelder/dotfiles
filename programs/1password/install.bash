@@ -51,7 +51,6 @@ sudo apt-get update && sudo apt-get --assume-yes install \
 "$libasound" \
 1password
 
-# Electron's Chromium sandbox needs namespaces that Docker's seccomp profile
-# forbids, so the binary aborts before printing a version. --no-sandbox is
-# needed only for this check; running the real app is unaffected.
+# --no-sandbox: Electron's Chromium sandbox uses clone(CLONE_NEWUSER) syscall.
+# Docker's seccomp profile blocks it.
 1password --no-sandbox --version
