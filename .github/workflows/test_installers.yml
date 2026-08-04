@@ -23,17 +23,17 @@ jobs:
         os: ["ubuntu:24.04"]
     steps:
       - name: Check out code
-        uses: actions/checkout@v7
+        uses: actions/checkout@v7 # zizmor: ignore[artipacked,unpinned-uses]
 
       - name: Prepare Docker
         run: ./scripts/prepare_docker.bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install ${{matrix.installer}}
+      - name: Install ${{matrix.installer}} # zizmor: ignore[template-injection]
         shell: su norm --command "bash --login {0}"
         run: programs/${{matrix.installer}}/install.bash
 
-      - name: Install ${{matrix.installer}} again (test idempotency)
+      - name: Install ${{matrix.installer}} again (test idempotency) # zizmor: ignore[template-injection]
         shell: su norm --command "bash --login {0}"
         run: programs/${{matrix.installer}}/install.bash

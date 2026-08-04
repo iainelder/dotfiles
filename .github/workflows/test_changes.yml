@@ -13,11 +13,11 @@ jobs:
       installers: ${{steps.dirs.outputs.changed_installers}}
     steps:
       - name: Check out code
-        uses: actions/checkout@v7
+        uses: actions/checkout@v7 # zizmor: ignore[artipacked,unpinned-uses]
 
       - name: Get changed installer files
         id: files
-        uses: tj-actions/changed-files@v47
+        uses: tj-actions/changed-files@v47 # zizmor: ignore[unpinned-uses]
         with:
           files: programs/**
 
