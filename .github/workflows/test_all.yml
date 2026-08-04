@@ -21,7 +21,7 @@ jobs:
       installers: ${{steps.list_step.outputs.installers}}
     steps:
       - name: Check out code
-        uses: actions/checkout@v7 # zizmor: ignore[unpinned-uses]
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 

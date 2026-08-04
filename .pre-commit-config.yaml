@@ -1,4 +1,18 @@
 repos:
+  # Must run before zizmor: pinning a newly added action is what makes it pass
+  # zizmor's unpinned-uses audit in the same run.
+  - repo: local
+    hooks:
+      - id: pinact
+        name: Pin GitHub Actions to commit SHAs
+        language: golang
+        additional_dependencies:
+          - github.com/suzuki-shunsuke/pinact/v4/cmd/pinact@v4.1.1
+        entry: pinact run
+        files: ^\.github/workflows/
+        types: [yaml]
+        pass_filenames: false
+
   - repo: https://github.com/rhysd/actionlint
     rev: v1.7.12
     hooks:
