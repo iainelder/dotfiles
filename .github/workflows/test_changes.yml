@@ -10,11 +10,11 @@ jobs:
       installers: ${{steps.dirs.outputs.changed_installers}}
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Get changed installer files
         id: files
-        uses: tj-actions/changed-files@v44
+        uses: tj-actions/changed-files@v47
         with:
           files: programs/**
 

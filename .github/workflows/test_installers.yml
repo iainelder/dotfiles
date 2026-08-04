@@ -20,7 +20,7 @@ jobs:
         os: ["ubuntu:24.04"]
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Prepare Docker
         run: ./scripts/prepare_docker.bash

@@ -14,7 +14,7 @@ jobs:
       installers: ${{steps.list_step.outputs.installers}}
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: List installers
         id: list_step
