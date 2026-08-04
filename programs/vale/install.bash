@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Name: Vale
-# https://github.com/errata-ai/vale
+# https://github.com/vale-cli/vale
 
 set -euxo pipefail
 
@@ -15,7 +15,7 @@ curl \
 jq
 
 browser_download_url=$(
-  curl -Ss 'https://api.github.com/repos/errata-ai/vale/releases/latest' |
+  curl -Ss 'https://api.github.com/repos/vale-cli/vale/releases/latest' |
   jq -r '.assets[] | select(.name | test("Linux_64")) | .browser_download_url'
 )
 
