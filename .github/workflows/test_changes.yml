@@ -2,6 +2,9 @@ name: Test changed installers
 on:
   push:
 
+permissions:
+  contents: read
+
 jobs:
   list_installers:
     name: List changed installers

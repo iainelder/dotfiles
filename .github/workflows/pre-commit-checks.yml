@@ -3,6 +3,9 @@ on:
   push:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   run_pre_commit_checks:
     runs-on: ubuntu-latest
