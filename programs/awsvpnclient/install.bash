@@ -53,5 +53,8 @@ sudo apt-get update
 
 sudo apt-get install awsvpnclient
 
-# I can't find an executable that prints a version.
+# No executable prints a version, and the GUI binary exits 0 even for a bogus
+# flag. A broken install shows up as the service failing to start.
+systemctl is-active awsvpnclient
+
 dpkg -s awsvpnclient | grep "Version: "
