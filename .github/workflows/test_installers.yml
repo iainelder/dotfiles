@@ -23,7 +23,9 @@ jobs:
         os: ["ubuntu:24.04"]
     steps:
       - name: Check out code
-        uses: actions/checkout@v7 # zizmor: ignore[artipacked,unpinned-uses]
+        uses: actions/checkout@v7 # zizmor: ignore[unpinned-uses]
+        with:
+          persist-credentials: false
 
       - name: Prepare Docker
         run: ./scripts/prepare_docker.bash

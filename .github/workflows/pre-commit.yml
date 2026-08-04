@@ -12,7 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v7 # zizmor: ignore[artipacked,unpinned-uses]
+        uses: actions/checkout@v7 # zizmor: ignore[unpinned-uses]
+        with:
+          persist-credentials: false
 
       - name: Install pre-commit
         run: python3 -m pip install pre-commit
