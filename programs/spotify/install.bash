@@ -11,7 +11,7 @@ sudo apt-get update && sudo apt-get install --yes \
 curl \
 gnupg
 
-curl -sS https://download.spotify.com/debian/pubkey_C85668DF69375001.gpg |
+curl -sS https://download.spotify.com/debian/pubkey_5384CE82BA52C83A.gpg |
 sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
 
 echo "deb http://repository.spotify.com stable non-free" |
