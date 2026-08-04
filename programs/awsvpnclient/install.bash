@@ -31,7 +31,12 @@ case "$dist" in
         ;;
 esac
 
-sudo apt install --assume-yes "$libicu"
+# The package declares no dependencies of its own.
+# Its postinst calls setcap and starts a service that spawns dbus-daemon.
+sudo apt-get --assume-yes install \
+"$libicu" \
+libcap2-bin \
+dbus-daemon
 
 # For Docker. Installing the package starts a systemd service.
 if [[ $(readlink /sbin/init) != "/lib/systemd/systemd" ]]; then
