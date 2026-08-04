@@ -20,7 +20,7 @@ lsb-release
 
 browser_download_url=$(
   curl -Ss 'https://apps.ankiweb.net/' |
-  grep -oP 'https://github.com/ankitects/anki/releases/download/[^/]+/anki-launcher-[^-]+-linux.tar.zst'
+  grep -oP 'https://github.com/ankitects/anki/releases/download/[^/]+/anki-[^-]+-linux-x86_64\.tar\.zst'
 )
 
 download_filename=$(
@@ -35,9 +35,7 @@ download_filename=$(
 
 tar --extract --auto-compress --file "$download_filename"
 
-extract_folder=$(basename "$download_filename" ".tar.zst")
-
-cd "$extract_folder"
+cd anki-linux
 
 # For tzdata via xdg-utils
 export DEBIAN_FRONTEND=noninteractive
@@ -61,8 +59,6 @@ libxcb-xinerama0 \
 "$libasound" \
 libatomic1
 
-# It displays a prompt where "1" means install the latest version.
-# I don't think you can set that via options or environment variables.
-sudo ./install.sh <<< "1"
+sudo ./install.sh
 
 anki --version
