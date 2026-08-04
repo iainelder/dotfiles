@@ -32,10 +32,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install ${{matrix.installer}} # zizmor: ignore[template-injection]
+      - name: Install ${{matrix.installer}}
         shell: su norm --command "bash --login {0}"
-        run: programs/${{matrix.installer}}/install.bash
+        run: programs/"$INSTALLER"/install.bash
+        env:
+          INSTALLER: ${{matrix.installer}}
 
-      - name: Install ${{matrix.installer}} again (test idempotency) # zizmor: ignore[template-injection]
+      - name: Install ${{matrix.installer}} again (test idempotency)
         shell: su norm --command "bash --login {0}"
-        run: programs/${{matrix.installer}}/install.bash
+        run: programs/"$INSTALLER"/install.bash
+        env:
+          INSTALLER: ${{matrix.installer}}
