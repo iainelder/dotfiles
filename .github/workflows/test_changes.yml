@@ -6,6 +6,10 @@ permissions:
   contents: read
 
 jobs:
+  pre_commit:
+    name: Pre-commit
+    uses: ./.github/workflows/pre-commit.yml
+
   list_installers:
     name: List changed installers
     runs-on: ubuntu-latest
@@ -34,8 +38,8 @@ jobs:
 
   test_installers:
     name: Test installers
-    needs: list_installers
-    if: needs.list_installers.outputs.installers != '[]'
+    needs: [pre_commit, list_installers]
+    if: success() && needs.list_installers.outputs.installers != '[]'
     uses: ./.github/workflows/test_installers.yml
     with:
       installers: ${{needs.list_installers.outputs.installers}}

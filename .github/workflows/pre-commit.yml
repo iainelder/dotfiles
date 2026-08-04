@@ -1,0 +1,21 @@
+name: Pre-commit
+on:
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pre_commit:
+    name: Run hooks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v7 # zizmor: ignore[artipacked,unpinned-uses]
+
+      - name: Install pre-commit
+        run: python3 -m pip install pre-commit
+
+      - name: Run hooks
+        run: pre-commit run --all-files

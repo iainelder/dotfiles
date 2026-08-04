@@ -10,6 +10,10 @@ permissions:
   contents: read
 
 jobs:
+  pre_commit:
+    name: Pre-commit
+    uses: ./.github/workflows/pre-commit.yml
+
   list_installers:
     name: List all installers
     runs-on: ubuntu-latest
@@ -30,7 +34,7 @@ jobs:
 
   test_installers:
     name: Test installers
-    needs: list_installers
+    needs: [pre_commit, list_installers]
     uses: ./.github/workflows/test_installers.yml
     with:
       installers: ${{needs.list_installers.outputs.installers}}
