@@ -9,20 +9,21 @@ cd "$(mktemp --dir)"
 
 sudo apt-get update
 
-# Installer dependencies
+# Installer dependencies. tar shells out to bzip2
 sudo apt-get --assume-yes install \
 curl \
-jq \
-make
+make \
+bzip2
 
-source /etc/os-release
+# parallel-latest.tar.bz2 is empty on the server, so take the newest dated release.
+release=$(
+  curl -Ss 'https://ftp.gnu.org/gnu/parallel/' |
+  grep -oP 'parallel-\d{8}\.tar\.bz2' |
+  sort --unique |
+  tail --lines 1
+)
 
-# Somehow tar doesn't need this on Ubuntu 20.
-if [ $VERSION_ID != "20.04" ]; then
-  sudo apt-get --assume-yes install lbzip2
-fi
-
-browser_download_url="https://ftpmirror.gnu.org/parallel/parallel-latest.tar.bz2"
+browser_download_url="https://ftp.gnu.org/gnu/parallel/$release"
 
 download_filename=$(
   curl \
