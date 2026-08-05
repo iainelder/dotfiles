@@ -19,6 +19,7 @@ sudo tee /etc/apt/sources.list.d/spotify.list
 
 sudo apt-get update
 
+# shellcheck source=/dev/null
 source /etc/os-release
 
 if [[ $VERSION_ID == "24.04" ]]; then

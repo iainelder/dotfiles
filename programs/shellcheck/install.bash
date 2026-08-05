@@ -30,7 +30,7 @@ download_filename=$(
   --write-out '%{filename_effective}'
 )
 
-tar --extract --xz --file $download_filename
+tar --extract --xz --file "$download_filename"
 
 extract_folder="$(find . -mindepth 1 -maxdepth 1 -type d)"
 

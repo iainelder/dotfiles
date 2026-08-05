@@ -14,6 +14,7 @@ sudo apt-get --assume-yes install \
 curl
 
 # Load DISTRIB_RELEASE environment variable.
+# shellcheck source=/dev/null
 source /etc/lsb-release
 
 case "$DISTRIB_RELEASE" in

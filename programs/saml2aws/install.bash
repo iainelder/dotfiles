@@ -12,10 +12,7 @@ sudo apt-get update
 # Installer dependencies
 sudo apt-get --assume-yes install \
 curl \
-jq \
-lsb-release
-
-dist=$(lsb_release --codename --short)
+jq
 
 browser_download_url=$(
   curl -Ss "https://api.github.com/repos/Versent/saml2aws/releases/latest" |

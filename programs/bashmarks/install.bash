@@ -22,6 +22,7 @@ make install
 
 # Reads environment variables `ZSH_VERSION` and `SDIRS`.
 set +eu
+# shellcheck source=/dev/null
 source ~/.local/bin/bashmarks.sh
 set -eu
 

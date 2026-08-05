@@ -38,7 +38,7 @@ fi
 
 sudo find /opt/sqlean -mindepth 1 -maxdepth 1 -type f -name '*.so' -delete
 
-sudo mv *.so /opt/sqlean/
+sudo mv ./*.so /opt/sqlean/
 
 # Load any module to get the version function.
 sqlite3 <<EOF

@@ -17,6 +17,7 @@ key="/usr/share/keyrings/workspaces-client-linux-public-key.gpg"
 wget -q -O - https://workspaces-client-linux-public-key.s3-us-west-2.amazonaws.com/ADB332E7.asc \
 | sudo gpg --dearmor --yes --output "$key"
 
+# shellcheck source=/dev/null
 source <(cat /etc/os-release | grep -P '^VERSION_CODENAME=')
 
 echo "deb [arch=amd64 signed-by=$key] https://d3nt0h4h6pmmc4.cloudfront.net/ubuntu $VERSION_CODENAME main" \

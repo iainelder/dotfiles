@@ -31,7 +31,7 @@ download_filename=$(
 
 tar --extract --auto-compress --file "$download_filename"
 
-sudo cp "$(find -name launcher.sh)" /usr/local/bin/firefox-container
+sudo cp "$(find . -name launcher.sh)" /usr/local/bin/firefox-container
 
 set +e
 firefox-container --help

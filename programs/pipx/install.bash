@@ -25,6 +25,7 @@ install24() {
     pipx --version
 }
 
+# shellcheck source=/dev/null
 source /etc/os-release
 
 if [[ $VERSION_ID = "20.04" || $VERSION_ID = "22.04" ]]; then

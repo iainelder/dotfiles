@@ -19,15 +19,12 @@ browser_download_url=$(
   | jq -r '.assets[] | select(.name | test("^plantuml.jar$")) | .browser_download_url'
 )
 
-download_filename=$(
-  curl \
-  --silent \
-  --show-error \
-  --url "$browser_download_url" \
-  --location \
-  --remote-name \
-  --write-out '%{filename_effective}'
-)
+curl \
+--silent \
+--show-error \
+--url "$browser_download_url" \
+--location \
+--remote-name
 
 # Application dependencies
 sudo apt-get --assume-yes install \
