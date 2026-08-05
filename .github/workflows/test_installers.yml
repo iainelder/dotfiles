@@ -32,14 +32,25 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install ${{matrix.installer}}
+      - name: Test ${{matrix.installer}}
         shell: su norm --command "bash --login {0}"
-        run: programs/"$INSTALLER"/install.bash
-        env:
-          INSTALLER: ${{matrix.installer}}
+        run: |
+          set -euo pipefail
 
-      - name: Install ${{matrix.installer}} again (test idempotency)
-        shell: su norm --command "bash --login {0}"
-        run: programs/"$INSTALLER"/install.bash
+          # Run a command again after an error. Most errors come from a flaky
+          # download server, so a second attempt usually works. Two failures in
+          # a row need attention.
+          retry_once() {
+            "$@" || {
+              echo "::warning::Attempt 2 of: $*"
+              "$@"
+            }
+          }
+
+          install="programs/$INSTALLER/install.bash"
+
+          retry_once "$install"
+          echo "=== Installed. Running again to test idempotency. ==="
+          retry_once "$install"
         env:
           INSTALLER: ${{matrix.installer}}
