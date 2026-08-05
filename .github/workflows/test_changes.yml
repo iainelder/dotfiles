@@ -14,29 +14,21 @@ jobs:
     name: List changed installers
     runs-on: ubuntu-latest
     outputs:
-      installers: ${{steps.dirs.outputs.changed_installers}}
+      installers: ${{steps.installers.outputs.all_changed_files}}
     steps:
       - name: Check out code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
-      - name: Get changed installer files
-        id: files
+      - name: Get changed installers
+        id: installers
         uses: tj-actions/changed-files@24d32ffd492484c1d75e0c0b894501ddb9d30d62 # v47.0.0
         with:
-          files: programs/**
-
-      - name: Get changed installer names
-        id: dirs
-        env:
-          CHANGED_FILES: ${{steps.files.outputs.all_changed_files}}
-        run: |
-          {
-            printf "changed_installers="
-            printf "%s" "$CHANGED_FILES" \
-            | cut -d/ -f2 | sort -u | jq -R | jq -s -c -M
-          } >> "$GITHUB_OUTPUT"
+          path: programs
+          dir_names: true
+          dir_names_max_depth: 1
+          matrix: true
 
   test_installers:
     name: Test installers
